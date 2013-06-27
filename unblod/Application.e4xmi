@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ASCII"?>
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_iaYjAL2rEeKyMr8eXPQNBA" elementId="unblod.application">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_nnSFsL2rEeKyMr8eXPQNBA" elementId="unblod.trimmedwindow" label="UnB-LOD" tooltip="" x="100" y="100" width="1100" height="800">
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_92doML2sEeKyMr8eXPQNBA" elementId="unblod.perspectivestack.0">
+      <children xsi:type="advanced:Perspective" xmi:id="_-vPDQL2sEeKyMr8eXPQNBA" elementId="unblod.perspective">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_FJwPoL2tEeKyMr8eXPQNBA" elementId="unblod.partsashcontainer.0" horizontal="true">
+          <children xsi:type="basic:PartStack" xmi:id="_LINLEL2tEeKyMr8eXPQNBA" elementId="unblod.partstack.0" containerData="20">
+            <children xsi:type="basic:Part" xmi:id="_LYHPUL2tEeKyMr8eXPQNBA" elementId="unblod.part.datesetTree" accessibilityPhrase="" contributionURI="bundleclass://unblod/unblod.ui.parts.DatasetTreePart" label="Datasets">
+              <menus xsi:type="menu:PopupMenu" xmi:id="_emawEL3VEeKq2OtvhAFqxw" elementId="unblod.popupmenu.datasetmenu">
+                <children xsi:type="menu:Menu" xmi:id="_iPERwL3VEeKq2OtvhAFqxw" elementId="unblod.menu.import" label="Import">
+                  <children xsi:type="menu:HandledMenuItem" xmi:id="_n7qoML3VEeKq2OtvhAFqxw" elementId="unblod.handledmenuitem.csvimportation" label="New CSV importation" command="_3ukyML3TEeKq2OtvhAFqxw"/>
+                </children>
+              </menus>
+            </children>
+          </children>
+          <children xsi:type="basic:PartSashContainer" xmi:id="_Ow2FsL2tEeKyMr8eXPQNBA" elementId="unblod.partsashcontainer.1" containerData="80">
+            <children xsi:type="basic:PartStack" xmi:id="_PxN9kL2tEeKyMr8eXPQNBA" elementId="unblod.partstack.1" containerData="65">
+              <children xsi:type="basic:Part" xmi:id="_Q15GoL2tEeKyMr8eXPQNBA" elementId="unblod.part.1"/>
+            </children>
+            <children xsi:type="basic:PartStack" xmi:id="_QZpPgL2tEeKyMr8eXPQNBA" elementId="unblod.partstack.2" containerData="35">
+              <children xsi:type="basic:Part" xmi:id="_RI130L2tEeKyMr8eXPQNBA" elementId="unblod.part.2"/>
+            </children>
+          </children>
+        </children>
+      </children>
+    </children>
+    <mainMenu xmi:id="_8TYr4L2sEeKyMr8eXPQNBA" elementId="unblod.menu.0">
+      <children xsi:type="menu:Menu" xmi:id="_EJmkwL2uEeKyMr8eXPQNBA" elementId="unblod.menu.file" label="File">
+        <children xsi:type="menu:Menu" xmi:id="_7oXEwMDUEeKknqUeofLJOg" elementId="unblod.menu.1" label="New">
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_JESeYMDVEeKknqUeofLJOg" elementId="unblod.handledmenuitem.newdataset" label="Dataset" command="_uXg5wMDUEeKknqUeofLJOg"/>
+        </children>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_LwI4UL2uEeKyMr8eXPQNBA" elementId="unblod.menuseparator.0"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_Eu9UkL2uEeKyMr8eXPQNBA" elementId="unblod.handledmenuitem.save" label="File"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_JR57UL2uEeKyMr8eXPQNBA" elementId="unblod.handledmenuitem.exit" label="Exit"/>
+      </children>
+    </mainMenu>
+    <trimBars xmi:id="_Q94vkL2uEeKyMr8eXPQNBA" elementId="unblod.trimbar.0">
+      <children xsi:type="menu:ToolBar" xmi:id="_ToCosL2uEeKyMr8eXPQNBA" elementId="unblod.toolbar.0">
+        <children xsi:type="menu:HandledToolItem" xmi:id="_UxMCEL2uEeKyMr8eXPQNBA" elementId="unblod.handledtoolitem.import" label="Import"/>
+      </children>
+    </trimBars>
+  </children>
+  <handlers xmi:id="_0o6o0L3TEeKq2OtvhAFqxw" elementId="unblod.handler.newcsvimportation" contributionURI="bundleclass://unblod/unblod.ui.handles.NewCSVImportationHandler" command="_3ukyML3TEeKq2OtvhAFqxw"/>
+  <handlers xmi:id="_sQLZ0MDUEeKknqUeofLJOg" elementId="unblod.handler.newdataset" contributionURI="bundleclass://unblod/unblod.ui.handles.NewDatasetHandler" command="_uXg5wMDUEeKknqUeofLJOg"/>
+  <commands xmi:id="_3ukyML3TEeKq2OtvhAFqxw" elementId="unblod.command.newcsvimportation" commandName="New CSV importation"/>
+  <commands xmi:id="_uXg5wMDUEeKknqUeofLJOg" elementId="unblod.command.newdataset" commandName="New Dataset"/>
+  <addons xmi:id="_iaYjAb2rEeKyMr8eXPQNBA" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
+  <addons xmi:id="_iaYjAr2rEeKyMr8eXPQNBA" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
+  <addons xmi:id="_iaYjA72rEeKyMr8eXPQNBA" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
+  <addons xmi:id="_iaYjBL2rEeKyMr8eXPQNBA" elementId="org.eclipse.e4.ui.workbench.commands.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.CommandProcessingAddon"/>
+  <addons xmi:id="_iaYjBb2rEeKyMr8eXPQNBA" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
+  <addons xmi:id="_iaYjBr2rEeKyMr8eXPQNBA" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
+</application:Application>

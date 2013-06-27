@@ -1,0 +1,42 @@
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf:	<http://xmlns.com/foaf/0.1/> .
+@prefix xl:		<http://purl.org/NET/xlwrap#> .
+@prefix :       <http://myApplication/configuration#> .
+@prefix {$data_prefix}:		{$data_uri}.
+
+
+{ # default graph in TriG file
+    [] a xl:Mapping ;
+    xl:offline "true"^^xsd:boolean ;
+    
+    {.loop in $csvImportations}
+	    xl:template [
+	        xl:fileName {$fileName} ;
+	        xl:sheetNumber {$sheetNumber} ;
+	        xl:templateGraph :{$templateGraph} ;
+	        xl:transform [
+	                    a xl:RowShift
+	                    ; xl:breakCondition "ALLEMPTY(A1:Z1)"
+	            ]
+	    ] {$endTemplateGraph}
+	    
+    {.onEmpty}
+     #empty
+    {/loop}
+}
+
+{.loop in $csvImportations}
+:{$templateGraph} {
+[xl:uri {$classURI}] ;
+	a {$classId}
+	{.loop in $properties}
+	  {$property}
+	{.onEmpty}
+	  #empty
+	{/loop}   
+}
+{.onEmpty}
+     #empty
+{/loop}
