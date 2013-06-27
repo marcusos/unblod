@@ -33,7 +33,8 @@ public class MyDialog extends TitleAreaDialog {
     // Set the message
     setMessage("This is a TitleAreaDialog", 
         IMessageProvider.INFORMATION);
-
+    
+    //teste
   }
 
   @Override
