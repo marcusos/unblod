@@ -121,5 +121,6 @@ public class DatasetTreePart {
 		});
 		
 		menuService.registerContextMenu(treeViewer.getControl(), "unblod.popupmenu.datasetmenu");
+		//menuService.registerContextMenu(treeViewer.getControl(), "");
 	}
 }
