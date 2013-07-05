@@ -30,8 +30,6 @@
           <children xsi:type="menu:HandledMenuItem" xmi:id="_JESeYMDVEeKknqUeofLJOg" elementId="unblod.handledmenuitem.newdataset" label="Dataset" command="_uXg5wMDUEeKknqUeofLJOg"/>
         </children>
         <children xsi:type="menu:MenuSeparator" xmi:id="_LwI4UL2uEeKyMr8eXPQNBA" elementId="unblod.menuseparator.0"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_Eu9UkL2uEeKyMr8eXPQNBA" elementId="unblod.handledmenuitem.save" label="File"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_JR57UL2uEeKyMr8eXPQNBA" elementId="unblod.handledmenuitem.exit" label="Exit"/>
       </children>
     </mainMenu>
     <trimBars xmi:id="_Q94vkL2uEeKyMr8eXPQNBA" elementId="unblod.trimbar.0">

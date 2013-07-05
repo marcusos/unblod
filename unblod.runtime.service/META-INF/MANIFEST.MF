@@ -47,3 +47,4 @@ Bundle-ClassPath: libs/ant-1.6.5.jar,
  libs/xml-apis.jar,
  .
 Service-Component: OSGI-INF/component.xml
+Export-Package: unblod.xlwrap.service

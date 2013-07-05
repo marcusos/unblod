@@ -40,9 +40,9 @@ public class NewCSVImportationHandler {
 	
 	@CanExecute
 	public boolean canExecute(@Optional @Named(IServiceConstants.ACTIVE_SELECTION)Dataset dataset) {
-		if (dataset == null) {
+		/*if (dataset == null) {
 			return false;
-		}
+		}*/
 		
 		return true;
 	}

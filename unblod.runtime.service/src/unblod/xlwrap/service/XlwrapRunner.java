@@ -44,6 +44,13 @@ public class XlwrapRunner implements ICsvImportationRunner {
 			e.printStackTrace();
 		}*/
 	}
+	
+	@Override
+	public boolean run() {
+		// TODO Auto-generated method stub
+		runXlwrap(null);
+		return true;
+	}
 
 	@Override
 	public boolean run(String mapPath) {

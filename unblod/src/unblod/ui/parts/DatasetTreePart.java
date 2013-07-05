@@ -2,6 +2,7 @@ package unblod.ui.parts;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import javax.swing.text.html.HTMLDocument.RunElement;
 
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
@@ -16,6 +17,7 @@ import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.e4.ui.workbench.swt.modeling.EMenuService;
+//import org.eclipse.e4.ui.workbench.swt.modeling.EMenuService;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.LabelProvider;
@@ -26,6 +28,7 @@ import org.eclipse.jface.layout.TreeColumnLayout;
 import unbload.model.Dataset;
 import unbload.model.IDatasetModel;
 import unbload.ui.utils.DatasetTreeContentProvider;
+import unblod.xlwrap.service.XlwrapRunner;
 
 
 public class DatasetTreePart {
@@ -37,6 +40,10 @@ public class DatasetTreePart {
 	@Inject private EPartService partService;
 	private TreeViewer treeViewer;
 	
+	//private XlwrapRunner runner;
+	//@Inject private 
+	//private ICs 
+	//private C
 	@Inject @Optional
 	void datasetUpdate(@UIEventTopic(TOPIC_NEWDATASET) Boolean toUpdate) {
 		if (toUpdate) {
@@ -66,6 +73,10 @@ public class DatasetTreePart {
 
 	@PostConstruct
 	public void createControl(Composite parent, EMenuService menuService) {
+		
+		//testando o carregamento do xlwrap
+		XlwrapRunner runner =  new XlwrapRunner();
+		runner.run();
 		
 		Composite composite = new Composite(parent, SWT.NONE);
 		composite.setLayout(new TreeColumnLayout());

@@ -4,4 +4,5 @@ public interface ICsvImportationRunner {
 
 	
 	public boolean run(String mapPath);
+	public boolean run();
 }
