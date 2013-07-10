@@ -9,7 +9,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
 
 import unbload.ui.components.RdfViewer;
-import unbload.ui.utils.Util;
+import unblod.util.Util;
 
 import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.SWT;

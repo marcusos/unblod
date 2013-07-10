@@ -75,8 +75,8 @@ public class DatasetTreePart {
 	public void createControl(Composite parent, EMenuService menuService) {
 		
 		//testando o carregamento do xlwrap
-		XlwrapRunner runner =  new XlwrapRunner();
-		runner.run();
+		//XlwrapRunner runner =  new XlwrapRunner();
+		//runner.run();
 		
 		Composite composite = new Composite(parent, SWT.NONE);
 		composite.setLayout(new TreeColumnLayout());

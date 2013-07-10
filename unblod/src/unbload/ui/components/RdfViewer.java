@@ -31,7 +31,7 @@ import org.eclipse.swt.layout.RowData;
 import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.custom.StyledText;
 
-import unbload.ui.utils.Util;
+import unblod.util.Util;
 
 public class RdfViewer {
 

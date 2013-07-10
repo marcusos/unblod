@@ -57,7 +57,7 @@ import unbload.mapping.CsvMappingGenerator;
 import unbload.model.CSVImportation;
 import unbload.model.CSVProperty;
 import unbload.model.Dataset;
-import unbload.ui.utils.Util;
+import unblod.util.Util;
 import unblod.ui.dialogs.CvsPropertyDialog;
 import unblod.ui.dialogs.MyDialog;
 import unblod.ui.dialogs.RDFViewerDialog;

@@ -24,28 +24,33 @@
         </children>
       </children>
     </children>
+    <handlers xmi:id="_2-Q00OjvEeKS0tXDrqvyyg" elementId="unblod.handler.test" contributionURI="bundleclass://unblod/unblod.ui.handles.TestNandler" command="_89E8oOjvEeKS0tXDrqvyyg"/>
     <mainMenu xmi:id="_8TYr4L2sEeKyMr8eXPQNBA" elementId="unblod.menu.0">
       <children xsi:type="menu:Menu" xmi:id="_EJmkwL2uEeKyMr8eXPQNBA" elementId="unblod.menu.file" label="File">
         <children xsi:type="menu:Menu" xmi:id="_7oXEwMDUEeKknqUeofLJOg" elementId="unblod.menu.1" label="New">
           <children xsi:type="menu:HandledMenuItem" xmi:id="_JESeYMDVEeKknqUeofLJOg" elementId="unblod.handledmenuitem.newdataset" label="Dataset" command="_uXg5wMDUEeKknqUeofLJOg"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_tUeskOjuEeKS0tXDrqvyyg" elementId="unblod.handledmenuitem.teste" label="Teste" command="_89E8oOjvEeKS0tXDrqvyyg"/>
         </children>
         <children xsi:type="menu:MenuSeparator" xmi:id="_LwI4UL2uEeKyMr8eXPQNBA" elementId="unblod.menuseparator.0"/>
       </children>
     </mainMenu>
     <trimBars xmi:id="_Q94vkL2uEeKyMr8eXPQNBA" elementId="unblod.trimbar.0">
       <children xsi:type="menu:ToolBar" xmi:id="_ToCosL2uEeKyMr8eXPQNBA" elementId="unblod.toolbar.0">
-        <children xsi:type="menu:HandledToolItem" xmi:id="_UxMCEL2uEeKyMr8eXPQNBA" elementId="unblod.handledtoolitem.import" label="Import"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_UxMCEL2uEeKyMr8eXPQNBA" elementId="unblod.handledtoolitem.import" label="Import" command="_89E8oOjvEeKS0tXDrqvyyg"/>
       </children>
     </trimBars>
   </children>
   <handlers xmi:id="_0o6o0L3TEeKq2OtvhAFqxw" elementId="unblod.handler.newcsvimportation" contributionURI="bundleclass://unblod/unblod.ui.handles.NewCSVImportationHandler" command="_3ukyML3TEeKq2OtvhAFqxw"/>
   <handlers xmi:id="_sQLZ0MDUEeKknqUeofLJOg" elementId="unblod.handler.newdataset" contributionURI="bundleclass://unblod/unblod.ui.handles.NewDatasetHandler" command="_uXg5wMDUEeKknqUeofLJOg"/>
+  <handlers xmi:id="_i_e8wOjwEeKS0tXDrqvyyg" elementId="unblod.handler.test" contributionURI="bundleclass://unblod/unblod.ui.handles.TestNandler" command="_89E8oOjvEeKS0tXDrqvyyg"/>
   <commands xmi:id="_3ukyML3TEeKq2OtvhAFqxw" elementId="unblod.command.newcsvimportation" commandName="New CSV importation"/>
   <commands xmi:id="_uXg5wMDUEeKknqUeofLJOg" elementId="unblod.command.newdataset" commandName="New Dataset"/>
+  <commands xmi:id="_89E8oOjvEeKS0tXDrqvyyg" elementId="unblod.command.import" commandName="Import"/>
   <addons xmi:id="_iaYjAb2rEeKyMr8eXPQNBA" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_iaYjAr2rEeKyMr8eXPQNBA" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_iaYjA72rEeKyMr8eXPQNBA" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
   <addons xmi:id="_iaYjBL2rEeKyMr8eXPQNBA" elementId="org.eclipse.e4.ui.workbench.commands.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.CommandProcessingAddon"/>
   <addons xmi:id="_iaYjBb2rEeKyMr8eXPQNBA" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
   <addons xmi:id="_iaYjBr2rEeKyMr8eXPQNBA" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
+  <addons xmi:id="_RWNHAOjyEeKS0tXDrqvyyg" elementId="unblod.addon.myaddon" contributionURI="bundleclass://unblod/unbload.ui.modeladdons.MyAddon"/>
 </application:Application>

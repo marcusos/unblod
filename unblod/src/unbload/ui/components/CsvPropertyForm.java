@@ -39,7 +39,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 
 import unbload.model.CSVProperty;
-import unbload.ui.utils.Util;
+import unblod.util.Util;
 import unblod.ui.dialogs.CvsPropertyDialog;
 
 public class CsvPropertyForm {
