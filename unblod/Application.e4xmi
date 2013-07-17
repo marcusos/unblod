@@ -6,15 +6,20 @@
         <children xsi:type="basic:PartSashContainer" xmi:id="_FJwPoL2tEeKyMr8eXPQNBA" elementId="unblod.partsashcontainer.0" horizontal="true">
           <children xsi:type="basic:PartStack" xmi:id="_LINLEL2tEeKyMr8eXPQNBA" elementId="unblod.partstack.0" containerData="20">
             <children xsi:type="basic:Part" xmi:id="_LYHPUL2tEeKyMr8eXPQNBA" elementId="unblod.part.datesetTree" accessibilityPhrase="" contributionURI="bundleclass://unblod/unblod.ui.parts.DatasetTreePart" label="Datasets">
-              <menus xsi:type="menu:PopupMenu" xmi:id="_emawEL3VEeKq2OtvhAFqxw" elementId="unblod.popupmenu.datasetmenu">
+              <menus xsi:type="menu:PopupMenu" xmi:id="_emawEL3VEeKq2OtvhAFqxw" elementId="unblod.popupmenu.datasetmenu" label="Dataset">
                 <children xsi:type="menu:Menu" xmi:id="_iPERwL3VEeKq2OtvhAFqxw" elementId="unblod.menu.import" label="Import">
                   <children xsi:type="menu:HandledMenuItem" xmi:id="_n7qoML3VEeKq2OtvhAFqxw" elementId="unblod.handledmenuitem.csvimportation" label="New CSV importation" command="_3ukyML3TEeKq2OtvhAFqxw"/>
                 </children>
+                <children xsi:type="menu:MenuSeparator" xmi:id="_BQ8XoO2oEeK80bCBWpbnjQ" elementId="unblod.menuseparator.1"/>
+                <children xsi:type="menu:HandledMenuItem" xmi:id="_IqYDUO2oEeK80bCBWpbnjQ" elementId="unblod.handledmenuitem.removedataset" label="Remove" iconURI="platform:/plugin/unblod/metro-icons/appbar.app.remove.png" command="_TXmbAO2oEeK80bCBWpbnjQ"/>
+              </menus>
+              <menus xsi:type="menu:PopupMenu" xmi:id="_NgJKoOxDEeKEdO01VBQ2Gg" elementId="unblod.popupmenu.csvimportationmenu" label="CSV">
+                <children xsi:type="menu:HandledMenuItem" xmi:id="_TI_CcOxDEeKEdO01VBQ2Gg" elementId="unblod.handledmenuitem.teste1" label="Teste1"/>
               </menus>
             </children>
           </children>
           <children xsi:type="basic:PartSashContainer" xmi:id="_Ow2FsL2tEeKyMr8eXPQNBA" elementId="unblod.partsashcontainer.1" containerData="80">
-            <children xsi:type="basic:PartStack" xmi:id="_PxN9kL2tEeKyMr8eXPQNBA" elementId="unblod.partstack.1" containerData="65">
+            <children xsi:type="basic:PartStack" xmi:id="_PxN9kL2tEeKyMr8eXPQNBA" elementId="unblod.partstack.mainstack" containerData="65">
               <children xsi:type="basic:Part" xmi:id="_Q15GoL2tEeKyMr8eXPQNBA" elementId="unblod.part.1"/>
             </children>
             <children xsi:type="basic:PartStack" xmi:id="_QZpPgL2tEeKyMr8eXPQNBA" elementId="unblod.partstack.2" containerData="35">
@@ -43,9 +48,20 @@
   <handlers xmi:id="_0o6o0L3TEeKq2OtvhAFqxw" elementId="unblod.handler.newcsvimportation" contributionURI="bundleclass://unblod/unblod.ui.handles.NewCSVImportationHandler" command="_3ukyML3TEeKq2OtvhAFqxw"/>
   <handlers xmi:id="_sQLZ0MDUEeKknqUeofLJOg" elementId="unblod.handler.newdataset" contributionURI="bundleclass://unblod/unblod.ui.handles.NewDatasetHandler" command="_uXg5wMDUEeKknqUeofLJOg"/>
   <handlers xmi:id="_i_e8wOjwEeKS0tXDrqvyyg" elementId="unblod.handler.test" contributionURI="bundleclass://unblod/unblod.ui.handles.TestNandler" command="_89E8oOjvEeKS0tXDrqvyyg"/>
+  <handlers xmi:id="_JWRI8Oz4EeKppvWeFZbtIA" elementId="unblod.handler.save" contributionURI="bundleclass://unblod/unblod.ui.handles.SaveHandler" command="_LhBwUOz4EeKppvWeFZbtIA"/>
+  <handlers xmi:id="_V9iigO2oEeK80bCBWpbnjQ" elementId="unblod.handler.removedataset" contributionURI="bundleclass://unblod/unblod.ui.handles.RemoveDatasetHandler" command="_TXmbAO2oEeK80bCBWpbnjQ"/>
+  <bindingTables xmi:id="_Q7ZuUOz4EeKppvWeFZbtIA" elementId="unblod.bindingtable.0" bindingContext="_OX7sAOz4EeKppvWeFZbtIA">
+    <bindings xmi:id="_RS1W4Oz4EeKppvWeFZbtIA" elementId="unblod.keybinding.save" keySequence="M1+S" command="_LhBwUOz4EeKppvWeFZbtIA"/>
+  </bindingTables>
+  <rootContext xmi:id="_OX7sAOz4EeKppvWeFZbtIA" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="dialogAndWindow"/>
+  <descriptors xmi:id="_UVCFAOwmEeKEdO01VBQ2Gg" elementId="unblod.partdescriptor.datasetInfo" label="Dataset Info" closeable="true" dirtyable="true" contributionURI="bundleclass://unblod/unblod.ui.parts.DatasetInfoPart"/>
+  <descriptors xmi:id="_Qwf7IOzSEeKppvWeFZbtIA" elementId="unblod.partdescriptor.csvImportation" label="CSV importation" closeable="true" dirtyable="true" contributionURI="bundleclass://unblod/unblod.ui.parts.CsvImportationPart"/>
+  <descriptors xmi:id="_REFlgOzSEeKppvWeFZbtIA" elementId="unblod.partdescriptor.datasetNamespaces" label="Namespaces" allowMultiple="true" closeable="true" dirtyable="true" contributionURI="bundleclass://unblod/unblod.ui.parts.DatasetNamespacesPart"/>
   <commands xmi:id="_3ukyML3TEeKq2OtvhAFqxw" elementId="unblod.command.newcsvimportation" commandName="New CSV importation"/>
   <commands xmi:id="_uXg5wMDUEeKknqUeofLJOg" elementId="unblod.command.newdataset" commandName="New Dataset"/>
   <commands xmi:id="_89E8oOjvEeKS0tXDrqvyyg" elementId="unblod.command.import" commandName="Import"/>
+  <commands xmi:id="_LhBwUOz4EeKppvWeFZbtIA" elementId="unblod.command.save" commandName="Save"/>
+  <commands xmi:id="_TXmbAO2oEeK80bCBWpbnjQ" elementId="unblod.command.removedataset" commandName="Remove"/>
   <addons xmi:id="_iaYjAb2rEeKyMr8eXPQNBA" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_iaYjAr2rEeKyMr8eXPQNBA" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_iaYjA72rEeKyMr8eXPQNBA" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>

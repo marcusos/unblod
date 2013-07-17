@@ -12,21 +12,23 @@ import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.widgets.Shell;
 
-import unbload.model.IDatasetModel;
+import unbload.ui.utils.GUIUtil;
+import unblod.dataset.service.DatasetModelService;
 import unblod.ui.wizards.NewDatasetWizard;
 
 
 public class NewDatasetHandler {
 
 	private String className =  this.getClass().getName();
-	public static final String TOPIC_NEWDATASET = "NEW_DATASET";
 	
-	@Inject
-	IDatasetModel datasetModel;
+	//datasetModel;
+	DatasetModelService datasetModelService;
 	
 	@Execute
 	public void execute(Shell shell, MApplication application, IEventBroker eventBroker) {
 		System.out.println(className + " Called");
+		
+		datasetModelService = DatasetModelService.getInstace();
 		
 		NewDatasetWizard newDatasetWizard =  new NewDatasetWizard();
 		WizardDialog wizardDialog =  new WizardDialog(shell, newDatasetWizard);
@@ -35,12 +37,11 @@ public class NewDatasetHandler {
 			System.out.println("Finished pressed");
 			if (newDatasetWizard.getDataset() != null) {
 				
-				if (datasetModel.saveDataset(newDatasetWizard.getDataset())) {
+				if (datasetModelService.saveNewDataset(newDatasetWizard.getDataset())) {
 					System.out.println("New dataset: " + newDatasetWizard.getDataset().getName());
-					eventBroker.post(TOPIC_NEWDATASET, new Boolean(true));
+					eventBroker.post(GUIUtil.DATASETS_UPDATE, new Boolean(true));
 				}
 			}
-				
 		}
 		else {
 			System.out.println("Cancel pressed");

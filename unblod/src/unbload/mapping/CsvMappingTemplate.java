@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 
-import unbload.model.Dataset;
+import unblod.dataset.model.dataset.Dataset;
 import unblod.util.Util;
 
 import com.x5.template.Chunk;
@@ -45,8 +45,8 @@ public class CsvMappingTemplate {
 		Theme theme =  new Theme();
 		Chunk chunk =  theme.makeChunk("csv-mapping-template", "trig");
 		
-		chunk.set("data_prefix", dataset.getNamespace());
-		chunk.set("data_uri", "<" + dataset.getUri() + ">");
+		//chunk.set("data_prefix", dataset.getNamespace());
+		//chunk.set("data_uri", "<" + dataset.getUri() + ">");
 		chunk.set("csvImportations", mapImportations);
 		
 		String outfilePath = Util.PATH + "/csv-mapping.trig";

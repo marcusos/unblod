@@ -10,19 +10,22 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.layout.GridData;
 
-import unbload.model.Dataset;
+import unblod.dataset.model.dataset.Dataset;
+import unblod.dataset.service.DatasetModelService;
+
 
 public class NewDatasetPageOne extends WizardPage {
 	private Text txtName;
 	private Text txtURI;
-	private Text txtNamespace;
 	private Text txtDescription;
 
 	
 	private String description = "This wizard creates a new Dataset";
-	private Boolean confirmed = false;
+	//private Boolean confirmed = false;
 	
 	private NewDatasetPageOne instace = this;
+	
+	DatasetModelService datasetModelService = DatasetModelService.getInstace();
 	
 	protected NewDatasetPageOne() {
 		super("New Dataset");
@@ -52,13 +55,6 @@ public class NewDatasetPageOne extends WizardPage {
 		txtURI = new Text(container, SWT.BORDER);
 		txtURI.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		
-		Label lblNamespace = new Label(container, SWT.NONE);
-		lblNamespace.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
-		lblNamespace.setText("Namespace: ");
-		
-		txtNamespace = new Text(container, SWT.BORDER);
-		txtNamespace.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		
 		Label lblDescription = new Label(container, SWT.NONE);
 		lblDescription.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		lblDescription.setText("Description: ");
@@ -84,45 +80,38 @@ public class NewDatasetPageOne extends WizardPage {
 				instace.validateForm();
 			}
 		});
-		txtNamespace.addModifyListener(new ModifyListener() {
-			
-			@Override
-			public void modifyText(ModifyEvent e) {
-				// TODO Auto-generated method stub
-				instace.validateForm();
-			}
-		});
 		
-		setPageComplete(true);
+		setPageComplete(false);
 	}
 	
 	protected void validateForm() {
 		// TODO Auto-generated method stub
 		if (txtName.getText().equals("")) {
 			setErrorMessage("Dataset Name must be specified");
+			setPageComplete(false);
 		}
-		else if (txtURI.getText().equals("")) {
-			setErrorMessage("Dataset URI must be specified");
-		}
-		else if (txtNamespace.getText().equals("")) {
-			setErrorMessage("Dataset Namespace must be specified");
+		else if (datasetModelService.isDataset(txtName.getText())) {
+			setErrorMessage("This name is already being used");
+			setPageComplete(false);
 		}
 		else {
 			setErrorMessage(null);
 			//setTitle();
-			confirmed = true;
+			setPageComplete(true);
 		}
 	}
 
-	public boolean isConfirmed() {
+	/*public boolean isConfirmed() {
 		return this.confirmed;
-	}
+	}*/
 
 	public Dataset generateDatasetFromInput() {
 		// TODO Auto-generated method stub
 		
-		Dataset dataset = new Dataset(txtName.getText(), txtURI.getText(), 
-										txtDescription.getText(), txtNamespace.getText());
+		Dataset dataset =  datasetModelService.getFactory().createDataset();
+		dataset.setDescription(txtDescription.getText());
+		dataset.setName(txtName.getText());
+		dataset.setBaseUri(txtURI.getText());
 		
 		return dataset;
 	}

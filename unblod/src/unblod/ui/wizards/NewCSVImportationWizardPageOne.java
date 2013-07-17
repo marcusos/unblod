@@ -12,8 +12,8 @@ import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.widgets.Composite;
 
-import unbload.model.Dataset;
 import unbload.ui.components.CsvImportationForm;
+import unblod.dataset.model.dataset.Dataset;
 
 public class NewCSVImportationWizardPageOne extends WizardPage {
 

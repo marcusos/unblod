@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import unbload.model.CSVImportation;
-import unbload.model.CSVProperty;
-import unbload.model.Dataset;
+import unblod.dataset.model.dataset.Dataset;
+
+//import unbload.model.CSVImportation;
+//import unbload.model.CSVProperty;
+//import unbload.model.Dataset;
 
 public class CsvMappingGenerator {
 
@@ -24,7 +26,7 @@ public class CsvMappingGenerator {
 		return "'" + source + "'";
 	}
 	
-	public CsvMappingGenerator (Dataset dataset, CSVImportation... csvImportation) {
+	/*public CsvMappingGenerator (Dataset dataset, CSVImportation... csvImportation) {
 		
 		//importations =  new ArrayList<CSVImportation>(); 		
 		
@@ -97,7 +99,7 @@ public class CsvMappingGenerator {
 		
 		return null;
 	}
-	
+	*/
 	
 	
 	

@@ -2,7 +2,8 @@ package unblod.ui.wizards;
 
 import org.eclipse.jface.wizard.Wizard;
 
-import unbload.model.Dataset;
+import unblod.dataset.model.dataset.Dataset;
+
 
 
 public class NewCSVImportationWizard extends Wizard {

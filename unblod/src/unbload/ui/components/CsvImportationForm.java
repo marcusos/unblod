@@ -54,9 +54,9 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 
 import unbload.mapping.CsvMappingGenerator;
-import unbload.model.CSVImportation;
-import unbload.model.CSVProperty;
-import unbload.model.Dataset;
+//import unbload.model.CSVImportation;
+//import unbload.model.CSVProperty;
+import unblod.dataset.model.dataset.Dataset;
 import unblod.util.Util;
 import unblod.ui.dialogs.CvsPropertyDialog;
 import unblod.ui.dialogs.MyDialog;
@@ -91,14 +91,14 @@ public class CsvImportationForm {
 	Dataset dataset;
 	private Text customUri;
 	
-	CSVImportation csvImportation;
-	ArrayList<CSVProperty> properties;
+	//CSVImportation csvImportation;
+	//ArrayList<CSVProperty> properties;
 	
 	int propertySelected = -1;
 	
 	//ArrayList<CSVProperty> csvProperties;
 	
-	public CSVImportation generateCsvImportation() {
+	/*public CSVImportation generateCsvImportation() {
 		
 		if (validated) {
 			IStructuredSelection selection = (IStructuredSelection) sourceColunmViewer.getSelection();
@@ -121,7 +121,7 @@ public class CsvImportationForm {
 		}
 		
 		return null;
-	}
+	}*/
 	
 	public CsvImportationForm(Dataset dataset) {
 		
@@ -142,13 +142,13 @@ public class CsvImportationForm {
 			classNamePrefix = className.getText() + "/";
 		}
 		
-		dataset.getUri();
+		/*dataset.getUri();
 		if (transformation.equals("none")) {
 			this.uri.setText(dataset.getUri() + "/" + classNamePrefix + "<" + col + ">");
 		}
 		else {
 			this.uri.setText(dataset.getUri() + "/" + classNamePrefix + "<" + transformation + "("+col+")" + ">" );
-		}
+		}*/
 		
 		
 	}
@@ -310,12 +310,12 @@ public class CsvImportationForm {
 					return;
 				}
 				
-				CSVImportation csvImportation = instance.generateCsvImportation();
+				//CSVImportation csvImportation = instance.generateCsvImportation();
 				//csvImportation.
 				
-				CsvMappingGenerator csvMappingGenerator =  new CsvMappingGenerator(dataset, csvImportation);
+				//CsvMappingGenerator csvMappingGenerator =  new CsvMappingGenerator(dataset, csvImportation);
 				
-				Boolean ret = csvMappingGenerator.generatePreviewMap();
+				//Boolean ret = csvMappingGenerator.generatePreviewMap();
 				
 	
 				RDFViewerDialog dialog = new RDFViewerDialog(instance.shell);
@@ -412,13 +412,13 @@ public class CsvImportationForm {
 				if (dialog.open() == Window.OK) {
 				  //System.out.println(dialog.getFirstName());
 				  //System.out.println(dialog.getLastName());
-				  if (dialog.getCsvProperty() != null) {
+				  /*if (dialog.getCsvProperty() != null) {
 					  
 					  System.out.println("New property added: " + dialog.getCsvProperty().getName());
 					  instance.properties.add(dialog.getCsvProperty());
 					  tablePropertiesViewer.setInput(instance.properties);
 					  instance.tablePropertiesViewer.refresh();
-				  }
+				  }*/
 				} 
 				
 
@@ -504,10 +504,10 @@ public class CsvImportationForm {
 			@Override
 			public String getText(Object element) {
 				// TODO Auto-generated method stub
-				if (element instanceof CSVProperty) {
+				/*if (element instanceof CSVProperty) {
 					CSVProperty property = (CSVProperty)element;
 					return property.getName();
-				}
+				}*/
 				return super.getText(element);
 			}
 		});
@@ -517,10 +517,10 @@ public class CsvImportationForm {
 			@Override
 			public String getText(Object element) {
 				// TODO Auto-generated method stub
-				if (element instanceof CSVProperty) {
+				/*if (element instanceof CSVProperty) {
 					CSVProperty property = (CSVProperty)element;
 					return property.getSourceCol();
-				}
+				}*/
 				return super.getText(element);
 			}
 		});
@@ -530,10 +530,10 @@ public class CsvImportationForm {
 			@Override
 			public String getText(Object element) {
 				// TODO Auto-generated method stub
-				if (element instanceof CSVProperty) {
+				/*if (element instanceof CSVProperty) {
 					CSVProperty property = (CSVProperty)element;
 					return property.getDataType();
-				}
+				}*/
 				return super.getText(element);
 			}
 		});
@@ -543,10 +543,10 @@ public class CsvImportationForm {
 			@Override
 			public String getText(Object element) {
 				// TODO Auto-generated method stub
-				if (element instanceof CSVProperty) {
+				/*if (element instanceof CSVProperty) {
 					CSVProperty property = (CSVProperty)element;
 					return property.getTransformation();
-				}
+				}*/
 				return super.getText(element);
 			}
 		});
@@ -556,10 +556,10 @@ public class CsvImportationForm {
 			@Override
 			public String getText(Object element) {
 				// TODO Auto-generated method stub
-				if (element instanceof CSVProperty) {
+				/*if (element instanceof CSVProperty) {
 					CSVProperty property = (CSVProperty)element;
 					return property.getCustomExpression();
-				}
+				}*/
 				return super.getText(element);
 			}
 		});
@@ -615,7 +615,7 @@ public class CsvImportationForm {
 					if (MessageDialog.openConfirm(shell, "Delete property", "Are you sure you want to " +
 											"delete this property?")) {
 						
-						instance.properties.remove(tablePropertiesViewer.getTable().getSelectionIndex());
+						//instance.properties.remove(tablePropertiesViewer.getTable().getSelectionIndex());
 						tablePropertiesViewer.refresh();
 						btnDelete.setEnabled(false);
 						btnEdit.setEnabled(false);
@@ -649,9 +649,9 @@ public class CsvImportationForm {
 	private void setUpPropertiesCol() {
 		tablePropertiesViewer.setContentProvider(ArrayContentProvider.getInstance());
 		
-		properties =  new ArrayList<CSVProperty>();
+		//properties =  new ArrayList<CSVProperty>();
 		
-		tablePropertiesViewer.setInput(properties);
+		//tablePropertiesViewer.setInput(properties);
 		
 		
 	}

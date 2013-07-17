@@ -24,20 +24,6 @@
          unpack="false"/>
 
    <plugin
-         id="unblod.model"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="unblod.service"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="unblod.runtime.service"
          download-size="0"
          install-size="0"
@@ -46,6 +32,20 @@
 
    <plugin
          id="unblod.util"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="unblod.dataset.service"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="unblod.dataset.model"
          download-size="0"
          install-size="0"
          version="0.0.0"

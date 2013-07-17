@@ -1,12 +1,19 @@
 package unbload.ui.utils;
 
+import java.io.File;
 import java.util.List;
 
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
+import unblod.dataset.model.dataset.Dataset;
+import unblod.dataset.service.DatasetModelService;
+import unblod.util.Util;
+
 public class DatasetTreeContentProvider implements ITreeContentProvider {
 
+	DatasetModelService datasetModelService =  DatasetModelService.getInstace();
+	
 	@Override
 	public void dispose() {
 		// TODO Auto-generated method stub
@@ -31,32 +38,42 @@ public class DatasetTreeContentProvider implements ITreeContentProvider {
 
 	@Override
 	public Object[] getChildren(Object parentElement) {
-		/*if (parentElement instanceof File)
+		if (parentElement instanceof Dataset)
 		{
-			File file = (File) parentElement;
-			return file.listFiles();
-		}*/
+			Dataset dataset = (Dataset)parentElement;
+			File dir = new File(Util.getWorkspace() + dataset.getName());
+			File[] files = dir.listFiles();
+
+			return files;
+		}
 		return null;
 	}
 
 	@Override
 	public Object getParent(Object element) {
-		/*if (element instanceof File)
+		if (element instanceof File)
 		{
 			File file = (File) element;
-			return file.getParentFile();
-		}*/
+			
+			String parentName = file.getParentFile().getName();
+			
+			Dataset datasetParent = datasetModelService.findDataset(parentName); 
+			
+			return datasetParent;
+		}
 		return null;
 	}
 
 	@Override
 	public boolean hasChildren(Object element) {
-		/*if (element instanceof File)
+		if (element instanceof Dataset)
 		{
-			File file = (File) element;
-			if (file.listFiles() != null && file.listFiles().length > 0)
+			Dataset dataset = (Dataset)element;
+			File dir = new File(Util.getWorkspace() + dataset.getName());
+			if (dir.listFiles() != null && dir.listFiles().length > 0)
 				return true;
-		}*/
+		}
+		
 		return false;
 	}
 

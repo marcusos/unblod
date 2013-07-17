@@ -2,7 +2,9 @@ package unblod.ui.wizards;
 
 import org.eclipse.jface.wizard.Wizard;
 
-import unbload.model.Dataset;
+import unblod.dataset.model.dataset.Dataset;
+
+
 
 
 public class NewDatasetWizard extends Wizard {
@@ -33,7 +35,7 @@ public class NewDatasetWizard extends Wizard {
 	@Override
 	public boolean performFinish() {
 		dataset = pageOne.generateDatasetFromInput();
-		return pageOne.isConfirmed();
+		return true;
 	}
 
 	@Override

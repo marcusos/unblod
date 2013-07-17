@@ -38,7 +38,6 @@ import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 
-import unbload.model.CSVProperty;
 import unblod.util.Util;
 import unblod.ui.dialogs.CvsPropertyDialog;
 
@@ -69,7 +68,7 @@ public class CsvPropertyForm {
 	}
 	
 	
-	public CSVProperty generateProperty() {
+	/*public CSVProperty generateProperty() {
 		if (isValidated()) {
 			
 			IStructuredSelection selection = (IStructuredSelection) dataTypeViewer.getSelection();
@@ -90,7 +89,7 @@ public class CsvPropertyForm {
 			return csvProperty;
 		}
 		else return null;
-	}
+	}*/
 	
 	@PostConstruct
 	public void createControl(Composite parent) {

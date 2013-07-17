@@ -24,7 +24,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
-import unbload.model.CSVProperty;
+//import unbload.model.CSVProperty;
 import unbload.ui.components.CsvPropertyForm;
 
 
@@ -35,15 +35,15 @@ public class CvsPropertyDialog extends TitleAreaDialog {
   private CsvPropertyForm csvPropertyForm;
   private boolean confirmed = false;
   
-  private CSVProperty csvProperty;
+ // private CSVProperty csvProperty;
   
-  public CSVProperty getCsvProperty() {
+  /*public CSVProperty getCsvProperty() {
 	return csvProperty;
-  }
+  }*/
 
-  public void setCsvProperty(CSVProperty csvProperty) {
+  /*public void setCsvProperty(CSVProperty csvProperty) {
 	this.csvProperty = csvProperty;
-  }
+  }*/
 
   CvsPropertyDialog instace;
   
@@ -108,10 +108,10 @@ public class CvsPropertyDialog extends TitleAreaDialog {
 
   @Override
   protected void okPressed() {
-	if (confirmed) {
+	/*if (confirmed) {
 		csvProperty = csvPropertyForm.generateProperty();
 		super.okPressed();
-	}
+	}*/
   }
 
 

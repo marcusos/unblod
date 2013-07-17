@@ -37,7 +37,6 @@
       <plugin id="com.example.e4.bundleresourceloader" autoStart="true" startLevel="3" />
       <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="3" />
       <plugin id="unblod.runtime.service" autoStart="true" startLevel="3" />
-      <plugin id="unblod.service" autoStart="true" startLevel="3" />
    </configurations>
 
 </product>
