@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test
+Bundle-SymbolicName: unblod.test
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: unblod.dataset.model;bundle-version="0.1.0",
+ unblod.dataset.service;bundle-version="1.0.0",
+ unblod.util;bundle-version="1.0.0"

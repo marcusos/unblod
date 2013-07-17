@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dataset:Dataset xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:dataset="http://dataset/1.0" name="dataset3" baseUri="http://dataset3.org/resources/" description="Dataset 3 for test."/>
