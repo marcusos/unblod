@@ -59,14 +59,9 @@ public class CsvImportationTreeContentProvider implements ITreeContentProvider {
 		if (parentElement instanceof RdfConstruction)
 		{
 			RdfConstruction rdfConstruction = (RdfConstruction)parentElement;
-
 			Object[] properties = rdfConstruction.getProperties().toArray();
-			Object[] referenceProperties = rdfConstruction.getProperties().toArray();
 			
-			List<Object> list = Arrays.asList(properties);
-			list.addAll(Arrays.asList(referenceProperties));
-			
-			return list.toArray();
+			return properties;
 		}
 		
 		return null;
@@ -109,9 +104,6 @@ public class CsvImportationTreeContentProvider implements ITreeContentProvider {
 			RdfConstruction rdfConstruction = (RdfConstruction)element;
 			
 			if (rdfConstruction.getProperties().size() > 0)
-				return true;
-			
-			if (rdfConstruction.getReferenceProperties().size() > 0)
 				return true;
 			
 		}

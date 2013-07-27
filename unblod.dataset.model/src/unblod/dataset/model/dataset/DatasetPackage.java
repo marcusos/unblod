@@ -268,22 +268,22 @@ public interface DatasetPackage extends EPackage {
 	int RDF_CONSTRUCTION__PROPERTIES = 5;
 
 	/**
-	 * The feature id for the '<em><b>Reference Properties</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RDF_CONSTRUCTION__REFERENCE_PROPERTIES = 6;
-
-	/**
 	 * The feature id for the '<em><b>Lines Offset</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_CONSTRUCTION__LINES_OFFSET = 7;
+	int RDF_CONSTRUCTION__LINES_OFFSET = 6;
+
+	/**
+	 * The feature id for the '<em><b>Class Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_CONSTRUCTION__CLASS_TYPE = 7;
 
 	/**
 	 * The number of structural features of the '<em>Rdf Construction</em>' class.
@@ -402,7 +402,16 @@ public interface DatasetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_PROPERTY__NAME = 0;
+	int REFERENCE_PROPERTY__NAME = PROPERTY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Source CSV Col</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_PROPERTY__SOURCE_CSV_COL = PROPERTY__SOURCE_CSV_COL;
 
 	/**
 	 * The feature id for the '<em><b>Namespace</b></em>' attribute.
@@ -411,16 +420,7 @@ public interface DatasetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_PROPERTY__NAMESPACE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Source Csv Col</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE_PROPERTY__SOURCE_CSV_COL = 2;
+	int REFERENCE_PROPERTY__NAMESPACE = PROPERTY__NAMESPACE;
 
 	/**
 	 * The feature id for the '<em><b>Transformation</b></em>' attribute.
@@ -429,16 +429,7 @@ public interface DatasetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_PROPERTY__TRANSFORMATION = 3;
-
-	/**
-	 * The feature id for the '<em><b>Uri</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE_PROPERTY__URI = 4;
+	int REFERENCE_PROPERTY__TRANSFORMATION = PROPERTY__TRANSFORMATION;
 
 	/**
 	 * The feature id for the '<em><b>Custom Pattern</b></em>' attribute.
@@ -447,7 +438,7 @@ public interface DatasetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_PROPERTY__CUSTOM_PATTERN = 5;
+	int REFERENCE_PROPERTY__CUSTOM_PATTERN = PROPERTY__CUSTOM_PATTERN;
 
 	/**
 	 * The feature id for the '<em><b>Data Type</b></em>' attribute.
@@ -456,7 +447,16 @@ public interface DatasetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_PROPERTY__DATA_TYPE = 6;
+	int REFERENCE_PROPERTY__DATA_TYPE = PROPERTY__DATA_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Uri</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_PROPERTY__URI = PROPERTY_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Reference Property</em>' class.
@@ -465,7 +465,7 @@ public interface DatasetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_PROPERTY_FEATURE_COUNT = 7;
+	int REFERENCE_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Reference Property</em>' class.
@@ -474,7 +474,7 @@ public interface DatasetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_PROPERTY_OPERATION_COUNT = 0;
+	int REFERENCE_PROPERTY_OPERATION_COUNT = PROPERTY_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link unblod.dataset.model.dataset.impl.NamespacesDefinitionsImpl <em>Namespaces Definitions</em>}' class.
@@ -744,17 +744,6 @@ public interface DatasetPackage extends EPackage {
 	EReference getRdfConstruction_Properties();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link unblod.dataset.model.dataset.RdfConstruction#getReferenceProperties <em>Reference Properties</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Reference Properties</em>'.
-	 * @see unblod.dataset.model.dataset.RdfConstruction#getReferenceProperties()
-	 * @see #getRdfConstruction()
-	 * @generated
-	 */
-	EReference getRdfConstruction_ReferenceProperties();
-
-	/**
 	 * Returns the meta object for the attribute '{@link unblod.dataset.model.dataset.RdfConstruction#getLinesOffset <em>Lines Offset</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -764,6 +753,17 @@ public interface DatasetPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getRdfConstruction_LinesOffset();
+
+	/**
+	 * Returns the meta object for the attribute '{@link unblod.dataset.model.dataset.RdfConstruction#getClassType <em>Class Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Class Type</em>'.
+	 * @see unblod.dataset.model.dataset.RdfConstruction#getClassType()
+	 * @see #getRdfConstruction()
+	 * @generated
+	 */
+	EAttribute getRdfConstruction_ClassType();
 
 	/**
 	 * Returns the meta object for class '{@link unblod.dataset.model.dataset.Property <em>Property</em>}'.
@@ -852,50 +852,6 @@ public interface DatasetPackage extends EPackage {
 	EClass getReferenceProperty();
 
 	/**
-	 * Returns the meta object for the attribute '{@link unblod.dataset.model.dataset.ReferenceProperty#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see unblod.dataset.model.dataset.ReferenceProperty#getName()
-	 * @see #getReferenceProperty()
-	 * @generated
-	 */
-	EAttribute getReferenceProperty_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link unblod.dataset.model.dataset.ReferenceProperty#getNamespace <em>Namespace</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Namespace</em>'.
-	 * @see unblod.dataset.model.dataset.ReferenceProperty#getNamespace()
-	 * @see #getReferenceProperty()
-	 * @generated
-	 */
-	EAttribute getReferenceProperty_Namespace();
-
-	/**
-	 * Returns the meta object for the attribute '{@link unblod.dataset.model.dataset.ReferenceProperty#getSourceCsvCol <em>Source Csv Col</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Source Csv Col</em>'.
-	 * @see unblod.dataset.model.dataset.ReferenceProperty#getSourceCsvCol()
-	 * @see #getReferenceProperty()
-	 * @generated
-	 */
-	EAttribute getReferenceProperty_SourceCsvCol();
-
-	/**
-	 * Returns the meta object for the attribute '{@link unblod.dataset.model.dataset.ReferenceProperty#getTransformation <em>Transformation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Transformation</em>'.
-	 * @see unblod.dataset.model.dataset.ReferenceProperty#getTransformation()
-	 * @see #getReferenceProperty()
-	 * @generated
-	 */
-	EAttribute getReferenceProperty_Transformation();
-
-	/**
 	 * Returns the meta object for the attribute '{@link unblod.dataset.model.dataset.ReferenceProperty#getUri <em>Uri</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -905,28 +861,6 @@ public interface DatasetPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getReferenceProperty_Uri();
-
-	/**
-	 * Returns the meta object for the attribute '{@link unblod.dataset.model.dataset.ReferenceProperty#getCustomPattern <em>Custom Pattern</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Custom Pattern</em>'.
-	 * @see unblod.dataset.model.dataset.ReferenceProperty#getCustomPattern()
-	 * @see #getReferenceProperty()
-	 * @generated
-	 */
-	EAttribute getReferenceProperty_CustomPattern();
-
-	/**
-	 * Returns the meta object for the attribute '{@link unblod.dataset.model.dataset.ReferenceProperty#getDataType <em>Data Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Data Type</em>'.
-	 * @see unblod.dataset.model.dataset.ReferenceProperty#getDataType()
-	 * @see #getReferenceProperty()
-	 * @generated
-	 */
-	EAttribute getReferenceProperty_DataType();
 
 	/**
 	 * Returns the meta object for class '{@link unblod.dataset.model.dataset.NamespacesDefinitions <em>Namespaces Definitions</em>}'.
@@ -1149,20 +1083,20 @@ public interface DatasetPackage extends EPackage {
 		EReference RDF_CONSTRUCTION__PROPERTIES = eINSTANCE.getRdfConstruction_Properties();
 
 		/**
-		 * The meta object literal for the '<em><b>Reference Properties</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RDF_CONSTRUCTION__REFERENCE_PROPERTIES = eINSTANCE.getRdfConstruction_ReferenceProperties();
-
-		/**
 		 * The meta object literal for the '<em><b>Lines Offset</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute RDF_CONSTRUCTION__LINES_OFFSET = eINSTANCE.getRdfConstruction_LinesOffset();
+
+		/**
+		 * The meta object literal for the '<em><b>Class Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RDF_CONSTRUCTION__CLASS_TYPE = eINSTANCE.getRdfConstruction_ClassType();
 
 		/**
 		 * The meta object literal for the '{@link unblod.dataset.model.dataset.impl.PropertyImpl <em>Property</em>}' class.
@@ -1233,60 +1167,12 @@ public interface DatasetPackage extends EPackage {
 		EClass REFERENCE_PROPERTY = eINSTANCE.getReferenceProperty();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REFERENCE_PROPERTY__NAME = eINSTANCE.getReferenceProperty_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Namespace</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REFERENCE_PROPERTY__NAMESPACE = eINSTANCE.getReferenceProperty_Namespace();
-
-		/**
-		 * The meta object literal for the '<em><b>Source Csv Col</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REFERENCE_PROPERTY__SOURCE_CSV_COL = eINSTANCE.getReferenceProperty_SourceCsvCol();
-
-		/**
-		 * The meta object literal for the '<em><b>Transformation</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REFERENCE_PROPERTY__TRANSFORMATION = eINSTANCE.getReferenceProperty_Transformation();
-
-		/**
 		 * The meta object literal for the '<em><b>Uri</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute REFERENCE_PROPERTY__URI = eINSTANCE.getReferenceProperty_Uri();
-
-		/**
-		 * The meta object literal for the '<em><b>Custom Pattern</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REFERENCE_PROPERTY__CUSTOM_PATTERN = eINSTANCE.getReferenceProperty_CustomPattern();
-
-		/**
-		 * The meta object literal for the '<em><b>Data Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REFERENCE_PROPERTY__DATA_TYPE = eINSTANCE.getReferenceProperty_DataType();
 
 		/**
 		 * The meta object literal for the '{@link unblod.dataset.model.dataset.impl.NamespacesDefinitionsImpl <em>Namespaces Definitions</em>}' class.

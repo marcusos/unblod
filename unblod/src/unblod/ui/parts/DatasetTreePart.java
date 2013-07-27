@@ -1,8 +1,6 @@
 package unblod.ui.parts;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -11,11 +9,6 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.SWT;
 import org.eclipse.wb.swt.ResourceManager;
-import org.eclipse.core.commands.ParameterizedCommand;
-import org.eclipse.e4.core.commands.ECommandService;
-import org.eclipse.e4.core.commands.EHandlerService;
-import org.eclipse.e4.core.contexts.EclipseContextFactory;
-import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.e4.ui.model.application.MApplication;
@@ -23,7 +16,6 @@ import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.model.application.ui.basic.MPartStack;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
-import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.e4.ui.workbench.swt.modeling.EMenuService;
 import org.eclipse.jface.viewers.DoubleClickEvent;
@@ -132,6 +124,9 @@ public class DatasetTreePart {
 					if (extension.equals(DatasetModelService.NAMESPACES_EXS)) {
 						return "Namespaces";
 					}
+					if (extension.equals(DatasetModelService.RDF_EXS)) {
+						return "RDF data";
+					}
 					
 				}
 				
@@ -162,6 +157,9 @@ public class DatasetTreePart {
 					}
 					if (extension.equals(DatasetModelService.DATASET_EXS)) {
 						return image = ResourceManager.getPluginImage("unblod", GUIUtil.icon_INFO);
+					}
+					if (extension.equals(DatasetModelService.RDF_EXS)) {
+						return image = ResourceManager.getPluginImage("unblod", GUIUtil.icon_RDF);
 					}
 					
 				}
@@ -224,6 +222,9 @@ public class DatasetTreePart {
 						if(extension.equals(DatasetModelService.CSVTORDF_EXS)) {
 							showCsvImportationPart(datasetParent);
 						}
+						if(extension.equals(DatasetModelService.RDF_EXS)) {
+							showSparqlInterfacePart(datasetParent);
+						}
 					
 					}
 					
@@ -236,6 +237,21 @@ public class DatasetTreePart {
 		//menuService.registerContextMenu(treeViewer.getControl(), "");
 	}
 	
+	protected void showSparqlInterfacePart(Dataset parentDataset) {
+		// TODO Auto-generated method stub
+		MPart part = partService.createPart("unblod.partdescriptor.SparqlInterfacePart");
+		MPartStack stack = (MPartStack)modelService.find("unblod.partstack.mainstack", application);
+		stack.getChildren().add(part);
+		
+		/*IEclipseContext context = EclipseContextFactory.create();
+		context.set(Dataset.class, parentDataset);
+		part.setContext(context);*/
+		
+		part.setLabel(parentDataset.getName() + " - Sparql interface");
+		part.setVisible(true);
+		stack.setSelectedElement(part);
+	}
+
 	private void showDatasetInfoPart(Dataset parentDataset) {
 		
 		MPart part = partService.createPart("unblod.partdescriptor.datasetInfo");

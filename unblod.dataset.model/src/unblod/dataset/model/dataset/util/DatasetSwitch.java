@@ -99,6 +99,7 @@ public class DatasetSwitch<T> extends Switch<T> {
 			case DatasetPackage.REFERENCE_PROPERTY: {
 				ReferenceProperty referenceProperty = (ReferenceProperty)theEObject;
 				T result = caseReferenceProperty(referenceProperty);
+				if (result == null) result = caseProperty(referenceProperty);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

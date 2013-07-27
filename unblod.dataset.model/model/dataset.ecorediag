@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_6-RekOpYEeKLcscvze0b-w" type="EcoreTools" name="dataset" measurementUnit="Pixel">
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_6-RekOpYEeKLcscvze0b-w" type="EcoreTools" name="dataset" measurementUnit="Pixel">
   <children xmi:type="notation:Node" xmi:id="_9Tu6EOpYEeKLcscvze0b-w" type="1001">
     <children xmi:type="notation:Node" xmi:id="_9TwvQOpYEeKLcscvze0b-w" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_9T1AsOpYEeKLcscvze0b-w" type="5001">
@@ -87,6 +87,10 @@
         <element xmi:type="ecore:EAttribute" href="dataset.ecore#//RdfConstruction/transformation"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_SXyl4epdEeKLcscvze0b-w"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_JqEjkPJ7EeKMv9Cwbhtl0Q" type="2001">
+        <element xmi:type="ecore:EAttribute" href="dataset.ecore#//RdfConstruction/classType"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_JqEjkfJ7EeKMv9Cwbhtl0Q"/>
+      </children>
       <children xmi:type="notation:Node" xmi:id="_Vwr0UOpdEeKLcscvze0b-w" type="2001">
         <element xmi:type="ecore:EAttribute" href="dataset.ecore#//RdfConstruction/customUri"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_Vwr0UepdEeKLcscvze0b-w"/>
@@ -151,33 +155,9 @@
   <children xmi:type="notation:Node" xmi:id="_z3z_8OpdEeKLcscvze0b-w" type="1001">
     <children xmi:type="notation:Node" xmi:id="_z30nAOpdEeKLcscvze0b-w" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_z31OEOpdEeKLcscvze0b-w" type="5001">
-      <children xmi:type="notation:Node" xmi:id="_8f9hgOpdEeKLcscvze0b-w" type="2001">
-        <element xmi:type="ecore:EAttribute" href="dataset.ecore#//ReferenceProperty/name"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_8f9hgepdEeKLcscvze0b-w"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_A0DM4OpeEeKLcscvze0b-w" type="2001">
-        <element xmi:type="ecore:EAttribute" href="dataset.ecore#//ReferenceProperty/namespace"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_A0DM4epeEeKLcscvze0b-w"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_HE9KQOpeEeKLcscvze0b-w" type="2001">
-        <element xmi:type="ecore:EAttribute" href="dataset.ecore#//ReferenceProperty/sourceCsvCol"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_HE9KQepeEeKLcscvze0b-w"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_ItkG0OpeEeKLcscvze0b-w" type="2001">
-        <element xmi:type="ecore:EAttribute" href="dataset.ecore#//ReferenceProperty/transformation"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_ItkG0epeEeKLcscvze0b-w"/>
-      </children>
       <children xmi:type="notation:Node" xmi:id="_KeOMIOpeEeKLcscvze0b-w" type="2001">
         <element xmi:type="ecore:EAttribute" href="dataset.ecore#//ReferenceProperty/uri"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_KeOMIepeEeKLcscvze0b-w"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_7sdbkO3MEeK80bCBWpbnjQ" type="2001">
-        <element xmi:type="ecore:EAttribute" href="dataset.ecore#//ReferenceProperty/dataType"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_7seCoO3MEeK80bCBWpbnjQ"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_4nw7gO3MEeK80bCBWpbnjQ" type="2001">
-        <element xmi:type="ecore:EAttribute" href="dataset.ecore#//ReferenceProperty/customPattern"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_4nw7ge3MEeK80bCBWpbnjQ"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_z31OEepdEeKLcscvze0b-w"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_z31OEupdEeKLcscvze0b-w"/>
@@ -190,7 +170,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_z3z_8epdEeKLcscvze0b-w" fontColor="4210752" fontName="Lucida Grande" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="dataset.ecore#//ReferenceProperty"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_z3z_8updEeKLcscvze0b-w" x="436" y="316"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_z3z_8updEeKLcscvze0b-w" x="472" y="312" width="139" height="59"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_q5kPkOp-EeKLcscvze0b-w" type="1001">
     <children xmi:type="notation:Node" xmi:id="_q5k2oOp-EeKLcscvze0b-w" type="4001"/>
@@ -271,19 +251,6 @@
     <element xmi:type="ecore:EReference" href="dataset.ecore#//RdfConstruction/properties"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_p0GQk-pjEeKLcscvze0b-w" points="[-71, 67, 70, -66]$[-93, 86, 48, -47]"/>
   </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_v8ZrkOpjEeKLcscvze0b-w" type="3002" source="_EUn4AOpbEeKLcscvze0b-w" target="_z3z_8OpdEeKLcscvze0b-w">
-    <children xmi:type="notation:Node" xmi:id="_v8aSoOpjEeKLcscvze0b-w" type="4011">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_v8aSoepjEeKLcscvze0b-w" x="-37" y="-15"/>
-    </children>
-    <children xmi:type="notation:Node" xmi:id="_v8aSoupjEeKLcscvze0b-w" type="4012">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_v8aSo-pjEeKLcscvze0b-w" x="10" y="10"/>
-    </children>
-    <styles xmi:type="notation:ConnectorStyle" xmi:id="_v8ZrkepjEeKLcscvze0b-w" lineColor="4210752"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_v8ZrkupjEeKLcscvze0b-w" fontColor="4210752" fontName="Lucida Grande" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="dataset.ecore#//RdfConstruction/referenceProperties"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_v8Zrk-pjEeKLcscvze0b-w" points="[55, 67, -20, -23]$[76, 82, 1, -8]"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_v8cu4OpjEeKLcscvze0b-w" id="(0.2909090909090909,0.07964601769911504)"/>
-  </edges>
   <edges xmi:type="notation:Edge" xmi:id="__DLpMOp-EeKLcscvze0b-w" type="3002" source="_q5kPkOp-EeKLcscvze0b-w" target="_z1bXUOp-EeKLcscvze0b-w">
     <children xmi:type="notation:Node" xmi:id="__DLpNOp-EeKLcscvze0b-w" type="4011">
       <layoutConstraint xmi:type="notation:Location" xmi:id="__DLpNep-EeKLcscvze0b-w" x="-10" y="-10"/>
@@ -296,5 +263,13 @@
     <element xmi:type="ecore:EReference" href="dataset.ecore#//NamespacesDefinitions/definitions"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__DLpM-p-EeKLcscvze0b-w" points="[-5, 20, 1, -35]$[-5, 48, 1, -7]"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="__DOsgOp-EeKLcscvze0b-w" id="(0.4728682170542636,0.12307692307692308)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_us-HEPNCEeKMKJcE0-mv9w" type="3003" source="_z3z_8OpdEeKLcscvze0b-w" target="_XCEjsOpdEeKLcscvze0b-w">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_us-HEfNCEeKMKJcE0-mv9w" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_us-HEvNCEeKMKJcE0-mv9w" fontName="Lucida Grande"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_us-HE_NCEeKMKJcE0-mv9w" points="[-4, -13, 23, 68]$[-25, -50, 2, 31]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_utBxcPNCEeKMKJcE0-mv9w" id="(0.25170068027210885,0.09655172413793103)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_utBxcfNCEeKMKJcE0-mv9w" id="(0.5918367346938775,0.7596899224806202)"/>
   </edges>
 </notation:Diagram>

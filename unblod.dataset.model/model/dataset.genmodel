@@ -27,8 +27,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//RdfConstruction/transformation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//RdfConstruction/customUri"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataset.ecore#//RdfConstruction/properties"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataset.ecore#//RdfConstruction/referenceProperties"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//RdfConstruction/linesOffset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//RdfConstruction/classType"/>
     </genClasses>
     <genClasses ecoreClass="dataset.ecore#//Property">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//Property/name"/>
@@ -39,13 +39,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//Property/dataType"/>
     </genClasses>
     <genClasses ecoreClass="dataset.ecore#//ReferenceProperty">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//ReferenceProperty/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//ReferenceProperty/namespace"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//ReferenceProperty/sourceCsvCol"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//ReferenceProperty/transformation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//ReferenceProperty/uri"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//ReferenceProperty/customPattern"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//ReferenceProperty/dataType"/>
     </genClasses>
     <genClasses ecoreClass="dataset.ecore#//NamespacesDefinitions">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataset.ecore#//NamespacesDefinitions/definitions"/>

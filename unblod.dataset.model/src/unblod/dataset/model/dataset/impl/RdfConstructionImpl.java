@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import unblod.dataset.model.dataset.DatasetPackage;
 import unblod.dataset.model.dataset.Property;
 import unblod.dataset.model.dataset.RdfConstruction;
-import unblod.dataset.model.dataset.ReferenceProperty;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,8 +29,8 @@ import unblod.dataset.model.dataset.ReferenceProperty;
  *   <li>{@link unblod.dataset.model.dataset.impl.RdfConstructionImpl#getTransformation <em>Transformation</em>}</li>
  *   <li>{@link unblod.dataset.model.dataset.impl.RdfConstructionImpl#getCustomUri <em>Custom Uri</em>}</li>
  *   <li>{@link unblod.dataset.model.dataset.impl.RdfConstructionImpl#getProperties <em>Properties</em>}</li>
- *   <li>{@link unblod.dataset.model.dataset.impl.RdfConstructionImpl#getReferenceProperties <em>Reference Properties</em>}</li>
  *   <li>{@link unblod.dataset.model.dataset.impl.RdfConstructionImpl#getLinesOffset <em>Lines Offset</em>}</li>
+ *   <li>{@link unblod.dataset.model.dataset.impl.RdfConstructionImpl#getClassType <em>Class Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -149,16 +148,6 @@ public class RdfConstructionImpl extends MinimalEObjectImpl.Container implements
 	protected EList<Property> properties;
 
 	/**
-	 * The cached value of the '{@link #getReferenceProperties() <em>Reference Properties</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReferenceProperties()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ReferenceProperty> referenceProperties;
-
-	/**
 	 * The default value of the '{@link #getLinesOffset() <em>Lines Offset</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -177,6 +166,26 @@ public class RdfConstructionImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected int linesOffset = LINES_OFFSET_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getClassType() <em>Class Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClassType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CLASS_TYPE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getClassType() <em>Class Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClassType()
+	 * @generated
+	 * @ordered
+	 */
+	protected String classType = CLASS_TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -319,18 +328,6 @@ public class RdfConstructionImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ReferenceProperty> getReferenceProperties() {
-		if (referenceProperties == null) {
-			referenceProperties = new EObjectContainmentEList<ReferenceProperty>(ReferenceProperty.class, this, DatasetPackage.RDF_CONSTRUCTION__REFERENCE_PROPERTIES);
-		}
-		return referenceProperties;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public int getLinesOffset() {
 		return linesOffset;
 	}
@@ -352,13 +349,32 @@ public class RdfConstructionImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getClassType() {
+		return classType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setClassType(String newClassType) {
+		String oldClassType = classType;
+		classType = newClassType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatasetPackage.RDF_CONSTRUCTION__CLASS_TYPE, oldClassType, classType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DatasetPackage.RDF_CONSTRUCTION__PROPERTIES:
 				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
-			case DatasetPackage.RDF_CONSTRUCTION__REFERENCE_PROPERTIES:
-				return ((InternalEList<?>)getReferenceProperties()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -383,10 +399,10 @@ public class RdfConstructionImpl extends MinimalEObjectImpl.Container implements
 				return getCustomUri();
 			case DatasetPackage.RDF_CONSTRUCTION__PROPERTIES:
 				return getProperties();
-			case DatasetPackage.RDF_CONSTRUCTION__REFERENCE_PROPERTIES:
-				return getReferenceProperties();
 			case DatasetPackage.RDF_CONSTRUCTION__LINES_OFFSET:
 				return getLinesOffset();
+			case DatasetPackage.RDF_CONSTRUCTION__CLASS_TYPE:
+				return getClassType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -419,12 +435,11 @@ public class RdfConstructionImpl extends MinimalEObjectImpl.Container implements
 				getProperties().clear();
 				getProperties().addAll((Collection<? extends Property>)newValue);
 				return;
-			case DatasetPackage.RDF_CONSTRUCTION__REFERENCE_PROPERTIES:
-				getReferenceProperties().clear();
-				getReferenceProperties().addAll((Collection<? extends ReferenceProperty>)newValue);
-				return;
 			case DatasetPackage.RDF_CONSTRUCTION__LINES_OFFSET:
 				setLinesOffset((Integer)newValue);
+				return;
+			case DatasetPackage.RDF_CONSTRUCTION__CLASS_TYPE:
+				setClassType((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -456,11 +471,11 @@ public class RdfConstructionImpl extends MinimalEObjectImpl.Container implements
 			case DatasetPackage.RDF_CONSTRUCTION__PROPERTIES:
 				getProperties().clear();
 				return;
-			case DatasetPackage.RDF_CONSTRUCTION__REFERENCE_PROPERTIES:
-				getReferenceProperties().clear();
-				return;
 			case DatasetPackage.RDF_CONSTRUCTION__LINES_OFFSET:
 				setLinesOffset(LINES_OFFSET_EDEFAULT);
+				return;
+			case DatasetPackage.RDF_CONSTRUCTION__CLASS_TYPE:
+				setClassType(CLASS_TYPE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -486,10 +501,10 @@ public class RdfConstructionImpl extends MinimalEObjectImpl.Container implements
 				return CUSTOM_URI_EDEFAULT == null ? customUri != null : !CUSTOM_URI_EDEFAULT.equals(customUri);
 			case DatasetPackage.RDF_CONSTRUCTION__PROPERTIES:
 				return properties != null && !properties.isEmpty();
-			case DatasetPackage.RDF_CONSTRUCTION__REFERENCE_PROPERTIES:
-				return referenceProperties != null && !referenceProperties.isEmpty();
 			case DatasetPackage.RDF_CONSTRUCTION__LINES_OFFSET:
 				return linesOffset != LINES_OFFSET_EDEFAULT;
+			case DatasetPackage.RDF_CONSTRUCTION__CLASS_TYPE:
+				return CLASS_TYPE_EDEFAULT == null ? classType != null : !CLASS_TYPE_EDEFAULT.equals(classType);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -516,6 +531,8 @@ public class RdfConstructionImpl extends MinimalEObjectImpl.Container implements
 		result.append(customUri);
 		result.append(", linesOffset: ");
 		result.append(linesOffset);
+		result.append(", classType: ");
+		result.append(classType);
 		result.append(')');
 		return result.toString();
 	}

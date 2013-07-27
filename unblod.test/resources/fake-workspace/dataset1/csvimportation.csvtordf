@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="ASCII"?>
 <dataset:CsvToRdfImportation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:dataset="http://dataset/1.0">
-  <fromFiles csvFileURL="/Users/marcusoliveira/Documents/workspace2/tarql/src/test/resources/simple.csv" name="teste"/>
+  <fromFiles csvFileURL="/Users/marcusoliveira/Documents/workspace2/tarql/src/test/resources/a1.csv" name="teste2">
+    <RdfConstructions name="Pessoa" sourceCsvCol="A" baseUri="http://test.org/res/" transformation="none" classType="an:Pessoa">
+      <properties name="rdf:label" sourceCSVCol="A" transformation="none" dataType="none"/>
+      <properties name="ne:idade" sourceCSVCol="A" transformation="ONLYNUMBER" dataType="xsd:integer"/>
+    </RdfConstructions>
+  </fromFiles>
 </dataset:CsvToRdfImportation>

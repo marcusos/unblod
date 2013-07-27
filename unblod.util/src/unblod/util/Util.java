@@ -2,22 +2,21 @@ package unblod.util;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileFilter;
 import java.io.FileReader;
 import java.util.Stack;
 
 
 public class Util {
 
-	public static final String[] CSV_COLUNMS = {"A","B", "C", "D", "E", "F", "G", "H", "I"};
+	public static final String[] CSV_COLUMNS = {"a","b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"};
 	public static final String[] CSV_TRANSFORMATIONS = {"none", "URLENCODE", "ONLYNUMBER"};
 	
-	public static final String[] XSD_DATATYPES = {"plain expression", "xsd:string", "xsd:integer", 
+	public static final String[] XSD_DATATYPES = {"none", "xsd:string", "xsd:integer", 
 											"xsd:long", "xsd:boolean", "xsd:date", "xsd:dateTime", "xsd:time",
 											"xsd:double", "xsd:float", "xsd:decimal"};
 	
 	public static final String PATH =  "/Users/marcusoliveira/Desktop/teste";
-	public static String WORKSPACE = "/Users/marcusoliveira/Documents/workspace2/unblod.test/resources/fake-workspace/";
+	public static String WORKSPACE = "/Users/marcusoliveira/git/unblod2/unblod.test/resources/fake-workspace/";
 	//public static String WORKSPACE = "/Users/marcusoliveira/Desktop/teste";
 	
 	

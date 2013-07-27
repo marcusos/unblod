@@ -20,8 +20,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link unblod.dataset.model.dataset.RdfConstruction#getTransformation <em>Transformation</em>}</li>
  *   <li>{@link unblod.dataset.model.dataset.RdfConstruction#getCustomUri <em>Custom Uri</em>}</li>
  *   <li>{@link unblod.dataset.model.dataset.RdfConstruction#getProperties <em>Properties</em>}</li>
- *   <li>{@link unblod.dataset.model.dataset.RdfConstruction#getReferenceProperties <em>Reference Properties</em>}</li>
  *   <li>{@link unblod.dataset.model.dataset.RdfConstruction#getLinesOffset <em>Lines Offset</em>}</li>
+ *   <li>{@link unblod.dataset.model.dataset.RdfConstruction#getClassType <em>Class Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -177,22 +177,6 @@ public interface RdfConstruction extends EObject {
 	EList<Property> getProperties();
 
 	/**
-	 * Returns the value of the '<em><b>Reference Properties</b></em>' containment reference list.
-	 * The list contents are of type {@link unblod.dataset.model.dataset.ReferenceProperty}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Reference Properties</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Reference Properties</em>' containment reference list.
-	 * @see unblod.dataset.model.dataset.DatasetPackage#getRdfConstruction_ReferenceProperties()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<ReferenceProperty> getReferenceProperties();
-
-	/**
 	 * Returns the value of the '<em><b>Lines Offset</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -217,5 +201,31 @@ public interface RdfConstruction extends EObject {
 	 * @generated
 	 */
 	void setLinesOffset(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Class Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Class Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Class Type</em>' attribute.
+	 * @see #setClassType(String)
+	 * @see unblod.dataset.model.dataset.DatasetPackage#getRdfConstruction_ClassType()
+	 * @model
+	 * @generated
+	 */
+	String getClassType();
+
+	/**
+	 * Sets the value of the '{@link unblod.dataset.model.dataset.RdfConstruction#getClassType <em>Class Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Class Type</em>' attribute.
+	 * @see #getClassType()
+	 * @generated
+	 */
+	void setClassType(String value);
 
 } // RdfConstruction

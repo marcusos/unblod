@@ -4,5 +4,5 @@
   <definitions namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" prefix="rdf"/>
   <definitions namespace="http://www.w3.org/2001/XMLSchema#" prefix="xsd"/>
   <definitions namespace="http://xmlns.com/foaf/0.1/" prefix="foaf"/>
-  <definitions namespace="http://dataset1.org/data/0.2" prefix="dataset1"/>
+  <definitions namespace="http://dataset1.org/data/0.2/" prefix="ne"/>
 </dataset:NamespacesDefinitions>

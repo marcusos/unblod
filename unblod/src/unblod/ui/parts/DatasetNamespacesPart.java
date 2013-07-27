@@ -4,10 +4,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.eclipse.e4.core.contexts.IEclipseContext;
-import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.Persist;
-import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.model.application.ui.MDirtyable;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.swt.widgets.Composite;
@@ -22,7 +19,6 @@ import unblod.dataset.model.dataset.Dataset;
 import unblod.dataset.model.dataset.NamespaceDefinition;
 import unblod.dataset.model.dataset.NamespacesDefinitions;
 import unblod.dataset.service.DatasetModelService;
-import unblod.ui.dialogs.MyDialog;
 import unblod.ui.dialogs.NamespaceDialog;
 
 import org.eclipse.swt.custom.SashForm;

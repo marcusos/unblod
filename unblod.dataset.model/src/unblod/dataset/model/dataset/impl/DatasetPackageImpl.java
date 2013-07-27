@@ -300,8 +300,8 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRdfConstruction_ReferenceProperties() {
-		return (EReference)rdfConstructionEClass.getEStructuralFeatures().get(6);
+	public EAttribute getRdfConstruction_LinesOffset() {
+		return (EAttribute)rdfConstructionEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -309,7 +309,7 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRdfConstruction_LinesOffset() {
+	public EAttribute getRdfConstruction_ClassType() {
 		return (EAttribute)rdfConstructionEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -390,62 +390,8 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getReferenceProperty_Name() {
-		return (EAttribute)referencePropertyEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getReferenceProperty_Namespace() {
-		return (EAttribute)referencePropertyEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getReferenceProperty_SourceCsvCol() {
-		return (EAttribute)referencePropertyEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getReferenceProperty_Transformation() {
-		return (EAttribute)referencePropertyEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getReferenceProperty_Uri() {
-		return (EAttribute)referencePropertyEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getReferenceProperty_CustomPattern() {
-		return (EAttribute)referencePropertyEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getReferenceProperty_DataType() {
-		return (EAttribute)referencePropertyEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)referencePropertyEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -541,8 +487,8 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 		createEAttribute(rdfConstructionEClass, RDF_CONSTRUCTION__TRANSFORMATION);
 		createEAttribute(rdfConstructionEClass, RDF_CONSTRUCTION__CUSTOM_URI);
 		createEReference(rdfConstructionEClass, RDF_CONSTRUCTION__PROPERTIES);
-		createEReference(rdfConstructionEClass, RDF_CONSTRUCTION__REFERENCE_PROPERTIES);
 		createEAttribute(rdfConstructionEClass, RDF_CONSTRUCTION__LINES_OFFSET);
+		createEAttribute(rdfConstructionEClass, RDF_CONSTRUCTION__CLASS_TYPE);
 
 		propertyEClass = createEClass(PROPERTY);
 		createEAttribute(propertyEClass, PROPERTY__NAME);
@@ -553,13 +499,7 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 		createEAttribute(propertyEClass, PROPERTY__DATA_TYPE);
 
 		referencePropertyEClass = createEClass(REFERENCE_PROPERTY);
-		createEAttribute(referencePropertyEClass, REFERENCE_PROPERTY__NAME);
-		createEAttribute(referencePropertyEClass, REFERENCE_PROPERTY__NAMESPACE);
-		createEAttribute(referencePropertyEClass, REFERENCE_PROPERTY__SOURCE_CSV_COL);
-		createEAttribute(referencePropertyEClass, REFERENCE_PROPERTY__TRANSFORMATION);
 		createEAttribute(referencePropertyEClass, REFERENCE_PROPERTY__URI);
-		createEAttribute(referencePropertyEClass, REFERENCE_PROPERTY__CUSTOM_PATTERN);
-		createEAttribute(referencePropertyEClass, REFERENCE_PROPERTY__DATA_TYPE);
 
 		namespacesDefinitionsEClass = createEClass(NAMESPACES_DEFINITIONS);
 		createEReference(namespacesDefinitionsEClass, NAMESPACES_DEFINITIONS__DEFINITIONS);
@@ -597,6 +537,7 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		referencePropertyEClass.getESuperTypes().add(this.getProperty());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(datasetEClass, Dataset.class, "Dataset", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -619,8 +560,8 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 		initEAttribute(getRdfConstruction_Transformation(), ecorePackage.getEString(), "transformation", null, 0, 1, RdfConstruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRdfConstruction_CustomUri(), ecorePackage.getEString(), "customUri", null, 0, 1, RdfConstruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRdfConstruction_Properties(), this.getProperty(), null, "properties", null, 0, -1, RdfConstruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRdfConstruction_ReferenceProperties(), this.getReferenceProperty(), null, "referenceProperties", null, 0, -1, RdfConstruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRdfConstruction_LinesOffset(), ecorePackage.getEInt(), "linesOffset", null, 0, 1, RdfConstruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRdfConstruction_ClassType(), ecorePackage.getEString(), "classType", null, 0, 1, RdfConstruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -631,13 +572,7 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 		initEAttribute(getProperty_DataType(), ecorePackage.getEString(), "dataType", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(referencePropertyEClass, ReferenceProperty.class, "ReferenceProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getReferenceProperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, ReferenceProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getReferenceProperty_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1, ReferenceProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getReferenceProperty_SourceCsvCol(), ecorePackage.getEString(), "sourceCsvCol", null, 0, 1, ReferenceProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getReferenceProperty_Transformation(), ecorePackage.getEString(), "transformation", null, 0, 1, ReferenceProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReferenceProperty_Uri(), ecorePackage.getEString(), "uri", null, 0, 1, ReferenceProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getReferenceProperty_CustomPattern(), ecorePackage.getEString(), "customPattern", null, 0, 1, ReferenceProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getReferenceProperty_DataType(), ecorePackage.getEString(), "dataType", null, 0, 1, ReferenceProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(namespacesDefinitionsEClass, NamespacesDefinitions.class, "NamespacesDefinitions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNamespacesDefinitions_Definitions(), this.getNamespaceDefinition(), null, "definitions", null, 0, -1, NamespacesDefinitions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

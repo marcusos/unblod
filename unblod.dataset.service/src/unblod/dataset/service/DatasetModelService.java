@@ -30,6 +30,7 @@ public class DatasetModelService {
 	public static String CSVTORDF_EXS = "csvtordf";
 	public static String DATASET_EXS = "dataset";
 	public static String NAMESPACES_EXS = "nedefinitions";
+	public static String RDF_EXS = "ttl";
 	
 	private static DatasetModelService instance;
 	
@@ -281,6 +282,11 @@ public class DatasetModelService {
 		}
 		
 		return true;
+	}
+
+	public String getRdfDataPath(Dataset dataset) {
+		// TODO Auto-generated method stub
+		return Util.getWorkspace() + dataset.getName() + "/rdfdata.ttl";
 	}
 	
 }

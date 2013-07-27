@@ -1,5 +1,8 @@
 package unblod.ui.parts;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -7,10 +10,16 @@ import javax.inject.Named;
 import org.eclipse.e4.ui.di.Persist;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.model.application.ui.MDirtyable;
+import org.eclipse.e4.ui.model.application.ui.basic.MPart;
+import org.eclipse.e4.ui.model.application.ui.basic.MPartStack;
 import org.eclipse.e4.ui.services.IServiceConstants;
+import org.eclipse.e4.ui.workbench.modeling.EModelService;
+import org.eclipse.e4.ui.workbench.modeling.EPartService;
+import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.swt.widgets.Composite;
 
 import unbload.ui.utils.CsvImportationTreeContentProvider;
+import unbload.ui.utils.GUIUtil;
 import unblod.dataset.model.dataset.CsvFile;
 import unblod.dataset.model.dataset.CsvToRdfImportation;
 import unblod.dataset.model.dataset.Dataset;
@@ -18,7 +27,11 @@ import unblod.dataset.model.dataset.Property;
 import unblod.dataset.model.dataset.RdfConstruction;
 import unblod.dataset.model.dataset.ReferenceProperty;
 import unblod.dataset.service.DatasetModelService;
+import unblod.tarql.service.TarqlQueryGenerator;
+import unblod.tarql.service.TarqlService;
 import unblod.ui.dialogs.CsvFileDialog;
+import unblod.ui.dialogs.CsvPropertyDialog;
+import unblod.ui.dialogs.CsvReferencePropertyDialog;
 import unblod.ui.dialogs.RdfConstructionDialog;
 
 import org.eclipse.swt.custom.SashForm;
@@ -39,6 +52,9 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.wb.swt.ResourceManager;
+import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.MenuItem;
 
 public class CsvImportationPart {
 	
@@ -46,6 +62,11 @@ public class CsvImportationPart {
 	private Dataset dataset;
 	private DatasetModelService datasetModelService;
 	private CsvToRdfImportation csvToRdfImportation;
+	
+	@Inject private ESelectionService selectionService;
+	@Inject private EPartService partService;
+	@Inject private MApplication application;
+	@Inject private EModelService modelService;
 	
 	@Inject private MDirtyable dirty;
 	
@@ -56,10 +77,16 @@ public class CsvImportationPart {
 	Button btnAddProperty;
 	Button btnAddReferenceProperty;
 	TreeViewer treeViewer;
+	private Button btnEdit;
+	
+	//Menus
+	Menu csvFileMenu;
+	Menu csvToRdfMenu;
 	
 	@PostConstruct
 	public void createControl(final Shell shell,
 			Composite parent, @Named(IServiceConstants.ACTIVE_SELECTION)Dataset mDataset) {
+		
 		
 		datasetModelService = DatasetModelService.getInstace();
 		this.dataset = mDataset;
@@ -74,33 +101,83 @@ public class CsvImportationPart {
 		treeViewer = new TreeViewer(compositeTree, SWT.BORDER);
 		Tree tree = treeViewer.getTree();
 		
+		
+		csvFileMenu = new Menu(tree);
+		MenuItem mntmCsvViewer = new MenuItem(csvFileMenu, SWT.NONE);
+		mntmCsvViewer.setText("CSV viewer");
+		
+		csvToRdfMenu = new Menu(tree);
+		MenuItem mntmCodePreview = new MenuItem(csvToRdfMenu, SWT.NONE);
+		mntmCodePreview.setText("code");
+		
+		MenuItem mntmRdfPreview = new MenuItem(csvToRdfMenu, SWT.NONE);
+		mntmRdfPreview.setText("RDF previewer");
+		
+		mntmCsvViewer.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				// TODO Auto-generated method stub
+				openCsvViewerPart();
+				super.widgetSelected(e);
+			}
+		});
+		
+		mntmRdfPreview.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				// TODO Auto-generated method stub
+				openRdfTurtleViewerPart();
+				super.widgetSelected(e);
+			}
+		});
+		
+		mntmCodePreview.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				// TODO Auto-generated method stub
+				openCodePreview();
+				super.widgetSelected(e);
+			}
+		});
+		
+		//mntmCsvViewer.
+		
 		Composite compositeControls = new Composite(sashForm, SWT.NONE);
 		compositeControls.setLayout(new GridLayout(1, false));
 		
 		btnAddCsvFile = new Button(compositeControls, SWT.NONE);
+		btnAddCsvFile.setImage(ResourceManager.getPluginImage("unblod", "protege-icons/form.add.gif"));
 		btnAddCsvFile.setText("Add CSV file");
 		
 		btnAddRdfConstruction = new Button(compositeControls, SWT.NONE);
+		btnAddRdfConstruction.setImage(ResourceManager.getPluginImage("unblod", "protege-icons/individual.add.png"));
 		btnAddRdfConstruction.setText("Add RDF construction");
 		
 		btnAddProperty = new Button(compositeControls, SWT.NONE);
+		btnAddProperty.setImage(ResourceManager.getPluginImage("unblod", "protege-icons/property.data.add.png"));
 		btnAddProperty.setText("Add Property");
 		
 		btnAddReferenceProperty = new Button(compositeControls, SWT.NONE);
+		btnAddReferenceProperty.setImage(ResourceManager.getPluginImage("unblod", "protege-icons/property.object.add.png"));
 		btnAddReferenceProperty.setText("Add Reference Property");
 		
+		btnEdit = new Button(compositeControls, SWT.NONE);
+		btnEdit.setImage(ResourceManager.getPluginImage("unblod", "metro-icons/appbar.edit.png"));
+		btnEdit.setText("Edit");
+		
 		btnRemove = new Button(compositeControls, SWT.NONE);
+		btnRemove.setImage(ResourceManager.getPluginImage("unblod", "protege-icons/clear.gif"));
 		btnRemove.setText("Remove...");
-		sashForm.setWeights(new int[] {1, 1});
+		sashForm.setWeights(new int[] {2, 1});
 		
 		treeViewer.setLabelProvider(new LabelProvider() {
 			@Override
 			public String getText(Object element) {
 				CsvToRdfImportation csvToRdfImportation = null;
 				CsvFile csvFile = null;
-				//RdfConstruction rdfConstruction = null;
-				//Property property = null;
-				//ReferenceProperty referenceProperty = null;
+				RdfConstruction rdfConstruction = null;
+				Property property = null;
+				ReferenceProperty referenceProperty = null;
 				
 				
 				// TODO Auto-generated method stub
@@ -114,12 +191,48 @@ public class CsvImportationPart {
 					return "CSV file - " +  csvFile.getName();
 				}
 				
+				if (element instanceof RdfConstruction) {
+					rdfConstruction = (RdfConstruction)element;
+					return "Construction - " +  rdfConstruction.getName();
+				}
+				
+				if (element instanceof Property) {
+					property = (Property)element;
+					return "Property - " +  property.getName();
+				}
+				
+				if (element instanceof ReferenceProperty) {
+					referenceProperty = (ReferenceProperty)element;
+					return "Property - " +  referenceProperty.getName();
+				}
+				
 				return super.getText(element);
 			}
 			
 			@Override
 			public Image getImage(Object element) {
-				// TODO Auto-generated method stub
+				
+				/*if (element instanceof CsvToRdfImportation) {
+					return ResourceManager.getPluginImage("unblod", GUIUtil.icon_CSV_FILE);
+				}*/
+				
+				if (element instanceof CsvFile) {
+					return ResourceManager.getPluginImage("unblod", GUIUtil.icon_CSV_FILE);
+				}
+				
+				if (element instanceof RdfConstruction) {
+					return ResourceManager.getPluginImage("unblod", GUIUtil.icon_RDF_CONSTRUCTION);
+				}
+				
+				if (element instanceof ReferenceProperty) {
+					return ResourceManager.getPluginImage("unblod", GUIUtil.icon_PROPERTY_OBJ);
+				}
+				else if (element instanceof Property) {
+					return ResourceManager.getPluginImage("unblod", GUIUtil.icon_PROPERTY);
+				}
+				
+				
+				
 				return super.getImage(element);
 			}
 		});
@@ -160,6 +273,61 @@ public class CsvImportationPart {
 			}
 		});
 		
+		btnEdit.addSelectionListener(new SelectionAdapter() {
+			
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				ITreeSelection selection = ((ITreeSelection)treeViewer.getSelection());
+				Object firstElement = selection.getFirstElement();
+				
+				if (firstElement instanceof CsvFile) {
+					CsvFile csvFile = (CsvFile)firstElement;
+					CsvFileDialog dialog = new CsvFileDialog(shell, csvFile);
+					
+					dialog.create();
+					if (dialog.open() == Window.OK) {
+						treeViewer.refresh();
+						dirty.setDirty(true);
+					}
+					
+				}
+				else if (firstElement instanceof RdfConstruction) {
+					RdfConstruction rdfConstruction = (RdfConstruction)firstElement;
+					RdfConstructionDialog dialog = new RdfConstructionDialog(shell, rdfConstruction, dataset);
+					
+					dialog.create();
+					if (dialog.open() == Window.OK) {
+						treeViewer.refresh();
+						dirty.setDirty(true);
+					}
+					
+				}
+				else if (firstElement instanceof ReferenceProperty) {
+					ReferenceProperty property = (ReferenceProperty)firstElement;
+					CsvReferencePropertyDialog dialog = new CsvReferencePropertyDialog(shell, property, dataset);
+					
+					dialog.create();
+					if (dialog.open() == Window.OK) {
+						treeViewer.refresh();
+						dirty.setDirty(true);
+					}
+				}
+				else if (firstElement instanceof Property) {
+					Property property = (Property)firstElement;
+					CsvPropertyDialog dialog = new CsvPropertyDialog(shell, property, dataset);
+					
+					dialog.create();
+					if (dialog.open() == Window.OK) {
+						treeViewer.refresh();
+						dirty.setDirty(true);
+					}
+				}
+				
+				
+				
+				super.widgetSelected(e);
+			}
+		});
 		
 		btnRemove.addSelectionListener(new SelectionAdapter() {
 			
@@ -193,7 +361,16 @@ public class CsvImportationPart {
 					dirty.setDirty(true);
 				}
 				
-				if (firstElement instanceof Property) {
+				
+				if (firstElement instanceof ReferenceProperty) {
+					ReferenceProperty referenceProperty = (ReferenceProperty)firstElement;
+					RdfConstruction parent = (RdfConstruction)referenceProperty.eContainer();
+					
+					parent.getProperties().remove(referenceProperty);
+					treeViewer.refresh();
+					dirty.setDirty(true);
+				}
+				else if (firstElement instanceof Property) {
 					Property property = (Property)firstElement;
 					RdfConstruction parent = (RdfConstruction)property.eContainer();
 					
@@ -202,14 +379,7 @@ public class CsvImportationPart {
 					dirty.setDirty(true);
 				}
 				
-				if (firstElement instanceof Property) {
-					ReferenceProperty referenceProperty = (ReferenceProperty)firstElement;
-					RdfConstruction parent = (RdfConstruction)referenceProperty.eContainer();
-					
-					parent.getReferenceProperties().remove(referenceProperty);
-					treeViewer.refresh();
-					dirty.setDirty(true);
-				}
+				
 				
 				super.widgetSelected(e);
 			}
@@ -223,7 +393,7 @@ public class CsvImportationPart {
 			public void widgetSelected(SelectionEvent e) {
 				
 				RdfConstructionDialog dialog = new RdfConstructionDialog(shell, 
-						datasetModelService.getFactory().createRdfConstruction());
+						datasetModelService.getFactory().createRdfConstruction(), dataset);
 				
 				ITreeSelection selection = ((ITreeSelection)treeViewer.getSelection());
 				Object firstElement = selection.getFirstElement();
@@ -244,10 +414,71 @@ public class CsvImportationPart {
 					dirty.setDirty(true);
 				} 
 				
-				/*if (propertySelected < -1) {
-					btn.setEnabled(true);
-					MessageDialog.openWarning(shell, "No propety selected", "Select a property to be edited");
-				}*/
+				super.widgetSelected(e);
+			}
+			
+		});
+		
+		btnAddProperty.addSelectionListener(new SelectionAdapter() {
+			
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				
+				CsvPropertyDialog dialog = new CsvPropertyDialog(shell, 
+						datasetModelService.getFactory().createProperty(), dataset);
+				
+				ITreeSelection selection = ((ITreeSelection)treeViewer.getSelection());
+				Object firstElement = selection.getFirstElement();
+				
+				RdfConstruction rdfConstruction = (RdfConstruction)firstElement;
+				
+				if (!(firstElement instanceof RdfConstruction)) {
+					return;
+				}
+				
+				dialog.create();
+				if (dialog.open() == Window.OK) {
+				  
+					Property property = dialog.getProperty();
+					rdfConstruction.getProperties().add(property);
+					
+					treeViewer.refresh();
+					dirty.setDirty(true);
+				} 
+				
+				super.widgetSelected(e);
+			}
+			
+		});
+		
+		
+		btnAddReferenceProperty.addSelectionListener(new SelectionAdapter() {
+			
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				
+				CsvReferencePropertyDialog dialog = new CsvReferencePropertyDialog(shell, 
+						datasetModelService.getFactory().createReferenceProperty(), dataset);
+				
+				ITreeSelection selection = ((ITreeSelection)treeViewer.getSelection());
+				Object firstElement = selection.getFirstElement();
+				
+				RdfConstruction rdfConstruction = (RdfConstruction)firstElement;
+				
+				if (!(firstElement instanceof RdfConstruction)) {
+					return;
+				}
+				
+				dialog.create();
+				if (dialog.open() == Window.OK) {
+				  
+					ReferenceProperty referenceProperty = dialog.getReferenceProperty();
+					rdfConstruction.getProperties().add(referenceProperty);
+					
+					treeViewer.refresh();
+					dirty.setDirty(true);
+				} 
+				
 				super.widgetSelected(e);
 			}
 			
@@ -260,6 +491,93 @@ public class CsvImportationPart {
 		updateBtnControls();
 	}
 	
+	protected void openRdfTurtleViewerPart() {
+		// TODO Auto-generated method stub
+		ITreeSelection selection = ((ITreeSelection)treeViewer.getSelection());
+		Object firstElement = selection.getFirstElement();
+		
+		if (!(firstElement instanceof CsvToRdfImportation)) {
+			return;
+		}
+		
+		TarqlQueryGenerator tarqlQueryGenerator = new TarqlQueryGenerator(dataset, csvToRdfImportation);
+		//System.out.println(csvToRdfImportation.toString());
+		String tarqlQuery = tarqlQueryGenerator.getQueryFromModel();
+		
+		TarqlService tarqlService =  new TarqlService(tarqlQuery);
+		tarqlService.executeQuery();
+		
+		selectionService.setSelection(tarqlService.getModelRdfDataAsString("TURTLE"));
+		MPart part = partService.createPart(GUIUtil.RDF_VIEWER_PART_ID);
+		
+		MPartStack stack = (MPartStack)modelService.find(GUIUtil.INFO_STACK_ID, application);
+		stack.getChildren().add(part);
+		
+		part.setLabel("RDF Preview");
+		part.setVisible(true);
+		
+		stack.setSelectedElement(part);
+	}
+
+	protected void openCodePreview() {
+		// TODO Auto-generated method stub
+		ITreeSelection selection = ((ITreeSelection)treeViewer.getSelection());
+		Object firstElement = selection.getFirstElement();
+		
+		if (firstElement instanceof CsvToRdfImportation) {
+			Map<String, Object> args = new HashMap<String, Object>();
+			
+			//CsvToRdfImportation csvToRdf = (CsvToRdfImportation)firstElement;
+			
+			args.put("csvToRdfImportation", csvToRdfImportation);
+			args.put("dataset", dataset);
+			
+			selectionService.setSelection(args);
+		}
+		else return;
+		
+		MPart part = partService.createPart(GUIUtil.RDF_CONS_CODE_PART_ID);
+		
+		MPartStack stack = (MPartStack)modelService.find(GUIUtil.INFO_STACK_ID, application);
+		stack.getChildren().add(part);
+		
+		/*IEclipseContext context = EclipseContextFactory.create();
+		context.set(Dataset.class, parentDataset);
+		part.setContext(context);*/
+		
+		part.setLabel("Code");
+		part.setVisible(true);
+		
+		stack.setSelectedElement(part);
+	}
+
+	protected void openCsvViewerPart() {
+		ITreeSelection selection = ((ITreeSelection)treeViewer.getSelection());
+		Object firstElement = selection.getFirstElement();
+		
+		
+		if (firstElement instanceof CsvFile) {
+			CsvFile csvFile = (CsvFile)firstElement;
+			selectionService.setSelection(csvFile.getCsvFileURL());
+		}
+		else return;
+		
+		MPart part = partService.createPart(GUIUtil.CSV_VIEWER_PART_ID);
+		
+		MPartStack stack = (MPartStack)modelService.find(GUIUtil.INFO_STACK_ID, application);
+		stack.getChildren().add(part);
+		
+		/*IEclipseContext context = EclipseContextFactory.create();
+		context.set(Dataset.class, parentDataset);
+		part.setContext(context);*/
+		
+		part.setLabel("CSV viewer");
+		part.setVisible(true);
+		
+		stack.setSelectedElement(part);
+		
+	}
+
 	private void updateBtnControls() {
 		ITreeSelection selection = ((ITreeSelection)treeViewer.getSelection());
 		//Object parent  = selection.getPaths()[0].getParentPath().getLastSegment();
@@ -269,29 +587,38 @@ public class CsvImportationPart {
 		btnAddProperty.setEnabled(false);
 		btnAddReferenceProperty.setEnabled(false);
 		btnRemove.setEnabled(true);
+		btnEdit.setEnabled(true);
+		
+		treeViewer.getTree().setMenu(null);
 		
 		if (firstElement instanceof CsvToRdfImportation) {
 			btnAddCsvFile.setEnabled(true);
 			btnRemove.setEnabled(false);
+			btnEdit.setEnabled(false);
+			
+			treeViewer.getTree().setMenu(csvToRdfMenu);
 		}
 		else if (firstElement instanceof CsvFile) {
 			btnAddRdfConstruction.setEnabled(true);
 			btnRemove.setEnabled(true);
+			btnEdit.setEnabled(true);
+			
+			treeViewer.getTree().setMenu(csvFileMenu);
 		}
 		else if (firstElement instanceof RdfConstruction) {
 			btnAddProperty.setEnabled(true);
 			btnAddReferenceProperty.setEnabled(true);
 			btnRemove.setEnabled(true);
+			btnEdit.setEnabled(true);
 		}
 		else if (firstElement instanceof Property) {
 			btnRemove.setEnabled(true);
-		}
-		else if (firstElement instanceof ReferenceProperty) {
-			btnRemove.setEnabled(true);
+			btnEdit.setEnabled(true);
 		}
 		
 		if (firstElement == null) {
 			btnRemove.setEnabled(true);
+			btnEdit.setEnabled(true);
 		}
 	}
 	

@@ -4,6 +4,8 @@ import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.FocusEvent;
+import org.eclipse.swt.events.FocusListener;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -15,6 +17,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 
+import unblod.dataset.model.dataset.Dataset;
 import unblod.dataset.model.dataset.RdfConstruction;
 import unblod.util.Util;
 
@@ -25,12 +28,16 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ComboViewer;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.wb.swt.SWTResourceManager;
 
 public class RdfConstructionDialog extends TitleAreaDialog{
 
 	RdfConstruction rdfConstruction = null;
-
+	Dataset dataset = null;
+	
 	Shell shell;
 	private Text nameTxt;
 	private Text uriTxt;
@@ -38,15 +45,19 @@ public class RdfConstructionDialog extends TitleAreaDialog{
 	private Text customTxt;
 	private Text classsTxt;
 	
+	Label lblResultPattern;
+	
 	ComboViewer colComboViewer;
 	ComboViewer transformationComboViewer;
 	
 	Button btnCustom;
 	
-	public RdfConstructionDialog(Shell parentShell, RdfConstruction csvFile) {
+	public RdfConstructionDialog(Shell parentShell, RdfConstruction rdfConstruction, Dataset dataset) {
 		super(parentShell);
 		this.shell = parentShell;
-		this.rdfConstruction = csvFile;
+		this.rdfConstruction = rdfConstruction;
+		this.dataset = dataset;
+		
 	}
 	
 	 @Override
@@ -58,6 +69,7 @@ public class RdfConstructionDialog extends TitleAreaDialog{
 	    //setMessage("This is a TitleAreaDialog",  IMessageProvider.INFORMATION);
 	    initializeInputs();
 	    validateInputs();
+	    writeUriPreview();
 	  }
 
 	
@@ -97,13 +109,50 @@ public class RdfConstructionDialog extends TitleAreaDialog{
 	
 	public void initializeInputs() {
 		
-		/*if (rdfConstruction.getName() != null) {
+		uriTxt.setText(dataset.getBaseUri());
+		
+		if (rdfConstruction.getName() != null) {
 			nameTxt.setText(rdfConstruction.getName());
 		}
 		
-		if (rdfConstruction.getCsvFileURL() != null) {
-			urlTxt.setText(rdfConstruction.getCsvFileURL());
-		}*/
+		linesTxt.setText(rdfConstruction.getLinesOffset() + "");
+		
+		if (rdfConstruction.getCustomUri() != null) {
+			customTxt.setText(rdfConstruction.getCustomUri());
+		}
+		else {
+			if (rdfConstruction.getSourceCsvCol() != null) {
+				
+				int i=0;
+				for (String col : Util.CSV_COLUMNS) {
+					if (col.equals(rdfConstruction.getSourceCsvCol())) {
+						colComboViewer.getCombo().select(i);
+						break;
+					}
+					i++;
+				}
+			}
+			if (rdfConstruction.getTransformation() != null) {
+				
+				int i=0;
+				for (String transformation : Util.CSV_TRANSFORMATIONS) {
+					if (transformation.equals(rdfConstruction.getTransformation())) {
+						transformationComboViewer.getCombo().select(i);
+						break;
+					}
+					i++;
+				}
+			}
+			
+			if (rdfConstruction.getBaseUri() != null) {
+				uriTxt.setText(rdfConstruction.getBaseUri());
+			}
+			
+			if (rdfConstruction.getClassType() != null) {
+				classsTxt.setText(rdfConstruction.getClassType());
+			}
+			
+		}
 		
 	}
 	
@@ -176,8 +225,11 @@ public class RdfConstructionDialog extends TitleAreaDialog{
 		classsTxt.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		new Label(composite, SWT.NONE);
 		
-		Label lblResultPattern = new Label(composite, SWT.NONE);
-		lblResultPattern.setText("ResultPattern");
+		lblResultPattern = new Label(composite, SWT.NONE);
+		GridData gd_lblResultPattern = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
+		//gd_lblResultPattern.widthHint = 168;
+		lblResultPattern.setLayoutData(gd_lblResultPattern);
+		//lblResultPattern.setText("ResultPattern");
 		new Label(composite, SWT.NONE);
 		
 		Label label_1 = new Label(composite, SWT.SEPARATOR | SWT.HORIZONTAL);
@@ -255,20 +307,112 @@ public class RdfConstructionDialog extends TitleAreaDialog{
 			}
 		});
 		
+		
+		nameTxt.addFocusListener(new FocusListener() {
+			
+			@Override
+			public void focusLost(FocusEvent e) {
+				// TODO Auto-generated method stub
+				writeUriPreview();
+			}
+			
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		uriTxt.addFocusListener(new FocusListener() {
+			
+			@Override
+			public void focusLost(FocusEvent e) {
+				// TODO Auto-generated method stub
+				writeUriPreview();
+			}
+			
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		classsTxt.addFocusListener(new FocusListener() {
+			
+			@Override
+			public void focusLost(FocusEvent e) {
+				// TODO Auto-generated method stub
+				writeUriPreview();
+			}
+			
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		
 		colComboViewer.setContentProvider(ArrayContentProvider.getInstance());
 		transformationComboViewer.setContentProvider(ArrayContentProvider.getInstance());
 		
-		colComboViewer.setInput(Util.CSV_COLUNMS);
+		colComboViewer.setInput(Util.CSV_COLUMNS);
 		transformationComboViewer.setInput(Util.CSV_TRANSFORMATIONS);
 		
 		colComboViewer.getCombo().select(0);
 		transformationComboViewer.getCombo().select(0);
+		
+		colComboViewer.addSelectionChangedListener(new ISelectionChangedListener() {
+			
+			@Override
+			public void selectionChanged(SelectionChangedEvent event) {
+				// TODO Auto-generated method stub
+				writeUriPreview();
+			}
+		});
+		
+		transformationComboViewer.addSelectionChangedListener(new ISelectionChangedListener() {
+			
+			@Override
+			public void selectionChanged(SelectionChangedEvent event) {
+				// TODO Auto-generated method stub
+				writeUriPreview();
+			}
+		});
 		
 		updateControlsByCustomBtn();
 		
 		return composite;
 	}
 	
+	protected void writeUriPreview() {
+		// TODO Auto-generated method stub
+		IStructuredSelection selection = (IStructuredSelection) colComboViewer.getSelection();
+		String col = (String)selection.getFirstElement();
+		
+		col = "?"+col;
+		
+		selection = (IStructuredSelection) transformationComboViewer.getSelection();
+		String transformation = (String)selection.getFirstElement();
+		
+		String uriPreview  = "";
+		
+		if (transformation.equals("none")) {
+			uriPreview += uriTxt.getText() + "<" + col + ">";
+		}
+		else {
+			uriPreview += uriTxt.getText() + "<" + transformation + "("+col+")" + ">" ;
+		}
+		
+		if (classsTxt.getText() != null && !classsTxt.getText().equals("")) {
+			uriPreview += " a " + classsTxt.getText();
+		}
+		
+		lblResultPattern.setText(uriPreview);
+		
+	}
+
 	public void updateControlsByCustomBtn() {
 		if (btnCustom.getSelection()) {
 			customTxt.setEnabled(true);
@@ -294,6 +438,28 @@ public class RdfConstructionDialog extends TitleAreaDialog{
 		// populate de object
 		/*this.rdfConstruction.setName(nameTxt.getText());
 		this.rdfConstruction.setCsvFileURL(urlTxt.getText());*/
+		
+		this.rdfConstruction.setName(nameTxt.getText());
+		this.rdfConstruction.setLinesOffset(Integer.parseInt(linesTxt.getText()));
+		
+		if (btnCustom.getSelection()){
+			this.rdfConstruction.setCustomUri(customTxt.getText());
+		}
+		else {
+			IStructuredSelection selection = (IStructuredSelection) colComboViewer.getSelection();
+			String col = (String)selection.getFirstElement();
+			
+			selection = (IStructuredSelection) transformationComboViewer.getSelection();
+			String transformation = (String)selection.getFirstElement();
+			
+			this.rdfConstruction.setSourceCsvCol(col);
+			this.rdfConstruction.setTransformation(transformation);
+			this.rdfConstruction.setBaseUri(uriTxt.getText());
+			this.rdfConstruction.setClassType(classsTxt.getText());
+			
+			this.rdfConstruction.setCustomUri(null);
+		}
+		
 		
 		super.okPressed();
 	}
