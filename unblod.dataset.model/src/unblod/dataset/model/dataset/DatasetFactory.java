@@ -94,6 +94,42 @@ public interface DatasetFactory extends EFactory {
 	NamespaceDefinition createNamespaceDefinition();
 
 	/**
+	 * Returns a new object of class '<em>Integration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Integration</em>'.
+	 * @generated
+	 */
+	DatasetIntegration createDatasetIntegration();
+
+	/**
+	 * Returns a new object of class '<em>Schema</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Schema</em>'.
+	 * @generated
+	 */
+	Schema createSchema();
+
+	/**
+	 * Returns a new object of class '<em>SClass</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>SClass</em>'.
+	 * @generated
+	 */
+	SClass createSClass();
+
+	/**
+	 * Returns a new object of class '<em>SProperty</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>SProperty</em>'.
+	 * @generated
+	 */
+	SProperty createSProperty();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

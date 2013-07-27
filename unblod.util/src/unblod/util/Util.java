@@ -16,7 +16,10 @@ public class Util {
 											"xsd:double", "xsd:float", "xsd:decimal"};
 	
 	public static final String PATH =  "/Users/marcusoliveira/Desktop/teste";
-	public static String WORKSPACE = "/Users/marcusoliveira/git/unblod2/unblod.test/resources/fake-workspace/";
+//	public static String WORKSPACE = "/Users/marcusoliveira/git/unblod2/unblod.test/resources/fake-workspace/";
+	public static String WORKSPACE = "/testlod/fake-workspace/";
+	
+	
 	//public static String WORKSPACE = "/Users/marcusoliveira/Desktop/teste";
 	
 	

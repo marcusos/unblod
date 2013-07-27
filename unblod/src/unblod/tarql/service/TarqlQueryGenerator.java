@@ -62,8 +62,11 @@ public class TarqlQueryGenerator {
 				
 				qConstruct += "}\n";
 				
-				qConstruct += "FROM <file:" + csvFile.getCsvFileURL() + ">\n";
 				
+				qConstruct += "FROM <file:" + csvFile.getCsvFileURL() + ">\n";
+//				qConstruct += "FROM <file:" + "/G:/testlod/examples/person.csv" + ">\n";
+//				<file:G:\testlod\examples\person.csv>
+			
 				qConstruct += "WHERE {\n";
 				
 				if (rdfConstruction.getCustomUri() == null) {

@@ -33,7 +33,6 @@
     <genClasses ecoreClass="dataset.ecore#//Property">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//Property/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//Property/sourceCSVCol"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//Property/namespace"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//Property/transformation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//Property/customPattern"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//Property/dataType"/>
@@ -47,6 +46,20 @@
     <genClasses ecoreClass="dataset.ecore#//NamespaceDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//NamespaceDefinition/namespace"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//NamespaceDefinition/prefix"/>
+    </genClasses>
+    <genClasses ecoreClass="dataset.ecore#//DatasetIntegration"/>
+    <genClasses ecoreClass="dataset.ecore#//Schema">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dataset.ecore#//Schema/EReference0"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dataset.ecore#//Schema/EReference1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataset.ecore#//Schema/classes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//Schema/Uri"/>
+    </genClasses>
+    <genClasses ecoreClass="dataset.ecore#//SClass">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataset.ecore#//SClass/properties"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//SClass/name"/>
+    </genClasses>
+    <genClasses ecoreClass="dataset.ecore#//SProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//SProperty/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

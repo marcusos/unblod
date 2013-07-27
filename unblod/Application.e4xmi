@@ -41,6 +41,7 @@
   <handlers xmi:id="_i_e8wOjwEeKS0tXDrqvyyg" elementId="unblod.handler.test" contributionURI="bundleclass://unblod/unblod.ui.handles.TestNandler" command="_89E8oOjvEeKS0tXDrqvyyg"/>
   <handlers xmi:id="_JWRI8Oz4EeKppvWeFZbtIA" elementId="unblod.handler.save" contributionURI="bundleclass://unblod/unblod.ui.handles.SaveHandler" command="_LhBwUOz4EeKppvWeFZbtIA"/>
   <handlers xmi:id="_V9iigO2oEeK80bCBWpbnjQ" elementId="unblod.handler.removedataset" contributionURI="bundleclass://unblod/unblod.ui.handles.RemoveDatasetHandler" command="_TXmbAO2oEeK80bCBWpbnjQ"/>
+  <handlers xmi:id="_UU1bYPbUEeKU7NhS1qHR7w" elementId="unblod.handler.newdataset" contributionURI="bundleclass://unblod/unblod.ui.handles.NewDatasetHandler" command="_uXg5wMDUEeKknqUeofLJOg"/>
   <bindingTables xmi:id="_Q7ZuUOz4EeKppvWeFZbtIA" elementId="unblod.bindingtable.0" bindingContext="_OX7sAOz4EeKppvWeFZbtIA">
     <bindings xmi:id="_RS1W4Oz4EeKppvWeFZbtIA" elementId="unblod.keybinding.save" keySequence="M1+S" command="_LhBwUOz4EeKppvWeFZbtIA"/>
   </bindingTables>
@@ -57,6 +58,7 @@
   <descriptors xmi:id="_y2br8PSkEeKxL5nA-dBSLw" elementId="unblod.partdescriptor.RdfViewerPart" label="RDF viewer" closeable="true" contributionURI="bundleclass://unblod/unblod.ui.parts.RdfViewerPart"/>
   <descriptors xmi:id="_IllKEPTTEeKhlrb6wmwZrA" elementId="unblod.partdescriptor.SparqlInterfacePart" label="Sparql" closeable="true" contributionURI="bundleclass://unblod/unblod.ui.parts.SparqlInterfacePart"/>
   <descriptors xmi:id="_QFWHQPTTEeKhlrb6wmwZrA" elementId="unblod.partdescriptor.SparqlResultPart" label="Sparql result" closeable="true" contributionURI="bundleclass://unblod/unblod.ui.parts.SparqlResultPart"/>
+  <descriptors xmi:id="_kShnIPbUEeKU7NhS1qHR7w" elementId="unblod.partdescriptor.schemaPart" label="Schema" contributionURI="bundleclass://unblod/unblod.ui.parts.SchemaPart"/>
   <commands xmi:id="_uXg5wMDUEeKknqUeofLJOg" elementId="unblod.command.newdataset" commandName="New Dataset"/>
   <commands xmi:id="_89E8oOjvEeKS0tXDrqvyyg" elementId="unblod.command.import" commandName="Import"/>
   <commands xmi:id="_LhBwUOz4EeKppvWeFZbtIA" elementId="unblod.command.save" commandName="Save"/>

@@ -21,7 +21,6 @@ import unblod.dataset.model.dataset.Property;
  * <ul>
  *   <li>{@link unblod.dataset.model.dataset.impl.PropertyImpl#getName <em>Name</em>}</li>
  *   <li>{@link unblod.dataset.model.dataset.impl.PropertyImpl#getSourceCSVCol <em>Source CSV Col</em>}</li>
- *   <li>{@link unblod.dataset.model.dataset.impl.PropertyImpl#getNamespace <em>Namespace</em>}</li>
  *   <li>{@link unblod.dataset.model.dataset.impl.PropertyImpl#getTransformation <em>Transformation</em>}</li>
  *   <li>{@link unblod.dataset.model.dataset.impl.PropertyImpl#getCustomPattern <em>Custom Pattern</em>}</li>
  *   <li>{@link unblod.dataset.model.dataset.impl.PropertyImpl#getDataType <em>Data Type</em>}</li>
@@ -70,26 +69,6 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 	 * @ordered
 	 */
 	protected String sourceCSVCol = SOURCE_CSV_COL_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNamespace()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAMESPACE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNamespace()
-	 * @generated
-	 * @ordered
-	 */
-	protected String namespace = NAMESPACE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getTransformation() <em>Transformation</em>}' attribute.
@@ -217,27 +196,6 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getNamespace() {
-		return namespace;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNamespace(String newNamespace) {
-		String oldNamespace = namespace;
-		namespace = newNamespace;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatasetPackage.PROPERTY__NAMESPACE, oldNamespace, namespace));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getTransformation() {
 		return transformation;
 	}
@@ -308,8 +266,6 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 				return getName();
 			case DatasetPackage.PROPERTY__SOURCE_CSV_COL:
 				return getSourceCSVCol();
-			case DatasetPackage.PROPERTY__NAMESPACE:
-				return getNamespace();
 			case DatasetPackage.PROPERTY__TRANSFORMATION:
 				return getTransformation();
 			case DatasetPackage.PROPERTY__CUSTOM_PATTERN:
@@ -333,9 +289,6 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 				return;
 			case DatasetPackage.PROPERTY__SOURCE_CSV_COL:
 				setSourceCSVCol((String)newValue);
-				return;
-			case DatasetPackage.PROPERTY__NAMESPACE:
-				setNamespace((String)newValue);
 				return;
 			case DatasetPackage.PROPERTY__TRANSFORMATION:
 				setTransformation((String)newValue);
@@ -364,9 +317,6 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 			case DatasetPackage.PROPERTY__SOURCE_CSV_COL:
 				setSourceCSVCol(SOURCE_CSV_COL_EDEFAULT);
 				return;
-			case DatasetPackage.PROPERTY__NAMESPACE:
-				setNamespace(NAMESPACE_EDEFAULT);
-				return;
 			case DatasetPackage.PROPERTY__TRANSFORMATION:
 				setTransformation(TRANSFORMATION_EDEFAULT);
 				return;
@@ -392,8 +342,6 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case DatasetPackage.PROPERTY__SOURCE_CSV_COL:
 				return SOURCE_CSV_COL_EDEFAULT == null ? sourceCSVCol != null : !SOURCE_CSV_COL_EDEFAULT.equals(sourceCSVCol);
-			case DatasetPackage.PROPERTY__NAMESPACE:
-				return NAMESPACE_EDEFAULT == null ? namespace != null : !NAMESPACE_EDEFAULT.equals(namespace);
 			case DatasetPackage.PROPERTY__TRANSFORMATION:
 				return TRANSFORMATION_EDEFAULT == null ? transformation != null : !TRANSFORMATION_EDEFAULT.equals(transformation);
 			case DatasetPackage.PROPERTY__CUSTOM_PATTERN:
@@ -418,8 +366,6 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 		result.append(name);
 		result.append(", sourceCSVCol: ");
 		result.append(sourceCSVCol);
-		result.append(", namespace: ");
-		result.append(namespace);
 		result.append(", transformation: ");
 		result.append(transformation);
 		result.append(", customPattern: ");

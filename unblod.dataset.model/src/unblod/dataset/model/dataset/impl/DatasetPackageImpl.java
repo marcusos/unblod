@@ -11,12 +11,16 @@ import unblod.dataset.model.dataset.CsvFile;
 import unblod.dataset.model.dataset.CsvToRdfImportation;
 import unblod.dataset.model.dataset.Dataset;
 import unblod.dataset.model.dataset.DatasetFactory;
+import unblod.dataset.model.dataset.DatasetIntegration;
 import unblod.dataset.model.dataset.DatasetPackage;
 import unblod.dataset.model.dataset.NamespaceDefinition;
 import unblod.dataset.model.dataset.NamespacesDefinitions;
 import unblod.dataset.model.dataset.Property;
 import unblod.dataset.model.dataset.RdfConstruction;
 import unblod.dataset.model.dataset.ReferenceProperty;
+import unblod.dataset.model.dataset.SClass;
+import unblod.dataset.model.dataset.SProperty;
+import unblod.dataset.model.dataset.Schema;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,6 +84,34 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 	 * @generated
 	 */
 	private EClass namespaceDefinitionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass datasetIntegrationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass schemaEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sClassEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sPropertyEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -345,7 +377,7 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProperty_Namespace() {
+	public EAttribute getProperty_Transformation() {
 		return (EAttribute)propertyEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -354,7 +386,7 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProperty_Transformation() {
+	public EAttribute getProperty_CustomPattern() {
 		return (EAttribute)propertyEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -363,17 +395,8 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProperty_CustomPattern() {
-		return (EAttribute)propertyEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getProperty_DataType() {
-		return (EAttribute)propertyEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)propertyEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -444,6 +467,105 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDatasetIntegration() {
+		return datasetIntegrationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSchema() {
+		return schemaEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSchema_EReference0() {
+		return (EReference)schemaEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSchema_EReference1() {
+		return (EReference)schemaEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSchema_Classes() {
+		return (EReference)schemaEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSchema_Uri() {
+		return (EAttribute)schemaEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSClass() {
+		return sClassEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSClass_Properties() {
+		return (EReference)sClassEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSClass_Name() {
+		return (EAttribute)sClassEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSProperty() {
+		return sPropertyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSProperty_Name() {
+		return (EAttribute)sPropertyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DatasetFactory getDatasetFactory() {
 		return (DatasetFactory)getEFactoryInstance();
 	}
@@ -493,7 +615,6 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 		propertyEClass = createEClass(PROPERTY);
 		createEAttribute(propertyEClass, PROPERTY__NAME);
 		createEAttribute(propertyEClass, PROPERTY__SOURCE_CSV_COL);
-		createEAttribute(propertyEClass, PROPERTY__NAMESPACE);
 		createEAttribute(propertyEClass, PROPERTY__TRANSFORMATION);
 		createEAttribute(propertyEClass, PROPERTY__CUSTOM_PATTERN);
 		createEAttribute(propertyEClass, PROPERTY__DATA_TYPE);
@@ -507,6 +628,21 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 		namespaceDefinitionEClass = createEClass(NAMESPACE_DEFINITION);
 		createEAttribute(namespaceDefinitionEClass, NAMESPACE_DEFINITION__NAMESPACE);
 		createEAttribute(namespaceDefinitionEClass, NAMESPACE_DEFINITION__PREFIX);
+
+		datasetIntegrationEClass = createEClass(DATASET_INTEGRATION);
+
+		schemaEClass = createEClass(SCHEMA);
+		createEReference(schemaEClass, SCHEMA__EREFERENCE0);
+		createEReference(schemaEClass, SCHEMA__EREFERENCE1);
+		createEReference(schemaEClass, SCHEMA__CLASSES);
+		createEAttribute(schemaEClass, SCHEMA__URI);
+
+		sClassEClass = createEClass(SCLASS);
+		createEReference(sClassEClass, SCLASS__PROPERTIES);
+		createEAttribute(sClassEClass, SCLASS__NAME);
+
+		sPropertyEClass = createEClass(SPROPERTY);
+		createEAttribute(sPropertyEClass, SPROPERTY__NAME);
 	}
 
 	/**
@@ -538,6 +674,7 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 
 		// Add supertypes to classes
 		referencePropertyEClass.getESuperTypes().add(this.getProperty());
+		datasetIntegrationEClass.getESuperTypes().add(this.getDataset());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(datasetEClass, Dataset.class, "Dataset", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -566,7 +703,6 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProperty_SourceCSVCol(), ecorePackage.getEString(), "sourceCSVCol", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProperty_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProperty_Transformation(), ecorePackage.getEString(), "transformation", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProperty_CustomPattern(), ecorePackage.getEString(), "customPattern", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProperty_DataType(), ecorePackage.getEString(), "dataType", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -580,6 +716,21 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 		initEClass(namespaceDefinitionEClass, NamespaceDefinition.class, "NamespaceDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNamespaceDefinition_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1, NamespaceDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNamespaceDefinition_Prefix(), ecorePackage.getEString(), "prefix", null, 0, 1, NamespaceDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(datasetIntegrationEClass, DatasetIntegration.class, "DatasetIntegration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(schemaEClass, Schema.class, "Schema", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSchema_EReference0(), this.getSchema(), null, "EReference0", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchema_EReference1(), this.getSchema(), null, "EReference1", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchema_Classes(), this.getSClass(), null, "classes", null, 0, -1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSchema_Uri(), ecorePackage.getEString(), "Uri", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(sClassEClass, SClass.class, "SClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSClass_Properties(), this.getSProperty(), null, "properties", null, 0, -1, SClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSClass_Name(), ecorePackage.getEString(), "name", null, 0, 1, SClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(sPropertyEClass, SProperty.class, "SProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSProperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, SProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

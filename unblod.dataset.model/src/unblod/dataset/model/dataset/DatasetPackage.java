@@ -332,22 +332,13 @@ public interface DatasetPackage extends EPackage {
 	int PROPERTY__SOURCE_CSV_COL = 1;
 
 	/**
-	 * The feature id for the '<em><b>Namespace</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__NAMESPACE = 2;
-
-	/**
 	 * The feature id for the '<em><b>Transformation</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__TRANSFORMATION = 3;
+	int PROPERTY__TRANSFORMATION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Custom Pattern</b></em>' attribute.
@@ -356,7 +347,7 @@ public interface DatasetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__CUSTOM_PATTERN = 4;
+	int PROPERTY__CUSTOM_PATTERN = 3;
 
 	/**
 	 * The feature id for the '<em><b>Data Type</b></em>' attribute.
@@ -365,7 +356,7 @@ public interface DatasetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__DATA_TYPE = 5;
+	int PROPERTY__DATA_TYPE = 4;
 
 	/**
 	 * The number of structural features of the '<em>Property</em>' class.
@@ -374,7 +365,7 @@ public interface DatasetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_FEATURE_COUNT = 6;
+	int PROPERTY_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Property</em>' class.
@@ -412,15 +403,6 @@ public interface DatasetPackage extends EPackage {
 	 * @ordered
 	 */
 	int REFERENCE_PROPERTY__SOURCE_CSV_COL = PROPERTY__SOURCE_CSV_COL;
-
-	/**
-	 * The feature id for the '<em><b>Namespace</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE_PROPERTY__NAMESPACE = PROPERTY__NAMESPACE;
 
 	/**
 	 * The feature id for the '<em><b>Transformation</b></em>' attribute.
@@ -558,6 +540,209 @@ public interface DatasetPackage extends EPackage {
 	 * @ordered
 	 */
 	int NAMESPACE_DEFINITION_OPERATION_COUNT = 0;
+
+
+	/**
+	 * The meta object id for the '{@link unblod.dataset.model.dataset.impl.DatasetIntegrationImpl <em>Integration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see unblod.dataset.model.dataset.impl.DatasetIntegrationImpl
+	 * @see unblod.dataset.model.dataset.impl.DatasetPackageImpl#getDatasetIntegration()
+	 * @generated
+	 */
+	int DATASET_INTEGRATION = 8;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATASET_INTEGRATION__NAME = DATASET__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Base Uri</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATASET_INTEGRATION__BASE_URI = DATASET__BASE_URI;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATASET_INTEGRATION__DESCRIPTION = DATASET__DESCRIPTION;
+
+	/**
+	 * The number of structural features of the '<em>Integration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATASET_INTEGRATION_FEATURE_COUNT = DATASET_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Integration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATASET_INTEGRATION_OPERATION_COUNT = DATASET_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link unblod.dataset.model.dataset.impl.SchemaImpl <em>Schema</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see unblod.dataset.model.dataset.impl.SchemaImpl
+	 * @see unblod.dataset.model.dataset.impl.DatasetPackageImpl#getSchema()
+	 * @generated
+	 */
+	int SCHEMA = 9;
+
+	/**
+	 * The feature id for the '<em><b>EReference0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__EREFERENCE0 = 0;
+
+	/**
+	 * The feature id for the '<em><b>EReference1</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__EREFERENCE1 = 1;
+
+	/**
+	 * The feature id for the '<em><b>Classes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__CLASSES = 2;
+
+	/**
+	 * The feature id for the '<em><b>Uri</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__URI = 3;
+
+	/**
+	 * The number of structural features of the '<em>Schema</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Schema</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link unblod.dataset.model.dataset.impl.SClassImpl <em>SClass</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see unblod.dataset.model.dataset.impl.SClassImpl
+	 * @see unblod.dataset.model.dataset.impl.DatasetPackageImpl#getSClass()
+	 * @generated
+	 */
+	int SCLASS = 10;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCLASS__PROPERTIES = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCLASS__NAME = 1;
+
+	/**
+	 * The number of structural features of the '<em>SClass</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCLASS_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>SClass</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCLASS_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link unblod.dataset.model.dataset.impl.SPropertyImpl <em>SProperty</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see unblod.dataset.model.dataset.impl.SPropertyImpl
+	 * @see unblod.dataset.model.dataset.impl.DatasetPackageImpl#getSProperty()
+	 * @generated
+	 */
+	int SPROPERTY = 11;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPROPERTY__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>SProperty</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPROPERTY_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>SProperty</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPROPERTY_OPERATION_COUNT = 0;
 
 
 	/**
@@ -798,17 +983,6 @@ public interface DatasetPackage extends EPackage {
 	EAttribute getProperty_SourceCSVCol();
 
 	/**
-	 * Returns the meta object for the attribute '{@link unblod.dataset.model.dataset.Property#getNamespace <em>Namespace</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Namespace</em>'.
-	 * @see unblod.dataset.model.dataset.Property#getNamespace()
-	 * @see #getProperty()
-	 * @generated
-	 */
-	EAttribute getProperty_Namespace();
-
-	/**
 	 * Returns the meta object for the attribute '{@link unblod.dataset.model.dataset.Property#getTransformation <em>Transformation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -914,6 +1088,123 @@ public interface DatasetPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getNamespaceDefinition_Prefix();
+
+	/**
+	 * Returns the meta object for class '{@link unblod.dataset.model.dataset.DatasetIntegration <em>Integration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Integration</em>'.
+	 * @see unblod.dataset.model.dataset.DatasetIntegration
+	 * @generated
+	 */
+	EClass getDatasetIntegration();
+
+	/**
+	 * Returns the meta object for class '{@link unblod.dataset.model.dataset.Schema <em>Schema</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Schema</em>'.
+	 * @see unblod.dataset.model.dataset.Schema
+	 * @generated
+	 */
+	EClass getSchema();
+
+	/**
+	 * Returns the meta object for the reference '{@link unblod.dataset.model.dataset.Schema#getEReference0 <em>EReference0</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>EReference0</em>'.
+	 * @see unblod.dataset.model.dataset.Schema#getEReference0()
+	 * @see #getSchema()
+	 * @generated
+	 */
+	EReference getSchema_EReference0();
+
+	/**
+	 * Returns the meta object for the reference '{@link unblod.dataset.model.dataset.Schema#getEReference1 <em>EReference1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>EReference1</em>'.
+	 * @see unblod.dataset.model.dataset.Schema#getEReference1()
+	 * @see #getSchema()
+	 * @generated
+	 */
+	EReference getSchema_EReference1();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link unblod.dataset.model.dataset.Schema#getClasses <em>Classes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Classes</em>'.
+	 * @see unblod.dataset.model.dataset.Schema#getClasses()
+	 * @see #getSchema()
+	 * @generated
+	 */
+	EReference getSchema_Classes();
+
+	/**
+	 * Returns the meta object for the attribute '{@link unblod.dataset.model.dataset.Schema#getUri <em>Uri</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uri</em>'.
+	 * @see unblod.dataset.model.dataset.Schema#getUri()
+	 * @see #getSchema()
+	 * @generated
+	 */
+	EAttribute getSchema_Uri();
+
+	/**
+	 * Returns the meta object for class '{@link unblod.dataset.model.dataset.SClass <em>SClass</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>SClass</em>'.
+	 * @see unblod.dataset.model.dataset.SClass
+	 * @generated
+	 */
+	EClass getSClass();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link unblod.dataset.model.dataset.SClass#getProperties <em>Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Properties</em>'.
+	 * @see unblod.dataset.model.dataset.SClass#getProperties()
+	 * @see #getSClass()
+	 * @generated
+	 */
+	EReference getSClass_Properties();
+
+	/**
+	 * Returns the meta object for the attribute '{@link unblod.dataset.model.dataset.SClass#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see unblod.dataset.model.dataset.SClass#getName()
+	 * @see #getSClass()
+	 * @generated
+	 */
+	EAttribute getSClass_Name();
+
+	/**
+	 * Returns the meta object for class '{@link unblod.dataset.model.dataset.SProperty <em>SProperty</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>SProperty</em>'.
+	 * @see unblod.dataset.model.dataset.SProperty
+	 * @generated
+	 */
+	EClass getSProperty();
+
+	/**
+	 * Returns the meta object for the attribute '{@link unblod.dataset.model.dataset.SProperty#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see unblod.dataset.model.dataset.SProperty#getName()
+	 * @see #getSProperty()
+	 * @generated
+	 */
+	EAttribute getSProperty_Name();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1125,14 +1416,6 @@ public interface DatasetPackage extends EPackage {
 		EAttribute PROPERTY__SOURCE_CSV_COL = eINSTANCE.getProperty_SourceCSVCol();
 
 		/**
-		 * The meta object literal for the '<em><b>Namespace</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PROPERTY__NAMESPACE = eINSTANCE.getProperty_Namespace();
-
-		/**
 		 * The meta object literal for the '<em><b>Transformation</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1217,6 +1500,102 @@ public interface DatasetPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute NAMESPACE_DEFINITION__PREFIX = eINSTANCE.getNamespaceDefinition_Prefix();
+
+		/**
+		 * The meta object literal for the '{@link unblod.dataset.model.dataset.impl.DatasetIntegrationImpl <em>Integration</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see unblod.dataset.model.dataset.impl.DatasetIntegrationImpl
+		 * @see unblod.dataset.model.dataset.impl.DatasetPackageImpl#getDatasetIntegration()
+		 * @generated
+		 */
+		EClass DATASET_INTEGRATION = eINSTANCE.getDatasetIntegration();
+
+		/**
+		 * The meta object literal for the '{@link unblod.dataset.model.dataset.impl.SchemaImpl <em>Schema</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see unblod.dataset.model.dataset.impl.SchemaImpl
+		 * @see unblod.dataset.model.dataset.impl.DatasetPackageImpl#getSchema()
+		 * @generated
+		 */
+		EClass SCHEMA = eINSTANCE.getSchema();
+
+		/**
+		 * The meta object literal for the '<em><b>EReference0</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCHEMA__EREFERENCE0 = eINSTANCE.getSchema_EReference0();
+
+		/**
+		 * The meta object literal for the '<em><b>EReference1</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCHEMA__EREFERENCE1 = eINSTANCE.getSchema_EReference1();
+
+		/**
+		 * The meta object literal for the '<em><b>Classes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCHEMA__CLASSES = eINSTANCE.getSchema_Classes();
+
+		/**
+		 * The meta object literal for the '<em><b>Uri</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCHEMA__URI = eINSTANCE.getSchema_Uri();
+
+		/**
+		 * The meta object literal for the '{@link unblod.dataset.model.dataset.impl.SClassImpl <em>SClass</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see unblod.dataset.model.dataset.impl.SClassImpl
+		 * @see unblod.dataset.model.dataset.impl.DatasetPackageImpl#getSClass()
+		 * @generated
+		 */
+		EClass SCLASS = eINSTANCE.getSClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCLASS__PROPERTIES = eINSTANCE.getSClass_Properties();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCLASS__NAME = eINSTANCE.getSClass_Name();
+
+		/**
+		 * The meta object literal for the '{@link unblod.dataset.model.dataset.impl.SPropertyImpl <em>SProperty</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see unblod.dataset.model.dataset.impl.SPropertyImpl
+		 * @see unblod.dataset.model.dataset.impl.DatasetPackageImpl#getSProperty()
+		 * @generated
+		 */
+		EClass SPROPERTY = eINSTANCE.getSProperty();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPROPERTY__NAME = eINSTANCE.getSProperty_Name();
 
 	}
 

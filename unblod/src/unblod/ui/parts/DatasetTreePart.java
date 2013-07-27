@@ -127,6 +127,9 @@ public class DatasetTreePart {
 					if (extension.equals(DatasetModelService.RDF_EXS)) {
 						return "RDF data";
 					}
+					if (extension.equals(DatasetModelService.SCHEMA_EXS)) {
+						return "Data Schema";
+					}
 					
 				}
 				
@@ -225,6 +228,9 @@ public class DatasetTreePart {
 						if(extension.equals(DatasetModelService.RDF_EXS)) {
 							showSparqlInterfacePart(datasetParent);
 						}
+						if(extension.equals(DatasetModelService.SCHEMA_EXS)) {
+							showSchemaPart(datasetParent);
+						}
 					
 					}
 					
@@ -314,5 +320,20 @@ public class DatasetTreePart {
 		stack.setSelectedElement(part);
 		//partService.showPart(part, PartState.VISIBLE);
 		
+	}
+	
+	protected void showSchemaPart(Dataset parentDataset) {
+		// TODO Auto-generated method stub
+		MPart part = partService.createPart("unblod.partdescriptor.schemaPart");
+		MPartStack stack = (MPartStack)modelService.find("unblod.partstack.mainstack", application);
+		stack.getChildren().add(part);
+		
+		/*IEclipseContext context = EclipseContextFactory.create();
+		context.set(Dataset.class, parentDataset);
+		part.setContext(context);*/
+		
+		part.setLabel(parentDataset.getName() + " - Schema");
+		part.setVisible(true);
+		stack.setSelectedElement(part);
 	}
 }

@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link unblod.dataset.model.dataset.Property#getName <em>Name</em>}</li>
  *   <li>{@link unblod.dataset.model.dataset.Property#getSourceCSVCol <em>Source CSV Col</em>}</li>
- *   <li>{@link unblod.dataset.model.dataset.Property#getNamespace <em>Namespace</em>}</li>
  *   <li>{@link unblod.dataset.model.dataset.Property#getTransformation <em>Transformation</em>}</li>
  *   <li>{@link unblod.dataset.model.dataset.Property#getCustomPattern <em>Custom Pattern</em>}</li>
  *   <li>{@link unblod.dataset.model.dataset.Property#getDataType <em>Data Type</em>}</li>
@@ -77,32 +76,6 @@ public interface Property extends EObject {
 	 * @generated
 	 */
 	void setSourceCSVCol(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Namespace</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Namespace</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Namespace</em>' attribute.
-	 * @see #setNamespace(String)
-	 * @see unblod.dataset.model.dataset.DatasetPackage#getProperty_Namespace()
-	 * @model
-	 * @generated
-	 */
-	String getNamespace();
-
-	/**
-	 * Sets the value of the '{@link unblod.dataset.model.dataset.Property#getNamespace <em>Namespace</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Namespace</em>' attribute.
-	 * @see #getNamespace()
-	 * @generated
-	 */
-	void setNamespace(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Transformation</b></em>' attribute.

@@ -100,6 +100,22 @@ public class DatasetAdapterFactory extends AdapterFactoryImpl {
 				return createNamespaceDefinitionAdapter();
 			}
 			@Override
+			public Adapter caseDatasetIntegration(DatasetIntegration object) {
+				return createDatasetIntegrationAdapter();
+			}
+			@Override
+			public Adapter caseSchema(Schema object) {
+				return createSchemaAdapter();
+			}
+			@Override
+			public Adapter caseSClass(SClass object) {
+				return createSClassAdapter();
+			}
+			@Override
+			public Adapter caseSProperty(SProperty object) {
+				return createSPropertyAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -228,6 +244,62 @@ public class DatasetAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNamespaceDefinitionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link unblod.dataset.model.dataset.DatasetIntegration <em>Integration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see unblod.dataset.model.dataset.DatasetIntegration
+	 * @generated
+	 */
+	public Adapter createDatasetIntegrationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link unblod.dataset.model.dataset.Schema <em>Schema</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see unblod.dataset.model.dataset.Schema
+	 * @generated
+	 */
+	public Adapter createSchemaAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link unblod.dataset.model.dataset.SClass <em>SClass</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see unblod.dataset.model.dataset.SClass
+	 * @generated
+	 */
+	public Adapter createSClassAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link unblod.dataset.model.dataset.SProperty <em>SProperty</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see unblod.dataset.model.dataset.SProperty
+	 * @generated
+	 */
+	public Adapter createSPropertyAdapter() {
 		return null;
 	}
 
