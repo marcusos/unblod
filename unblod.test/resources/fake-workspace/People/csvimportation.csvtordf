@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dataset:CsvToRdfImportation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:dataset="http://dataset/1.0">
+  <fromFiles csvFileURL="/Users/marcusoliveira/git/unblod2/unblod.test/examples/person.csv" name="People">
+    <RdfConstructions name="Person" sourceCsvCol="c" baseUri="http://people.org/res/" classType="ne:Person">
+      <properties name="ne:nome" transformation="none" dataType="xsd:string"/>
+      <properties name="ne:Idade" sourceCSVCol="b" transformation="none" dataType="none"/>
+    </RdfConstructions>
+  </fromFiles>
+</dataset:CsvToRdfImportation>

@@ -1,0 +1,35 @@
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix ne:      <http://people.org/voc#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://people.org/res/person#843>
+      a       ne:Person ;
+      ne:age  "32" ;
+      ne:id   "843" ;
+      ne:name "camila" .
+
+<http://people.org/res/person#732>
+      a       ne:Person ;
+      ne:age  "16" ;
+      ne:id   "732" ;
+      ne:name "thiago" .
+
+<http://people.org/res/person#845>
+      a       ne:Person ;
+      ne:age  "37" ;
+      ne:id   "845" ;
+      ne:name "flavio" .
+
+<http://people.org/res/person#844>
+      a       ne:Person ;
+      ne:age  "35" ;
+      ne:id   "844" ;
+      ne:name "marcia" .
+
+<http://people.org/res/person#739>
+      a       ne:Person ;
+      ne:age  "23" ;
+      ne:id   "739" ;
+      ne:name "pedro" .

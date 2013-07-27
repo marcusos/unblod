@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dataset:NamespacesDefinitions xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:dataset="http://dataset/1.0">
+  <definitions namespace="http://www.w3.org/2000/01/rdf-schema#" prefix="rdfs"/>
+  <definitions namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" prefix="rdf"/>
+  <definitions namespace="http://www.w3.org/2001/XMLSchema#" prefix="xsd"/>
+  <definitions namespace="http://xmlns.com/foaf/0.1/" prefix="foaf"/>
+  <definitions namespace="http://people.org/ontologia#" prefix="ne"/>
+</dataset:NamespacesDefinitions>
