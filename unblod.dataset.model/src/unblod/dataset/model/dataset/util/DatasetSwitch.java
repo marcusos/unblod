@@ -140,6 +140,30 @@ public class DatasetSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DatasetPackage.INTEGRATION: {
+				Integration integration = (Integration)theEObject;
+				T result = caseIntegration(integration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatasetPackage.EXTERNAL_DATASET: {
+				ExternalDataset externalDataset = (ExternalDataset)theEObject;
+				T result = caseExternalDataset(externalDataset);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatasetPackage.CLASS_INTEGRATION: {
+				ClassIntegration classIntegration = (ClassIntegration)theEObject;
+				T result = caseClassIntegration(classIntegration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatasetPackage.PROPERTY_INTEGRATION: {
+				PropertyIntegration propertyIntegration = (PropertyIntegration)theEObject;
+				T result = casePropertyIntegration(propertyIntegration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -321,6 +345,66 @@ public class DatasetSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSProperty(SProperty object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Integration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Integration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIntegration(Integration object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>External Dataset</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>External Dataset</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExternalDataset(ExternalDataset object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Class Integration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Class Integration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseClassIntegration(ClassIntegration object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Property Integration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Property Integration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePropertyIntegration(PropertyIntegration object) {
 		return null;
 	}
 

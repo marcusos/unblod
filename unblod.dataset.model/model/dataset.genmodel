@@ -61,5 +61,24 @@
     <genClasses ecoreClass="dataset.ecore#//SProperty">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//SProperty/name"/>
     </genClasses>
+    <genClasses ecoreClass="dataset.ecore#//Integration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataset.ecore#//Integration/datasets"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//Integration/Uri"/>
+    </genClasses>
+    <genClasses ecoreClass="dataset.ecore#//ExternalDataset">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataset.ecore#//ExternalDataset/classes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dataset.ecore#//ExternalDataset/dataset"/>
+    </genClasses>
+    <genClasses ecoreClass="dataset.ecore#//ClassIntegration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataset.ecore#//ClassIntegration/properties"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dataset.ecore#//ClassIntegration/sclass"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dataset.ecore#//ClassIntegration/externalClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//ClassIntegration/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="dataset.ecore#//PropertyIntegration">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dataset.ecore#//PropertyIntegration/sproperty"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dataset.ecore#//PropertyIntegration/externalProperty"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//PropertyIntegration/expression"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

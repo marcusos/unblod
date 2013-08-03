@@ -1,19 +1,12 @@
 package unbload.ui.utils;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
 import unblod.dataset.model.dataset.CsvFile;
 import unblod.dataset.model.dataset.CsvToRdfImportation;
-import unblod.dataset.model.dataset.Dataset;
 import unblod.dataset.model.dataset.RdfConstruction;
 import unblod.dataset.service.DatasetModelService;
-import unblod.util.Util;
 
 public class CsvImportationTreeContentProvider implements ITreeContentProvider {
 

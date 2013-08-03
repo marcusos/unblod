@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import unblod.dataset.model.dataset.CsvToRdfImportation;
 import unblod.dataset.model.dataset.Dataset;
 import unblod.dataset.model.dataset.DatasetFactory;
+import unblod.dataset.model.dataset.Integration;
 import unblod.dataset.model.dataset.NamespaceDefinition;
 import unblod.dataset.model.dataset.NamespacesDefinitions;
 import unblod.dataset.model.dataset.Schema;
@@ -33,6 +34,7 @@ public class DatasetModelService {
 	public static String NAMESPACES_EXS = "nedefinitions";
 	public static String RDF_EXS = "ttl";
 	public static String SCHEMA_EXS = "schema";
+	public static String INTEGRATION_EXS = "integration";
 	
 	private static DatasetModelService instance;
 	
@@ -81,6 +83,7 @@ public class DatasetModelService {
 		m.put("nedefinitions", new XMIResourceFactoryImpl());
 		m.put("csvtordf", new XMIResourceFactoryImpl());
 		m.put(SCHEMA_EXS, new XMIResourceFactoryImpl());
+		m.put(INTEGRATION_EXS, new XMIResourceFactoryImpl());
 		
 		loadDatasets();
 	}
@@ -120,6 +123,7 @@ public class DatasetModelService {
 		CsvToRdfImportation csvToRDF = factory.createCsvToRdfImportation();
 		NamespacesDefinitions neDefinitions =  factory.createNamespacesDefinitions();
 		Schema schema =  factory.createSchema();
+		Integration integration = factory.createIntegration(); 
 		
 		//Basci ne definitions (foaf, xsd)
 		//@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
@@ -149,22 +153,26 @@ public class DatasetModelService {
 		String nedefinitionsUir = Util.getWorkspace() + dataset.getName() + "/namespaces.nedefinitions";
 		String csvtordfUir = Util.getWorkspace() + dataset.getName() + "/csvimportation.csvtordf";
 		String dataSchemaUir = Util.getWorkspace() + dataset.getName() + "/data.schema";
+		String datasetIntegrationUir = Util.getWorkspace() + dataset.getName() + "/data.integration";
 		
 		Resource datasetResource = resSet.createResource(URI.createURI(datasetInfoUri));
 		Resource nedefinitionsResource = resSet.createResource(URI.createURI(nedefinitionsUir));
 		Resource csvtordfResource = resSet.createResource(URI.createURI(csvtordfUir));
 		Resource dataSchemaResource = resSet.createResource(URI.createURI(dataSchemaUir));
+		Resource dataIntegrationResource = resSet.createResource(URI.createURI(datasetIntegrationUir));
 		
 		datasetResource.getContents().add(dataset);
 		nedefinitionsResource.getContents().add(neDefinitions);
 		csvtordfResource.getContents().add(csvToRDF);
 		dataSchemaResource.getContents().add(schema); 
+		dataIntegrationResource.getContents().add(integration); 
 		
 		try {
 			datasetResource.save(Collections.EMPTY_MAP);
 			nedefinitionsResource.save(Collections.EMPTY_MAP);
 			csvtordfResource.save(Collections.EMPTY_MAP);
 			dataSchemaResource.save(Collections.EMPTY_MAP);
+			dataIntegrationResource.save(Collections.EMPTY_MAP);
 			
 			this.datasets.add(dataset);
 			return true;
@@ -270,17 +278,6 @@ public class DatasetModelService {
 		return csvToRdfImportation;
 	}
 	
-	public Schema getSchema(Dataset dataset) {
-		// TODO Auto-generated method stub
-		ResourceSet resSet = new ResourceSetImpl();
-    	String datasetInfoUri =  Util.getWorkspace() + dataset.getName() + "/data.schema";
-    	Resource resource = resSet.getResource(URI.createURI(datasetInfoUri), true);
-    	
-    	Schema schema = (Schema)resource.getContents().get(0);
-		
-		return schema;
-	}
-	
 	public Boolean saveCsvToRdfImportation(Dataset dataset, CsvToRdfImportation csvToRdfImportation) {
 		
 		ResourceSet resSet = new ResourceSetImpl();
@@ -302,6 +299,18 @@ public class DatasetModelService {
 		
 		return true;
 	}
+
+	public Schema getSchema(Dataset dataset) {
+		// TODO Auto-generated method stub
+		ResourceSet resSet = new ResourceSetImpl();
+    	String datasetInfoUri =  Util.getWorkspace() + dataset.getName() + "/data.schema";
+    	Resource resource = resSet.getResource(URI.createURI(datasetInfoUri), true);
+    	
+    	Schema schema = (Schema)resource.getContents().get(0);
+		
+		return schema;
+	}
+	
 	
 	public Boolean saveSchema(Dataset dataset, Schema schema) {
 		
@@ -324,6 +333,40 @@ public class DatasetModelService {
 		
 		return true;
 	}
+	
+	public Integration getIntegation(Dataset dataset) {
+		// TODO Auto-generated method stub
+		ResourceSet resSet = new ResourceSetImpl();
+    	String datasetInfoUri =  Util.getWorkspace() + dataset.getName() + "/data.integration";
+    	Resource resource = resSet.getResource(URI.createURI(datasetInfoUri), true);
+    	
+    	Integration integration = (Integration)resource.getContents().get(0);
+		
+		return integration;
+	}
+	
+	
+	public Boolean saveIntegration(Dataset dataset, Integration integration) {
+		
+		ResourceSet resSet = new ResourceSetImpl();
+		String integrationUri = Util.getWorkspace() + dataset.getName() + "/data.integration";
+		
+		Resource integrationResource = resSet.createResource(URI.createURI(integrationUri));
+		integrationResource.getContents().add(integration);
+		
+		if (findDataset(dataset) == null) {
+			return false;
+		}
+		
+		try {
+			integrationResource.save(Collections.EMPTY_MAP);
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+		return true;
+	}	
 
 	public String getRdfDataPath(Dataset dataset) {
 		// TODO Auto-generated method stub

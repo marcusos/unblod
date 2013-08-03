@@ -746,6 +746,218 @@ public interface DatasetPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link unblod.dataset.model.dataset.impl.IntegrationImpl <em>Integration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see unblod.dataset.model.dataset.impl.IntegrationImpl
+	 * @see unblod.dataset.model.dataset.impl.DatasetPackageImpl#getIntegration()
+	 * @generated
+	 */
+	int INTEGRATION = 12;
+
+	/**
+	 * The feature id for the '<em><b>Datasets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGRATION__DATASETS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Uri</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGRATION__URI = 1;
+
+	/**
+	 * The number of structural features of the '<em>Integration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGRATION_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Integration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGRATION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link unblod.dataset.model.dataset.impl.ExternalDatasetImpl <em>External Dataset</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see unblod.dataset.model.dataset.impl.ExternalDatasetImpl
+	 * @see unblod.dataset.model.dataset.impl.DatasetPackageImpl#getExternalDataset()
+	 * @generated
+	 */
+	int EXTERNAL_DATASET = 13;
+
+	/**
+	 * The feature id for the '<em><b>Classes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DATASET__CLASSES = 0;
+
+	/**
+	 * The feature id for the '<em><b>Dataset</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DATASET__DATASET = 1;
+
+	/**
+	 * The number of structural features of the '<em>External Dataset</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DATASET_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>External Dataset</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DATASET_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link unblod.dataset.model.dataset.impl.ClassIntegrationImpl <em>Class Integration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see unblod.dataset.model.dataset.impl.ClassIntegrationImpl
+	 * @see unblod.dataset.model.dataset.impl.DatasetPackageImpl#getClassIntegration()
+	 * @generated
+	 */
+	int CLASS_INTEGRATION = 14;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INTEGRATION__PROPERTIES = 0;
+
+	/**
+	 * The feature id for the '<em><b>Sclass</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INTEGRATION__SCLASS = 1;
+
+	/**
+	 * The feature id for the '<em><b>External Class</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INTEGRATION__EXTERNAL_CLASS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INTEGRATION__EXPRESSION = 3;
+
+	/**
+	 * The number of structural features of the '<em>Class Integration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INTEGRATION_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Class Integration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_INTEGRATION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link unblod.dataset.model.dataset.impl.PropertyIntegrationImpl <em>Property Integration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see unblod.dataset.model.dataset.impl.PropertyIntegrationImpl
+	 * @see unblod.dataset.model.dataset.impl.DatasetPackageImpl#getPropertyIntegration()
+	 * @generated
+	 */
+	int PROPERTY_INTEGRATION = 15;
+
+	/**
+	 * The feature id for the '<em><b>Sproperty</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_INTEGRATION__SPROPERTY = 0;
+
+	/**
+	 * The feature id for the '<em><b>External Property</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_INTEGRATION__EXTERNAL_PROPERTY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_INTEGRATION__EXPRESSION = 2;
+
+	/**
+	 * The number of structural features of the '<em>Property Integration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_INTEGRATION_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Property Integration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_INTEGRATION_OPERATION_COUNT = 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link unblod.dataset.model.dataset.Dataset <em>Dataset</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1207,6 +1419,167 @@ public interface DatasetPackage extends EPackage {
 	EAttribute getSProperty_Name();
 
 	/**
+	 * Returns the meta object for class '{@link unblod.dataset.model.dataset.Integration <em>Integration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Integration</em>'.
+	 * @see unblod.dataset.model.dataset.Integration
+	 * @generated
+	 */
+	EClass getIntegration();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link unblod.dataset.model.dataset.Integration#getDatasets <em>Datasets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Datasets</em>'.
+	 * @see unblod.dataset.model.dataset.Integration#getDatasets()
+	 * @see #getIntegration()
+	 * @generated
+	 */
+	EReference getIntegration_Datasets();
+
+	/**
+	 * Returns the meta object for the attribute '{@link unblod.dataset.model.dataset.Integration#getUri <em>Uri</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uri</em>'.
+	 * @see unblod.dataset.model.dataset.Integration#getUri()
+	 * @see #getIntegration()
+	 * @generated
+	 */
+	EAttribute getIntegration_Uri();
+
+	/**
+	 * Returns the meta object for class '{@link unblod.dataset.model.dataset.ExternalDataset <em>External Dataset</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>External Dataset</em>'.
+	 * @see unblod.dataset.model.dataset.ExternalDataset
+	 * @generated
+	 */
+	EClass getExternalDataset();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link unblod.dataset.model.dataset.ExternalDataset#getClasses <em>Classes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Classes</em>'.
+	 * @see unblod.dataset.model.dataset.ExternalDataset#getClasses()
+	 * @see #getExternalDataset()
+	 * @generated
+	 */
+	EReference getExternalDataset_Classes();
+
+	/**
+	 * Returns the meta object for the reference '{@link unblod.dataset.model.dataset.ExternalDataset#getDataset <em>Dataset</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Dataset</em>'.
+	 * @see unblod.dataset.model.dataset.ExternalDataset#getDataset()
+	 * @see #getExternalDataset()
+	 * @generated
+	 */
+	EReference getExternalDataset_Dataset();
+
+	/**
+	 * Returns the meta object for class '{@link unblod.dataset.model.dataset.ClassIntegration <em>Class Integration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Class Integration</em>'.
+	 * @see unblod.dataset.model.dataset.ClassIntegration
+	 * @generated
+	 */
+	EClass getClassIntegration();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link unblod.dataset.model.dataset.ClassIntegration#getProperties <em>Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Properties</em>'.
+	 * @see unblod.dataset.model.dataset.ClassIntegration#getProperties()
+	 * @see #getClassIntegration()
+	 * @generated
+	 */
+	EReference getClassIntegration_Properties();
+
+	/**
+	 * Returns the meta object for the reference '{@link unblod.dataset.model.dataset.ClassIntegration#getSclass <em>Sclass</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Sclass</em>'.
+	 * @see unblod.dataset.model.dataset.ClassIntegration#getSclass()
+	 * @see #getClassIntegration()
+	 * @generated
+	 */
+	EReference getClassIntegration_Sclass();
+
+	/**
+	 * Returns the meta object for the reference '{@link unblod.dataset.model.dataset.ClassIntegration#getExternalClass <em>External Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>External Class</em>'.
+	 * @see unblod.dataset.model.dataset.ClassIntegration#getExternalClass()
+	 * @see #getClassIntegration()
+	 * @generated
+	 */
+	EReference getClassIntegration_ExternalClass();
+
+	/**
+	 * Returns the meta object for the attribute '{@link unblod.dataset.model.dataset.ClassIntegration#getExpression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Expression</em>'.
+	 * @see unblod.dataset.model.dataset.ClassIntegration#getExpression()
+	 * @see #getClassIntegration()
+	 * @generated
+	 */
+	EAttribute getClassIntegration_Expression();
+
+	/**
+	 * Returns the meta object for class '{@link unblod.dataset.model.dataset.PropertyIntegration <em>Property Integration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Property Integration</em>'.
+	 * @see unblod.dataset.model.dataset.PropertyIntegration
+	 * @generated
+	 */
+	EClass getPropertyIntegration();
+
+	/**
+	 * Returns the meta object for the reference '{@link unblod.dataset.model.dataset.PropertyIntegration#getSproperty <em>Sproperty</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Sproperty</em>'.
+	 * @see unblod.dataset.model.dataset.PropertyIntegration#getSproperty()
+	 * @see #getPropertyIntegration()
+	 * @generated
+	 */
+	EReference getPropertyIntegration_Sproperty();
+
+	/**
+	 * Returns the meta object for the reference '{@link unblod.dataset.model.dataset.PropertyIntegration#getExternalProperty <em>External Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>External Property</em>'.
+	 * @see unblod.dataset.model.dataset.PropertyIntegration#getExternalProperty()
+	 * @see #getPropertyIntegration()
+	 * @generated
+	 */
+	EReference getPropertyIntegration_ExternalProperty();
+
+	/**
+	 * Returns the meta object for the attribute '{@link unblod.dataset.model.dataset.PropertyIntegration#getExpression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Expression</em>'.
+	 * @see unblod.dataset.model.dataset.PropertyIntegration#getExpression()
+	 * @see #getPropertyIntegration()
+	 * @generated
+	 */
+	EAttribute getPropertyIntegration_Expression();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1596,6 +1969,134 @@ public interface DatasetPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SPROPERTY__NAME = eINSTANCE.getSProperty_Name();
+
+		/**
+		 * The meta object literal for the '{@link unblod.dataset.model.dataset.impl.IntegrationImpl <em>Integration</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see unblod.dataset.model.dataset.impl.IntegrationImpl
+		 * @see unblod.dataset.model.dataset.impl.DatasetPackageImpl#getIntegration()
+		 * @generated
+		 */
+		EClass INTEGRATION = eINSTANCE.getIntegration();
+
+		/**
+		 * The meta object literal for the '<em><b>Datasets</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTEGRATION__DATASETS = eINSTANCE.getIntegration_Datasets();
+
+		/**
+		 * The meta object literal for the '<em><b>Uri</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INTEGRATION__URI = eINSTANCE.getIntegration_Uri();
+
+		/**
+		 * The meta object literal for the '{@link unblod.dataset.model.dataset.impl.ExternalDatasetImpl <em>External Dataset</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see unblod.dataset.model.dataset.impl.ExternalDatasetImpl
+		 * @see unblod.dataset.model.dataset.impl.DatasetPackageImpl#getExternalDataset()
+		 * @generated
+		 */
+		EClass EXTERNAL_DATASET = eINSTANCE.getExternalDataset();
+
+		/**
+		 * The meta object literal for the '<em><b>Classes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXTERNAL_DATASET__CLASSES = eINSTANCE.getExternalDataset_Classes();
+
+		/**
+		 * The meta object literal for the '<em><b>Dataset</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXTERNAL_DATASET__DATASET = eINSTANCE.getExternalDataset_Dataset();
+
+		/**
+		 * The meta object literal for the '{@link unblod.dataset.model.dataset.impl.ClassIntegrationImpl <em>Class Integration</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see unblod.dataset.model.dataset.impl.ClassIntegrationImpl
+		 * @see unblod.dataset.model.dataset.impl.DatasetPackageImpl#getClassIntegration()
+		 * @generated
+		 */
+		EClass CLASS_INTEGRATION = eINSTANCE.getClassIntegration();
+
+		/**
+		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CLASS_INTEGRATION__PROPERTIES = eINSTANCE.getClassIntegration_Properties();
+
+		/**
+		 * The meta object literal for the '<em><b>Sclass</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CLASS_INTEGRATION__SCLASS = eINSTANCE.getClassIntegration_Sclass();
+
+		/**
+		 * The meta object literal for the '<em><b>External Class</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CLASS_INTEGRATION__EXTERNAL_CLASS = eINSTANCE.getClassIntegration_ExternalClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Expression</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CLASS_INTEGRATION__EXPRESSION = eINSTANCE.getClassIntegration_Expression();
+
+		/**
+		 * The meta object literal for the '{@link unblod.dataset.model.dataset.impl.PropertyIntegrationImpl <em>Property Integration</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see unblod.dataset.model.dataset.impl.PropertyIntegrationImpl
+		 * @see unblod.dataset.model.dataset.impl.DatasetPackageImpl#getPropertyIntegration()
+		 * @generated
+		 */
+		EClass PROPERTY_INTEGRATION = eINSTANCE.getPropertyIntegration();
+
+		/**
+		 * The meta object literal for the '<em><b>Sproperty</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPERTY_INTEGRATION__SPROPERTY = eINSTANCE.getPropertyIntegration_Sproperty();
+
+		/**
+		 * The meta object literal for the '<em><b>External Property</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPERTY_INTEGRATION__EXTERNAL_PROPERTY = eINSTANCE.getPropertyIntegration_ExternalProperty();
+
+		/**
+		 * The meta object literal for the '<em><b>Expression</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTY_INTEGRATION__EXPRESSION = eINSTANCE.getPropertyIntegration_Expression();
 
 	}
 

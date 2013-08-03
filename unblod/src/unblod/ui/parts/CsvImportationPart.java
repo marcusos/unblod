@@ -16,7 +16,28 @@ import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.ITreeSelection;
+import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.jface.window.Window;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.SashForm;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.MenuItem;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Tree;
+import org.eclipse.wb.swt.ResourceManager;
 
 import unbload.ui.utils.CsvImportationTreeContentProvider;
 import unbload.ui.utils.GUIUtil;
@@ -33,28 +54,6 @@ import unblod.ui.dialogs.CsvFileDialog;
 import unblod.ui.dialogs.CsvPropertyDialog;
 import unblod.ui.dialogs.CsvReferencePropertyDialog;
 import unblod.ui.dialogs.RdfConstructionDialog;
-
-import org.eclipse.swt.custom.SashForm;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.layout.FillLayout;
-import org.eclipse.swt.widgets.Tree;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.jface.viewers.ISelectionChangedListener;
-import org.eclipse.jface.viewers.ITreeSelection;
-import org.eclipse.jface.viewers.LabelProvider;
-import org.eclipse.jface.viewers.SelectionChangedEvent;
-import org.eclipse.jface.viewers.TreeViewer;
-import org.eclipse.jface.window.Window;
-import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.wb.swt.ResourceManager;
-import org.eclipse.swt.widgets.Menu;
-import org.eclipse.swt.widgets.MenuItem;
 
 public class CsvImportationPart {
 	
@@ -146,29 +145,35 @@ public class CsvImportationPart {
 		compositeControls.setLayout(new GridLayout(1, false));
 		
 		btnAddCsvFile = new Button(compositeControls, SWT.NONE);
+		btnAddCsvFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		btnAddCsvFile.setImage(ResourceManager.getPluginImage("unblod", "protege-icons/form.add.gif"));
 		btnAddCsvFile.setText("Add CSV file");
 		
 		btnAddRdfConstruction = new Button(compositeControls, SWT.NONE);
+		btnAddRdfConstruction.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		btnAddRdfConstruction.setImage(ResourceManager.getPluginImage("unblod", "protege-icons/individual.add.png"));
 		btnAddRdfConstruction.setText("Add RDF construction");
 		
 		btnAddProperty = new Button(compositeControls, SWT.NONE);
+		btnAddProperty.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		btnAddProperty.setImage(ResourceManager.getPluginImage("unblod", "protege-icons/property.data.add.png"));
 		btnAddProperty.setText("Add Property");
 		
 		btnAddReferenceProperty = new Button(compositeControls, SWT.NONE);
+		btnAddReferenceProperty.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		btnAddReferenceProperty.setImage(ResourceManager.getPluginImage("unblod", "protege-icons/property.object.add.png"));
 		btnAddReferenceProperty.setText("Add Reference Property");
 		
 		btnEdit = new Button(compositeControls, SWT.NONE);
+		btnEdit.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		btnEdit.setImage(ResourceManager.getPluginImage("unblod", "metro-icons/appbar.edit.png"));
 		btnEdit.setText("Edit");
 		
 		btnRemove = new Button(compositeControls, SWT.NONE);
+		btnRemove.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		btnRemove.setImage(ResourceManager.getPluginImage("unblod", "protege-icons/clear.gif"));
 		btnRemove.setText("Remove...");
-		sashForm.setWeights(new int[] {2, 1});
+		sashForm.setWeights(new int[] {273, 174});
 		
 		treeViewer.setLabelProvider(new LabelProvider() {
 			@Override
@@ -487,6 +492,8 @@ public class CsvImportationPart {
 		treeViewer.setContentProvider(new CsvImportationTreeContentProvider());
 		treeViewer.setInput(new CsvToRdfImportation[]{csvToRdfImportation});
 		//System.out.println("CsvImportationPart: " + dataset.getName());
+		
+		treeViewer.expandAll();
 		
 		updateBtnControls();
 	}

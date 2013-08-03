@@ -68,6 +68,10 @@ public class DatasetFactoryImpl extends EFactoryImpl implements DatasetFactory {
 			case DatasetPackage.SCHEMA: return createSchema();
 			case DatasetPackage.SCLASS: return createSClass();
 			case DatasetPackage.SPROPERTY: return createSProperty();
+			case DatasetPackage.INTEGRATION: return createIntegration();
+			case DatasetPackage.EXTERNAL_DATASET: return createExternalDataset();
+			case DatasetPackage.CLASS_INTEGRATION: return createClassIntegration();
+			case DatasetPackage.PROPERTY_INTEGRATION: return createPropertyIntegration();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -191,6 +195,46 @@ public class DatasetFactoryImpl extends EFactoryImpl implements DatasetFactory {
 	public SProperty createSProperty() {
 		SPropertyImpl sProperty = new SPropertyImpl();
 		return sProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Integration createIntegration() {
+		IntegrationImpl integration = new IntegrationImpl();
+		return integration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExternalDataset createExternalDataset() {
+		ExternalDatasetImpl externalDataset = new ExternalDatasetImpl();
+		return externalDataset;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ClassIntegration createClassIntegration() {
+		ClassIntegrationImpl classIntegration = new ClassIntegrationImpl();
+		return classIntegration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PropertyIntegration createPropertyIntegration() {
+		PropertyIntegrationImpl propertyIntegration = new PropertyIntegrationImpl();
+		return propertyIntegration;
 	}
 
 	/**

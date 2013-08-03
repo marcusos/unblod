@@ -130,6 +130,42 @@ public interface DatasetFactory extends EFactory {
 	SProperty createSProperty();
 
 	/**
+	 * Returns a new object of class '<em>Integration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Integration</em>'.
+	 * @generated
+	 */
+	Integration createIntegration();
+
+	/**
+	 * Returns a new object of class '<em>External Dataset</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>External Dataset</em>'.
+	 * @generated
+	 */
+	ExternalDataset createExternalDataset();
+
+	/**
+	 * Returns a new object of class '<em>Class Integration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Class Integration</em>'.
+	 * @generated
+	 */
+	ClassIntegration createClassIntegration();
+
+	/**
+	 * Returns a new object of class '<em>Property Integration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Property Integration</em>'.
+	 * @generated
+	 */
+	PropertyIntegration createPropertyIntegration();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

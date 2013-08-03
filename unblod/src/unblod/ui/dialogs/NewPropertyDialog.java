@@ -14,24 +14,24 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 import unblod.dataset.model.dataset.SClass;
-import org.eclipse.wb.swt.SWTResourceManager;
+import unblod.dataset.model.dataset.SProperty;
 
 
-public class NewClassDialog extends TitleAreaDialog{
+public class NewPropertyDialog extends TitleAreaDialog{
 
-	SClass sClass = null;
+	SProperty sProperty = null;
 	private Text name;
 	
-	public NewClassDialog(Shell parentShell, SClass namespace) {
+	public NewPropertyDialog(Shell parentShell, SProperty nameProperty) {
 		super(parentShell);
-		this.sClass = namespace;
+		this.sProperty = nameProperty;
 	}
 	
 	 @Override
 	  public void create() {
 	    super.create();
 	    // Set the title
-	    setTitle("Class dialog.");
+	    setTitle("Namespace dialog.");
 	    // Set the message
 	    //setMessage("This is a TitleAreaDialog",  IMessageProvider.INFORMATION);
 	    initializeInputs();
@@ -42,10 +42,10 @@ public class NewClassDialog extends TitleAreaDialog{
 	public void validateInputs() {
 		Boolean valid = true;
 		
-//		if (name.getText() == null || name.getText().equals("")) {
-//			setMessage("The name of the class must be specified");
-//			valid = false;
-//		}
+		if (name.getText() == null || name.getText().equals("")) {
+			setMessage("The name of the property must be specified");
+			valid = false;
+		}
 		
 		if (!valid) {
 			this.getButton(IDialogConstants.OK_ID).setEnabled(false);
@@ -59,8 +59,8 @@ public class NewClassDialog extends TitleAreaDialog{
 	
 	public void initializeInputs() {
 		
-		if (sClass.getName() != null) {
-			name.setText(sClass.getName());
+		if (sProperty.getName() != null) {
+			name.setText(sProperty.getName());
 		}
 		
 	}
@@ -83,19 +83,6 @@ public class NewClassDialog extends TitleAreaDialog{
 		
 		name = new Text(composite, SWT.BORDER);
 		name.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		
-		Label label = new Label(composite, SWT.NONE);
-		label.setText("Resource URI");
-		label.setFont(SWTResourceManager.getFont("Lucida Grande", 11, SWT.BOLD));
-		label.setAlignment(SWT.RIGHT);
-		new Label(composite, SWT.NONE);
-		
-		Label lblUri = new Label(composite, SWT.NONE);
-		lblUri.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
-		lblUri.setText("Base URI");
-		
-		Text uriTxt = new Text(composite, SWT.BORDER);
-		uriTxt.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		// Build the separator line
 		//Label titleBarSeparator = new Label(composite, SWT.HORIZONTAL
 		//		| SWT.SEPARATOR);
@@ -117,13 +104,17 @@ public class NewClassDialog extends TitleAreaDialog{
 	protected void okPressed() {
 		
 		// populate de object
-		this.sClass.setName(name.getText());
+		this.sProperty.setName(name.getText());
 		
 		super.okPressed();
 	}
 	
-	public SClass getSClass() {
-		return sClass;
+	public SProperty getSProperty() {
+		return sProperty;
+	}
+
+	public void setSProperty(SProperty sProperty) {
+		this.sProperty = sProperty;
 	}
 
 }

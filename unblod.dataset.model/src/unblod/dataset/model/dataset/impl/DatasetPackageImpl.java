@@ -7,15 +7,19 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import unblod.dataset.model.dataset.ClassIntegration;
 import unblod.dataset.model.dataset.CsvFile;
 import unblod.dataset.model.dataset.CsvToRdfImportation;
 import unblod.dataset.model.dataset.Dataset;
 import unblod.dataset.model.dataset.DatasetFactory;
 import unblod.dataset.model.dataset.DatasetIntegration;
 import unblod.dataset.model.dataset.DatasetPackage;
+import unblod.dataset.model.dataset.ExternalDataset;
+import unblod.dataset.model.dataset.Integration;
 import unblod.dataset.model.dataset.NamespaceDefinition;
 import unblod.dataset.model.dataset.NamespacesDefinitions;
 import unblod.dataset.model.dataset.Property;
+import unblod.dataset.model.dataset.PropertyIntegration;
 import unblod.dataset.model.dataset.RdfConstruction;
 import unblod.dataset.model.dataset.ReferenceProperty;
 import unblod.dataset.model.dataset.SClass;
@@ -112,6 +116,34 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 	 * @generated
 	 */
 	private EClass sPropertyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass integrationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass externalDatasetEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass classIntegrationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass propertyIntegrationEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -566,6 +598,141 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getIntegration() {
+		return integrationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIntegration_Datasets() {
+		return (EReference)integrationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIntegration_Uri() {
+		return (EAttribute)integrationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getExternalDataset() {
+		return externalDatasetEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExternalDataset_Classes() {
+		return (EReference)externalDatasetEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExternalDataset_Dataset() {
+		return (EReference)externalDatasetEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getClassIntegration() {
+		return classIntegrationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getClassIntegration_Properties() {
+		return (EReference)classIntegrationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getClassIntegration_Sclass() {
+		return (EReference)classIntegrationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getClassIntegration_ExternalClass() {
+		return (EReference)classIntegrationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getClassIntegration_Expression() {
+		return (EAttribute)classIntegrationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPropertyIntegration() {
+		return propertyIntegrationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPropertyIntegration_Sproperty() {
+		return (EReference)propertyIntegrationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPropertyIntegration_ExternalProperty() {
+		return (EReference)propertyIntegrationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPropertyIntegration_Expression() {
+		return (EAttribute)propertyIntegrationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DatasetFactory getDatasetFactory() {
 		return (DatasetFactory)getEFactoryInstance();
 	}
@@ -643,6 +810,25 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 
 		sPropertyEClass = createEClass(SPROPERTY);
 		createEAttribute(sPropertyEClass, SPROPERTY__NAME);
+
+		integrationEClass = createEClass(INTEGRATION);
+		createEReference(integrationEClass, INTEGRATION__DATASETS);
+		createEAttribute(integrationEClass, INTEGRATION__URI);
+
+		externalDatasetEClass = createEClass(EXTERNAL_DATASET);
+		createEReference(externalDatasetEClass, EXTERNAL_DATASET__CLASSES);
+		createEReference(externalDatasetEClass, EXTERNAL_DATASET__DATASET);
+
+		classIntegrationEClass = createEClass(CLASS_INTEGRATION);
+		createEReference(classIntegrationEClass, CLASS_INTEGRATION__PROPERTIES);
+		createEReference(classIntegrationEClass, CLASS_INTEGRATION__SCLASS);
+		createEReference(classIntegrationEClass, CLASS_INTEGRATION__EXTERNAL_CLASS);
+		createEAttribute(classIntegrationEClass, CLASS_INTEGRATION__EXPRESSION);
+
+		propertyIntegrationEClass = createEClass(PROPERTY_INTEGRATION);
+		createEReference(propertyIntegrationEClass, PROPERTY_INTEGRATION__SPROPERTY);
+		createEReference(propertyIntegrationEClass, PROPERTY_INTEGRATION__EXTERNAL_PROPERTY);
+		createEAttribute(propertyIntegrationEClass, PROPERTY_INTEGRATION__EXPRESSION);
 	}
 
 	/**
@@ -731,6 +917,25 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 
 		initEClass(sPropertyEClass, SProperty.class, "SProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSProperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, SProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(integrationEClass, Integration.class, "Integration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIntegration_Datasets(), this.getExternalDataset(), null, "datasets", null, 0, -1, Integration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIntegration_Uri(), ecorePackage.getEString(), "Uri", null, 0, 1, Integration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(externalDatasetEClass, ExternalDataset.class, "ExternalDataset", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getExternalDataset_Classes(), this.getClassIntegration(), null, "classes", null, 0, -1, ExternalDataset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExternalDataset_Dataset(), this.getDataset(), null, "dataset", null, 0, 1, ExternalDataset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(classIntegrationEClass, ClassIntegration.class, "ClassIntegration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getClassIntegration_Properties(), this.getPropertyIntegration(), null, "properties", null, 0, -1, ClassIntegration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getClassIntegration_Sclass(), this.getSClass(), null, "sclass", null, 0, 1, ClassIntegration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getClassIntegration_ExternalClass(), this.getRdfConstruction(), null, "externalClass", null, 0, 1, ClassIntegration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getClassIntegration_Expression(), ecorePackage.getEString(), "expression", null, 0, 1, ClassIntegration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(propertyIntegrationEClass, PropertyIntegration.class, "PropertyIntegration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPropertyIntegration_Sproperty(), this.getSProperty(), null, "sproperty", null, 0, 1, PropertyIntegration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPropertyIntegration_ExternalProperty(), this.getProperty(), null, "externalProperty", null, 0, 1, PropertyIntegration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPropertyIntegration_Expression(), ecorePackage.getEString(), "expression", null, 0, 1, PropertyIntegration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

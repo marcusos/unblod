@@ -5,10 +5,6 @@ import java.io.File;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.SWT;
-import org.eclipse.wb.swt.ResourceManager;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.e4.ui.model.application.MApplication;
@@ -18,6 +14,7 @@ import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.e4.ui.workbench.swt.modeling.EMenuService;
+import org.eclipse.jface.layout.TreeColumnLayout;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -26,7 +23,10 @@ import org.eclipse.jface.viewers.ITreeSelection;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
-import org.eclipse.jface.layout.TreeColumnLayout;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.wb.swt.ResourceManager;
 
 import unbload.ui.utils.DatasetTreeContentProvider;
 import unbload.ui.utils.GUIUtil;
@@ -130,6 +130,9 @@ public class DatasetTreePart {
 					if (extension.equals(DatasetModelService.SCHEMA_EXS)) {
 						return "Data Schema";
 					}
+					if (extension.equals(DatasetModelService.INTEGRATION_EXS)) {
+						return "Integration";
+					}
 					
 				}
 				
@@ -163,6 +166,12 @@ public class DatasetTreePart {
 					}
 					if (extension.equals(DatasetModelService.RDF_EXS)) {
 						return image = ResourceManager.getPluginImage("unblod", GUIUtil.icon_RDF);
+					}
+					if (extension.equals(DatasetModelService.SCHEMA_EXS)) {
+						return image = ResourceManager.getPluginImage("unblod", GUIUtil.icon_SCHEMA);
+					}
+					if (extension.equals(DatasetModelService.INTEGRATION_EXS)) {
+						return image = ResourceManager.getPluginImage("unblod", GUIUtil.icon_INTEGRATION);
 					}
 					
 				}
@@ -230,6 +239,9 @@ public class DatasetTreePart {
 						}
 						if(extension.equals(DatasetModelService.SCHEMA_EXS)) {
 							showSchemaPart(datasetParent);
+						}
+						if(extension.equals(DatasetModelService.INTEGRATION_EXS)) {
+							showIntegrationPart(datasetParent);
 						}
 					
 					}
@@ -333,6 +345,21 @@ public class DatasetTreePart {
 		part.setContext(context);*/
 		
 		part.setLabel(parentDataset.getName() + " - Schema");
+		part.setVisible(true);
+		stack.setSelectedElement(part);
+	}
+	
+	protected void showIntegrationPart(Dataset parentDataset) {
+		// TODO Auto-generated method stub
+		MPart part = partService.createPart("unblod.partdescriptor.integrationPart");
+		MPartStack stack = (MPartStack)modelService.find("unblod.partstack.mainstack", application);
+		stack.getChildren().add(part);
+		
+		/*IEclipseContext context = EclipseContextFactory.create();
+		context.set(Dataset.class, parentDataset);
+		part.setContext(context);*/
+		
+		part.setLabel(parentDataset.getName() + " - Integration");
 		part.setVisible(true);
 		stack.setSelectedElement(part);
 	}

@@ -69,4 +69,26 @@
   <eClassifiers xsi:type="ecore:EClass" name="SProperty">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Integration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datasets" upperBound="-1"
+        eType="#//ExternalDataset" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Uri" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalDataset">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="classes" upperBound="-1"
+        eType="#//ClassIntegration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataset" eType="#//Dataset"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ClassIntegration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//PropertyIntegration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sclass" eType="#//SClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="externalClass" eType="#//RdfConstruction"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyIntegration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sproperty" eType="#//SProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="externalProperty" eType="#//Property"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>

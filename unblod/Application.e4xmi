@@ -58,7 +58,8 @@
   <descriptors xmi:id="_y2br8PSkEeKxL5nA-dBSLw" elementId="unblod.partdescriptor.RdfViewerPart" label="RDF viewer" closeable="true" contributionURI="bundleclass://unblod/unblod.ui.parts.RdfViewerPart"/>
   <descriptors xmi:id="_IllKEPTTEeKhlrb6wmwZrA" elementId="unblod.partdescriptor.SparqlInterfacePart" label="Sparql" closeable="true" contributionURI="bundleclass://unblod/unblod.ui.parts.SparqlInterfacePart"/>
   <descriptors xmi:id="_QFWHQPTTEeKhlrb6wmwZrA" elementId="unblod.partdescriptor.SparqlResultPart" label="Sparql result" closeable="true" contributionURI="bundleclass://unblod/unblod.ui.parts.SparqlResultPart"/>
-  <descriptors xmi:id="_kShnIPbUEeKU7NhS1qHR7w" elementId="unblod.partdescriptor.schemaPart" label="Schema" contributionURI="bundleclass://unblod/unblod.ui.parts.SchemaPart"/>
+  <descriptors xmi:id="_kShnIPbUEeKU7NhS1qHR7w" elementId="unblod.partdescriptor.schemaPart" label="Schema" closeable="true" dirtyable="true" contributionURI="bundleclass://unblod/unblod.ui.parts.SchemaPart"/>
+  <descriptors xmi:id="_75t-cPmTEeKs3K5UYwJQMw" elementId="unblod.partdescriptor.integrationPart" label="Integration" closeable="true" dirtyable="true" contributionURI="bundleclass://unblod/unblod.ui.parts.IntegrationPart"/>
   <commands xmi:id="_uXg5wMDUEeKknqUeofLJOg" elementId="unblod.command.newdataset" commandName="New Dataset"/>
   <commands xmi:id="_89E8oOjvEeKS0tXDrqvyyg" elementId="unblod.command.import" commandName="Import"/>
   <commands xmi:id="_LhBwUOz4EeKppvWeFZbtIA" elementId="unblod.command.save" commandName="Save"/>

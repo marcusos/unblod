@@ -7,7 +7,6 @@ import javax.inject.Named;
 import org.eclipse.e4.ui.di.Persist;
 import org.eclipse.e4.ui.model.application.ui.MDirtyable;
 import org.eclipse.e4.ui.services.IServiceConstants;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ITreeSelection;
 import org.eclipse.jface.viewers.LabelProvider;
@@ -18,53 +17,47 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.SashForm;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.Table;
-import org.eclipse.wb.swt.ResourceManager;
 
-import unbload.ui.utils.GUIUtil;
-import unbload.ui.utils.SchemaTreeContentProvider;
-import unblod.dataset.model.dataset.CsvFile;
+import unbload.ui.utils.IntegrationTreeContentProvider;
+import unblod.dataset.model.dataset.ClassIntegration;
 import unblod.dataset.model.dataset.Dataset;
-import unblod.dataset.model.dataset.Property;
-import unblod.dataset.model.dataset.RdfConstruction;
-import unblod.dataset.model.dataset.ReferenceProperty;
+import unblod.dataset.model.dataset.ExternalDataset;
+import unblod.dataset.model.dataset.Integration;
+import unblod.dataset.model.dataset.PropertyIntegration;
 import unblod.dataset.model.dataset.SClass;
 import unblod.dataset.model.dataset.SProperty;
-import unblod.dataset.model.dataset.Schema;
 import unblod.dataset.service.DatasetModelService;
-import unblod.ui.dialogs.NewClassDialog;
+import unblod.ui.dialogs.ExternalDatasetDialog;
 import unblod.ui.dialogs.NewPropertyDialog;
 
-public class SchemaPart {
+public class IntegrationPart {
 	
 	@Inject private MDirtyable dirty;
 	
-	private Table table;
 	private DatasetModelService datasetModelService;
 
 	private Dataset dataset;
-	private Schema schema;
+	private Integration integration;
 	
 	private Shell shell; 
 	
 	private TreeViewer treeViewer; 
 	
-	private Button btnAddClass;
-	private Button btnAddProperty;
-	private Button btnEdit;
-	private Button btnRemove;
+	
+	private Button btnAddClassMapping; 
+	private Button btnAddExtDataset; 
+	private Button btnAddPropMapping; 
+	private Button btnEdit; 
+	private Button btnRemove; 
 	
 	@PostConstruct
 	public void createControl(final Shell shell, Composite parent, @Named(IServiceConstants.ACTIVE_SELECTION)Dataset mDataset) {
-		
-		System.out.println("Entrou createControl");
 		
 		this.shell = shell; 
 		
@@ -75,32 +68,28 @@ public class SchemaPart {
 		
 		treeViewer = new TreeViewer(composite, SWT.BORDER);
 		
-//		Tree tree = treeViewer.getTree();
-		
 		Composite composite_controls = new Composite(sashForm, SWT.NONE);
 		composite_controls.setLayout(new GridLayout(1, false));
 		
-		btnAddClass = new Button(composite_controls, SWT.NONE);
-		btnAddClass.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-		btnAddClass.setImage(ResourceManager.getPluginImage("unblod", "protege-icons/class.add.png"));
-		btnAddClass.setText("    Add Class   ");  // length = 16
+		btnAddExtDataset = new Button(composite_controls, SWT.NONE);
+		btnAddExtDataset.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1));
+		btnAddExtDataset.setText("Add External Dataset");
 		
-		btnAddClass.addSelectionListener(new SelectionAdapter(){
+		btnAddExtDataset.addSelectionListener(new SelectionAdapter(){
 			
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				createSClass();
+				addExternalDataset();
 				super.widgetSelected(e);
 			}
 			
 		});
 		
-		btnAddProperty = new Button(composite_controls, SWT.NONE);
-		btnAddProperty.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-		btnAddProperty.setImage(ResourceManager.getPluginImage("unblod", "protege-icons/property.data.add.png"));
-		btnAddProperty.setText("  Add Property  ");
+		btnAddClassMapping = new Button(composite_controls, SWT.NONE);
+		btnAddClassMapping.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		btnAddClassMapping.setText("Add Class Mapping");
 		
-		btnAddProperty.addSelectionListener(new SelectionAdapter(){
+		btnAddClassMapping.addSelectionListener(new SelectionAdapter(){
 			
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -110,111 +99,51 @@ public class SchemaPart {
 			
 		});
 		
+		btnAddPropMapping = new Button(composite_controls, SWT.NONE);
+		btnAddPropMapping.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		btnAddPropMapping.setText("Add Prop Mapping");
+		
 		btnEdit = new Button(composite_controls, SWT.NONE);
 		btnEdit.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-		btnEdit.setImage(ResourceManager.getPluginImage("unblod", "metro-icons/appbar.edit.reduced.png"));
-		btnEdit.setText("         Edit         ");
-		
-		btnEdit.addSelectionListener(new SelectionAdapter(){
-			
+		btnEdit.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				
-				ITreeSelection selection = ((ITreeSelection)treeViewer.getSelection());
-				Object firstElement = selection.getFirstElement();
-				
-				if (firstElement instanceof SClass) {
-					SClass sClass = (SClass)firstElement;
-					NewClassDialog dialog = new NewClassDialog(shell, 
-							sClass);
-					
-					dialog.create();
-					if (dialog.open() == Window.OK) {
-						treeViewer.refresh();
-						dirty.setDirty(true);
-					}
-					
-				}
-				super.widgetSelected(e);
 			}
-			
 		});
+		btnEdit.setText("Edit");
 		
 		btnRemove = new Button(composite_controls, SWT.NONE);
 		btnRemove.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-		btnRemove.setText("      Remove    " );
-		btnRemove.setImage(ResourceManager.getPluginImage("unblod", "protege-icons/clear.gif"));
-		sashForm.setWeights(new int[] {350, 97});
-		
-		btnRemove.addSelectionListener(new SelectionAdapter(){
-			
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				
-				ITreeSelection selection = ((ITreeSelection)treeViewer.getSelection());
-				Object firstElement = selection.getFirstElement();
-				
-				if (!MessageDialog.openConfirm(shell, "Remove", "Are you sure you want to " +
-						"remove this element?")) {
-					
-					return;
-				}
-				
-				if (firstElement instanceof SClass) {
-					SClass sClass = (SClass)firstElement;
-					Schema parent = (Schema)sClass.eContainer();
-					
-					parent.getClasses().remove(sClass);
-					treeViewer.refresh();
-					dirty.setDirty(true);
-				}
-				
-				super.widgetSelected(e);
-			}
-			
-		});
+		btnRemove.setText("Remove");
+		sashForm.setWeights(new int[] {316, 131});
 		
 		this.dataset = mDataset;
 		
 		datasetModelService =  DatasetModelService.getInstace();
 		
-		schema = datasetModelService.getSchema(mDataset); 
+		integration = datasetModelService.getIntegation(mDataset); 
 		
-		Schema[] arraySchema = new Schema[1]; 
-		arraySchema[0] = schema; 
+		Integration[] arrayIntegration = new Integration[1]; 
+		arrayIntegration[0] = integration; 
 		
 		treeViewer.setLabelProvider(new LabelProvider(){
 			@Override
 			public String getText(Object element){
-				if (element instanceof Schema){
-					return "Schema"; 
+				if (element instanceof Integration){
+					return "Integration"; 
 				}
-				if (element instanceof SClass){
-					return ((SClass)element).getName(); 
+				if (element instanceof ExternalDataset){
+					return ((ExternalDataset)element).getDataset().getName(); 
 				}
-				if (element instanceof SProperty){
-					return ((SProperty)element).getName(); 
+				if (element instanceof ClassIntegration){
+					return ((ClassIntegration)element).getClass().getName(); 
+				}
+				if (element instanceof PropertyIntegration){
+					return ((PropertyIntegration)element).getExternalProperty().getName(); 
 				}
 				return null; 
 			}
 			
-			@Override
-			public Image getImage(Object element) {
-				
-				if (element instanceof Schema) {
-					return ResourceManager.getPluginImage("unblod", GUIUtil.icon_CSV_FILE);
-				}
-				
-				if (element instanceof SClass) {
-					return ResourceManager.getPluginImage("unblod", GUIUtil.icon_CLASS);
-				}
-				
-				else if (element instanceof SProperty) {
-					return ResourceManager.getPluginImage("unblod", GUIUtil.icon_PROPERTY);
-				}
-				
-				return super.getImage(element);
-			}
 			
 		});
 		
@@ -229,27 +158,26 @@ public class SchemaPart {
 			
 		});
 		
-		updateBtnControls(); 
+		treeViewer.setContentProvider(new IntegrationTreeContentProvider());
+		treeViewer.setInput(arrayIntegration);
 		
-		treeViewer.setContentProvider(new SchemaTreeContentProvider());
-		treeViewer.setInput(arraySchema);
-		
+		updateBtnControls();
 		treeViewer.expandAll();
 		
 	}
 	
-	private void createSClass(){
-		SClass newClass = datasetModelService.getFactory().createSClass(); 
+	private void addExternalDataset(){
+		ExternalDataset extDataset = datasetModelService.getFactory().createExternalDataset(); 
 		
-		NewClassDialog dialog = new NewClassDialog(shell, 
-				newClass);
+		ExternalDatasetDialog dialog = new ExternalDatasetDialog(shell, 
+				extDataset);
 		
 		dialog.create();
 		
 		if (dialog.open() == Window.OK) {
 		  
-			SClass sClass = dialog.getSClass();
-			schema.getClasses().add(sClass); 
+			ExternalDataset externalDataset = dialog.getExternalDataset();
+			integration.getDatasets().add(externalDataset); 
 			
 			treeViewer.refresh();
 			dirty.setDirty(true);
@@ -294,26 +222,33 @@ public class SchemaPart {
 		Object firstElement = selection.getFirstElement();
 		
 		
-		btnAddClass.setEnabled(false);
-		btnAddProperty.setEnabled(false);
+		btnAddClassMapping.setEnabled(false);
+		btnAddExtDataset.setEnabled(false);
+		btnAddPropMapping.setEnabled(false);
 		btnEdit.setEnabled(false);
 		btnRemove.setEnabled(false);
 		
 		treeViewer.getTree().setMenu(null);
 		
-		if (firstElement instanceof Schema) {
-			btnAddClass.setEnabled(true);
+		if (firstElement instanceof Integration) {
+			btnAddExtDataset.setEnabled(true);
 			btnRemove.setEnabled(true);
 			btnEdit.setEnabled(true);
 		}
 		
-		if (firstElement instanceof SClass) {
-			btnAddProperty.setEnabled(true);
+		if (firstElement instanceof ExternalDataset) {
+			btnAddClassMapping.setEnabled(true);
 			btnRemove.setEnabled(true);
 			btnEdit.setEnabled(true);
 		}
 		
-		if (firstElement instanceof SProperty) {
+		if (firstElement instanceof ClassIntegration) {
+			btnAddPropMapping.setEnabled(true);
+			btnRemove.setEnabled(true);
+			btnEdit.setEnabled(true);
+		}
+		
+		if (firstElement instanceof PropertyIntegration) {
 			btnRemove.setEnabled(true);
 			btnEdit.setEnabled(true);
 		}
@@ -327,7 +262,7 @@ public class SchemaPart {
 	@Persist
 	public void save() {
 	  // Save changes via ITodoService for example
-	  datasetModelService.saveSchema(dataset, schema);
+	  datasetModelService.saveIntegration(dataset, integration);
 	  // Save was successful
 	  System.out.println("Saving data");
 	  dirty.setDirty(false);

@@ -116,6 +116,22 @@ public class DatasetAdapterFactory extends AdapterFactoryImpl {
 				return createSPropertyAdapter();
 			}
 			@Override
+			public Adapter caseIntegration(Integration object) {
+				return createIntegrationAdapter();
+			}
+			@Override
+			public Adapter caseExternalDataset(ExternalDataset object) {
+				return createExternalDatasetAdapter();
+			}
+			@Override
+			public Adapter caseClassIntegration(ClassIntegration object) {
+				return createClassIntegrationAdapter();
+			}
+			@Override
+			public Adapter casePropertyIntegration(PropertyIntegration object) {
+				return createPropertyIntegrationAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -300,6 +316,62 @@ public class DatasetAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSPropertyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link unblod.dataset.model.dataset.Integration <em>Integration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see unblod.dataset.model.dataset.Integration
+	 * @generated
+	 */
+	public Adapter createIntegrationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link unblod.dataset.model.dataset.ExternalDataset <em>External Dataset</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see unblod.dataset.model.dataset.ExternalDataset
+	 * @generated
+	 */
+	public Adapter createExternalDatasetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link unblod.dataset.model.dataset.ClassIntegration <em>Class Integration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see unblod.dataset.model.dataset.ClassIntegration
+	 * @generated
+	 */
+	public Adapter createClassIntegrationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link unblod.dataset.model.dataset.PropertyIntegration <em>Property Integration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see unblod.dataset.model.dataset.PropertyIntegration
+	 * @generated
+	 */
+	public Adapter createPropertyIntegrationAdapter() {
 		return null;
 	}
 

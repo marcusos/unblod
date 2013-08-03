@@ -54,6 +54,11 @@ public class SchemaTreeContentProvider implements ITreeContentProvider {
 			return listProperty.toArray();
 		}
 		
+		if (parentElement instanceof SProperty)
+		{
+			return null; 
+		}
+		
 		
 		return null;
 	}
