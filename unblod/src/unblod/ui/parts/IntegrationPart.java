@@ -178,9 +178,10 @@ public class IntegrationPart {
 				}
 				
 				if (firstElement instanceof PropertyIntegration) {
-					PropertyIntegration classIntegration = (PropertyIntegration)firstElement;
+					PropertyIntegration propertyIntegration = (PropertyIntegration)firstElement;
+					ClassIntegration classIntegration = (ClassIntegration)propertyIntegration.eContainer(); 
 					PropertyMappingDialog dialog = new PropertyMappingDialog(shell, 
-							classIntegration);
+							propertyIntegration, classIntegration);
 					
 					dialog.create();
 					if (dialog.open() == Window.OK) {
@@ -256,7 +257,7 @@ public class IntegrationPart {
 					return ((ExternalDataset)element).getDataset().getName(); 
 				}
 				if (element instanceof ClassIntegration){
-					ClassIntegration classIntegration = ((ClassIntegration)element); 
+					ClassIntegration classIntegration = (ClassIntegration)element; 
 					if ((classIntegration.getExternalClass()!=null) &&
 					   (classIntegration.getSclass() != null)){
 						String string = "" + classIntegration.getExternalClass().getName() + " -> "
@@ -268,7 +269,22 @@ public class IntegrationPart {
 					
 				}
 				if (element instanceof PropertyIntegration){
-					return ((PropertyIntegration)element).getExternalProperty().getName(); 
+					
+					PropertyIntegration propertyIntegration = (PropertyIntegration)element; 
+					if ((propertyIntegration.getExternalProperty()!= null)&&
+					    (propertyIntegration.getSproperty()!= null)){
+						String string = "" + propertyIntegration.getExternalProperty().getName() + " -> " 
+								+ propertyIntegration.getSproperty().getName(); 
+						return string; 
+					}else{
+						if(propertyIntegration.getExpression()!=null){
+							return propertyIntegration.getExpression() + " -> " 
+						       + propertyIntegration.getSproperty().getName();
+						}else{
+							return propertyIntegration.toString(); 
+						}
+					}
+				
 				}
 				return null; 
 			}
@@ -339,8 +355,6 @@ public class IntegrationPart {
 		
 		ExternalDataset externalDataset = (ExternalDataset)firstElement;
 		
-		Integration integration = (Integration)externalDataset.eContainer(); 
-		
 		ClassMappingDialog dialog = new ClassMappingDialog(shell, 
 				classIntegration, externalDataset, schema);
 		
@@ -363,18 +377,20 @@ public class IntegrationPart {
 	private void createPropertyIntegration(){
 		PropertyIntegration propertyIntegration = datasetModelService.getFactory().createPropertyIntegration(); 
 		
-		PropertyMappingDialog dialog = new PropertyMappingDialog(shell, 
-				propertyIntegration);
-		
-		dialog.create();
-		
 		ITreeSelection selection = ((ITreeSelection)treeViewer.getSelection());
 		Object firstElement = selection.getFirstElement();
+		ClassIntegration classIntegration = (ClassIntegration)firstElement; 
+		ExternalDataset  externalDataset = (ExternalDataset) classIntegration.eContainer(); 
+		
+		PropertyMappingDialog dialog = new PropertyMappingDialog(shell, 
+				propertyIntegration, externalDataset, classIntegration);
+		
+		dialog.create();
 		
 		if (dialog.open() == Window.OK) {
 		  
 			PropertyIntegration prop = dialog.getSClass();
-//			externalDataset.getClasses().add(classIntegration2); 
+			classIntegration.getProperties().add(prop); 
 
 			treeViewer.refresh();
 			dirty.setDirty(true);
