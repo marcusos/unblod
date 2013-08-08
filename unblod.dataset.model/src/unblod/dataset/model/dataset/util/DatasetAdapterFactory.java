@@ -132,6 +132,22 @@ public class DatasetAdapterFactory extends AdapterFactoryImpl {
 				return createPropertyIntegrationAdapter();
 			}
 			@Override
+			public Adapter caseFunctionSet(FunctionSet object) {
+				return createFunctionSetAdapter();
+			}
+			@Override
+			public Adapter caseFunctionCategorty(FunctionCategorty object) {
+				return createFunctionCategortyAdapter();
+			}
+			@Override
+			public Adapter caseFunctionCategory(FunctionCategory object) {
+				return createFunctionCategoryAdapter();
+			}
+			@Override
+			public Adapter caseFunction(Function object) {
+				return createFunctionAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -372,6 +388,62 @@ public class DatasetAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPropertyIntegrationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link unblod.dataset.model.dataset.FunctionSet <em>Function Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see unblod.dataset.model.dataset.FunctionSet
+	 * @generated
+	 */
+	public Adapter createFunctionSetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link unblod.dataset.model.dataset.FunctionCategorty <em>Function Categorty</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see unblod.dataset.model.dataset.FunctionCategorty
+	 * @generated
+	 */
+	public Adapter createFunctionCategortyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link unblod.dataset.model.dataset.FunctionCategory <em>Function Category</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see unblod.dataset.model.dataset.FunctionCategory
+	 * @generated
+	 */
+	public Adapter createFunctionCategoryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link unblod.dataset.model.dataset.Function <em>Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see unblod.dataset.model.dataset.Function
+	 * @generated
+	 */
+	public Adapter createFunctionAdapter() {
 		return null;
 	}
 

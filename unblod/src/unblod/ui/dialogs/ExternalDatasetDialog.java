@@ -1,10 +1,13 @@
 package unblod.ui.dialogs;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Combo;
@@ -15,6 +18,7 @@ import org.eclipse.swt.widgets.Shell;
 
 import unblod.dataset.model.dataset.Dataset;
 import unblod.dataset.model.dataset.ExternalDataset;
+import unblod.dataset.model.dataset.Integration;
 import unblod.dataset.service.DatasetModelService;
 
 public class ExternalDatasetDialog extends TitleAreaDialog{
@@ -23,13 +27,19 @@ public class ExternalDatasetDialog extends TitleAreaDialog{
 
 	DatasetModelService datasetModelService =  DatasetModelService.getInstace();
 	
-	 List<Dataset> listDataset ; 
+	 List<Dataset> listDatasets ; 
+	 
+	 Integration integration; 
 	 
 	 private Combo combo; 
 	 
-	public ExternalDatasetDialog(Shell parentShell, ExternalDataset _externalDataset) {
-		super(parentShell);
+	public ExternalDatasetDialog(Shell _parentShell, ExternalDataset _externalDataset, 
+			Integration _integration) {
+		
+		super(_parentShell);
 		this.externalDataset = _externalDataset;
+		this.integration = _integration; 
+	
 	}
 	
 	 @Override
@@ -37,8 +47,6 @@ public class ExternalDatasetDialog extends TitleAreaDialog{
 	    super.create();
 	    // Set the title
 	    setTitle("External Dataset");
-
-	    listDataset = datasetModelService.getDatasets(); 
 	    
 	    // Set the message
 	    //setMessage("This is a TitleAreaDialog",  IMessageProvider.INFORMATION);
@@ -49,6 +57,11 @@ public class ExternalDatasetDialog extends TitleAreaDialog{
 	
 	public void validateInputs() {
 		Boolean valid = true;
+		
+		if (combo.getSelectionIndex() == -1 ) {
+			setMessage("The external dataset must be specified");
+			valid = false;
+		}
 		
 		if (!valid) {
 			this.getButton(IDialogConstants.OK_ID).setEnabled(false);
@@ -84,18 +97,37 @@ public class ExternalDatasetDialog extends TitleAreaDialog{
 		
 		combo = new Combo(composite, SWT.NONE);
 		
-		listDataset = datasetModelService.getDatasets(); 
+		List<String> listItems = new ArrayList<String>(); 
 		
-		String[] listItems = new String[listDataset.size()]; 
+		listDatasets = new ArrayList<Dataset>(); 
+		
+		
+		for(Dataset ds: datasetModelService.getDatasets()){
+			if(integration.getExternalDataset(ds.getName()) == null){
+				listItems.add(ds.getName()); 
+				listDatasets.add(ds); 
+			}
+		}
+		
+		String[] arrayItems = new String[listItems.size()]; 
 		int i = 0; 
-		for(Dataset ds: listDataset){
-			listItems[i] = ds.getName(); 
+		for(String s: listItems){
+			arrayItems[i] = s; 
 			i++; 
 		}
 		
-		combo.setItems(listItems);
+		combo.setItems(arrayItems);
 		
 		combo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		
+		combo.addModifyListener(new ModifyListener() {
+			
+			@Override
+			public void modifyText(ModifyEvent e) {
+				// TODO Auto-generated method stub
+				validateInputs();
+			}
+		});
 		
 		return composite;
 	}
@@ -103,7 +135,7 @@ public class ExternalDatasetDialog extends TitleAreaDialog{
 	@Override
 	protected void okPressed() {
 		
-		Dataset selected = listDataset.get(combo.getSelectionIndex()); 
+		Dataset selected = listDatasets.get(combo.getSelectionIndex()); 
 		this.externalDataset.setDataset(selected);
 		
 		super.okPressed();

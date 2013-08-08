@@ -72,6 +72,10 @@ public class DatasetFactoryImpl extends EFactoryImpl implements DatasetFactory {
 			case DatasetPackage.EXTERNAL_DATASET: return createExternalDataset();
 			case DatasetPackage.CLASS_INTEGRATION: return createClassIntegration();
 			case DatasetPackage.PROPERTY_INTEGRATION: return createPropertyIntegration();
+			case DatasetPackage.FUNCTION_SET: return createFunctionSet();
+			case DatasetPackage.FUNCTION_CATEGORTY: return createFunctionCategorty();
+			case DatasetPackage.FUNCTION_CATEGORY: return createFunctionCategory();
+			case DatasetPackage.FUNCTION: return createFunction();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -235,6 +239,46 @@ public class DatasetFactoryImpl extends EFactoryImpl implements DatasetFactory {
 	public PropertyIntegration createPropertyIntegration() {
 		PropertyIntegrationImpl propertyIntegration = new PropertyIntegrationImpl();
 		return propertyIntegration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FunctionSet createFunctionSet() {
+		FunctionSetImpl functionSet = new FunctionSetImpl();
+		return functionSet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FunctionCategorty createFunctionCategorty() {
+		FunctionCategortyImpl functionCategorty = new FunctionCategortyImpl();
+		return functionCategorty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FunctionCategory createFunctionCategory() {
+		FunctionCategoryImpl functionCategory = new FunctionCategoryImpl();
+		return functionCategory;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Function createFunction() {
+		FunctionImpl function = new FunctionImpl();
+		return function;
 	}
 
 	/**

@@ -4,6 +4,7 @@ package unblod.dataset.model.dataset;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -690,13 +691,22 @@ public interface DatasetPackage extends EPackage {
 	int SCLASS__NAME = 1;
 
 	/**
+	 * The feature id for the '<em><b>Uri</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCLASS__URI = 2;
+
+	/**
 	 * The number of structural features of the '<em>SClass</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCLASS_FEATURE_COUNT = 2;
+	int SCLASS_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>SClass</em>' class.
@@ -727,13 +737,22 @@ public interface DatasetPackage extends EPackage {
 	int SPROPERTY__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Data Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPROPERTY__DATA_TYPE = 1;
+
+	/**
 	 * The number of structural features of the '<em>SProperty</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPROPERTY_FEATURE_COUNT = 1;
+	int SPROPERTY_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>SProperty</em>' class.
@@ -783,13 +802,22 @@ public interface DatasetPackage extends EPackage {
 	int INTEGRATION_FEATURE_COUNT = 2;
 
 	/**
+	 * The operation id for the '<em>Get External Dataset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGRATION___GET_EXTERNAL_DATASET__STRING = 0;
+
+	/**
 	 * The number of operations of the '<em>Integration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTEGRATION_OPERATION_COUNT = 0;
+	int INTEGRATION_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link unblod.dataset.model.dataset.impl.ExternalDatasetImpl <em>External Dataset</em>}' class.
@@ -955,6 +983,164 @@ public interface DatasetPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY_INTEGRATION_OPERATION_COUNT = 0;
+
+
+	/**
+	 * The meta object id for the '{@link unblod.dataset.model.dataset.impl.FunctionSetImpl <em>Function Set</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see unblod.dataset.model.dataset.impl.FunctionSetImpl
+	 * @see unblod.dataset.model.dataset.impl.DatasetPackageImpl#getFunctionSet()
+	 * @generated
+	 */
+	int FUNCTION_SET = 16;
+
+	/**
+	 * The feature id for the '<em><b>Categories</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_SET__CATEGORIES = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_SET__NAME = 1;
+
+	/**
+	 * The number of structural features of the '<em>Function Set</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_SET_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Function Set</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_SET_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link unblod.dataset.model.dataset.impl.FunctionCategortyImpl <em>Function Categorty</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see unblod.dataset.model.dataset.impl.FunctionCategortyImpl
+	 * @see unblod.dataset.model.dataset.impl.DatasetPackageImpl#getFunctionCategorty()
+	 * @generated
+	 */
+	int FUNCTION_CATEGORTY = 17;
+
+	/**
+	 * The number of structural features of the '<em>Function Categorty</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_CATEGORTY_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Function Categorty</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_CATEGORTY_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link unblod.dataset.model.dataset.impl.FunctionCategoryImpl <em>Function Category</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see unblod.dataset.model.dataset.impl.FunctionCategoryImpl
+	 * @see unblod.dataset.model.dataset.impl.DatasetPackageImpl#getFunctionCategory()
+	 * @generated
+	 */
+	int FUNCTION_CATEGORY = 18;
+
+	/**
+	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_CATEGORY__FUNCTIONS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_CATEGORY__NAME = 1;
+
+	/**
+	 * The number of structural features of the '<em>Function Category</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_CATEGORY_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Function Category</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_CATEGORY_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link unblod.dataset.model.dataset.impl.FunctionImpl <em>Function</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see unblod.dataset.model.dataset.impl.FunctionImpl
+	 * @see unblod.dataset.model.dataset.impl.DatasetPackageImpl#getFunction()
+	 * @generated
+	 */
+	int FUNCTION = 19;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Function</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Function</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_OPERATION_COUNT = 0;
 
 
 	/**
@@ -1398,6 +1584,17 @@ public interface DatasetPackage extends EPackage {
 	EAttribute getSClass_Name();
 
 	/**
+	 * Returns the meta object for the attribute '{@link unblod.dataset.model.dataset.SClass#getUri <em>Uri</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uri</em>'.
+	 * @see unblod.dataset.model.dataset.SClass#getUri()
+	 * @see #getSClass()
+	 * @generated
+	 */
+	EAttribute getSClass_Uri();
+
+	/**
 	 * Returns the meta object for class '{@link unblod.dataset.model.dataset.SProperty <em>SProperty</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1417,6 +1614,17 @@ public interface DatasetPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSProperty_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link unblod.dataset.model.dataset.SProperty#getDataType <em>Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Data Type</em>'.
+	 * @see unblod.dataset.model.dataset.SProperty#getDataType()
+	 * @see #getSProperty()
+	 * @generated
+	 */
+	EAttribute getSProperty_DataType();
 
 	/**
 	 * Returns the meta object for class '{@link unblod.dataset.model.dataset.Integration <em>Integration</em>}'.
@@ -1449,6 +1657,16 @@ public interface DatasetPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIntegration_Uri();
+
+	/**
+	 * Returns the meta object for the '{@link unblod.dataset.model.dataset.Integration#getExternalDataset(java.lang.String) <em>Get External Dataset</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get External Dataset</em>' operation.
+	 * @see unblod.dataset.model.dataset.Integration#getExternalDataset(java.lang.String)
+	 * @generated
+	 */
+	EOperation getIntegration__GetExternalDataset__String();
 
 	/**
 	 * Returns the meta object for class '{@link unblod.dataset.model.dataset.ExternalDataset <em>External Dataset</em>}'.
@@ -1578,6 +1796,101 @@ public interface DatasetPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPropertyIntegration_Expression();
+
+	/**
+	 * Returns the meta object for class '{@link unblod.dataset.model.dataset.FunctionSet <em>Function Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Function Set</em>'.
+	 * @see unblod.dataset.model.dataset.FunctionSet
+	 * @generated
+	 */
+	EClass getFunctionSet();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link unblod.dataset.model.dataset.FunctionSet#getCategories <em>Categories</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Categories</em>'.
+	 * @see unblod.dataset.model.dataset.FunctionSet#getCategories()
+	 * @see #getFunctionSet()
+	 * @generated
+	 */
+	EReference getFunctionSet_Categories();
+
+	/**
+	 * Returns the meta object for the attribute '{@link unblod.dataset.model.dataset.FunctionSet#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see unblod.dataset.model.dataset.FunctionSet#getName()
+	 * @see #getFunctionSet()
+	 * @generated
+	 */
+	EAttribute getFunctionSet_Name();
+
+	/**
+	 * Returns the meta object for class '{@link unblod.dataset.model.dataset.FunctionCategorty <em>Function Categorty</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Function Categorty</em>'.
+	 * @see unblod.dataset.model.dataset.FunctionCategorty
+	 * @generated
+	 */
+	EClass getFunctionCategorty();
+
+	/**
+	 * Returns the meta object for class '{@link unblod.dataset.model.dataset.FunctionCategory <em>Function Category</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Function Category</em>'.
+	 * @see unblod.dataset.model.dataset.FunctionCategory
+	 * @generated
+	 */
+	EClass getFunctionCategory();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link unblod.dataset.model.dataset.FunctionCategory#getFunctions <em>Functions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Functions</em>'.
+	 * @see unblod.dataset.model.dataset.FunctionCategory#getFunctions()
+	 * @see #getFunctionCategory()
+	 * @generated
+	 */
+	EReference getFunctionCategory_Functions();
+
+	/**
+	 * Returns the meta object for the attribute '{@link unblod.dataset.model.dataset.FunctionCategory#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see unblod.dataset.model.dataset.FunctionCategory#getName()
+	 * @see #getFunctionCategory()
+	 * @generated
+	 */
+	EAttribute getFunctionCategory_Name();
+
+	/**
+	 * Returns the meta object for class '{@link unblod.dataset.model.dataset.Function <em>Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Function</em>'.
+	 * @see unblod.dataset.model.dataset.Function
+	 * @generated
+	 */
+	EClass getFunction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link unblod.dataset.model.dataset.Function#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see unblod.dataset.model.dataset.Function#getName()
+	 * @see #getFunction()
+	 * @generated
+	 */
+	EAttribute getFunction_Name();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1953,6 +2266,14 @@ public interface DatasetPackage extends EPackage {
 		EAttribute SCLASS__NAME = eINSTANCE.getSClass_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Uri</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCLASS__URI = eINSTANCE.getSClass_Uri();
+
+		/**
 		 * The meta object literal for the '{@link unblod.dataset.model.dataset.impl.SPropertyImpl <em>SProperty</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1969,6 +2290,14 @@ public interface DatasetPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SPROPERTY__NAME = eINSTANCE.getSProperty_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPROPERTY__DATA_TYPE = eINSTANCE.getSProperty_DataType();
 
 		/**
 		 * The meta object literal for the '{@link unblod.dataset.model.dataset.impl.IntegrationImpl <em>Integration</em>}' class.
@@ -1995,6 +2324,14 @@ public interface DatasetPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute INTEGRATION__URI = eINSTANCE.getIntegration_Uri();
+
+		/**
+		 * The meta object literal for the '<em><b>Get External Dataset</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INTEGRATION___GET_EXTERNAL_DATASET__STRING = eINSTANCE.getIntegration__GetExternalDataset__String();
 
 		/**
 		 * The meta object literal for the '{@link unblod.dataset.model.dataset.impl.ExternalDatasetImpl <em>External Dataset</em>}' class.
@@ -2097,6 +2434,86 @@ public interface DatasetPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PROPERTY_INTEGRATION__EXPRESSION = eINSTANCE.getPropertyIntegration_Expression();
+
+		/**
+		 * The meta object literal for the '{@link unblod.dataset.model.dataset.impl.FunctionSetImpl <em>Function Set</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see unblod.dataset.model.dataset.impl.FunctionSetImpl
+		 * @see unblod.dataset.model.dataset.impl.DatasetPackageImpl#getFunctionSet()
+		 * @generated
+		 */
+		EClass FUNCTION_SET = eINSTANCE.getFunctionSet();
+
+		/**
+		 * The meta object literal for the '<em><b>Categories</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FUNCTION_SET__CATEGORIES = eINSTANCE.getFunctionSet_Categories();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FUNCTION_SET__NAME = eINSTANCE.getFunctionSet_Name();
+
+		/**
+		 * The meta object literal for the '{@link unblod.dataset.model.dataset.impl.FunctionCategortyImpl <em>Function Categorty</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see unblod.dataset.model.dataset.impl.FunctionCategortyImpl
+		 * @see unblod.dataset.model.dataset.impl.DatasetPackageImpl#getFunctionCategorty()
+		 * @generated
+		 */
+		EClass FUNCTION_CATEGORTY = eINSTANCE.getFunctionCategorty();
+
+		/**
+		 * The meta object literal for the '{@link unblod.dataset.model.dataset.impl.FunctionCategoryImpl <em>Function Category</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see unblod.dataset.model.dataset.impl.FunctionCategoryImpl
+		 * @see unblod.dataset.model.dataset.impl.DatasetPackageImpl#getFunctionCategory()
+		 * @generated
+		 */
+		EClass FUNCTION_CATEGORY = eINSTANCE.getFunctionCategory();
+
+		/**
+		 * The meta object literal for the '<em><b>Functions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FUNCTION_CATEGORY__FUNCTIONS = eINSTANCE.getFunctionCategory_Functions();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FUNCTION_CATEGORY__NAME = eINSTANCE.getFunctionCategory_Name();
+
+		/**
+		 * The meta object literal for the '{@link unblod.dataset.model.dataset.impl.FunctionImpl <em>Function</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see unblod.dataset.model.dataset.impl.FunctionImpl
+		 * @see unblod.dataset.model.dataset.impl.DatasetPackageImpl#getFunction()
+		 * @generated
+		 */
+		EClass FUNCTION = eINSTANCE.getFunction();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FUNCTION__NAME = eINSTANCE.getFunction_Name();
 
 	}
 

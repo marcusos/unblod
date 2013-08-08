@@ -31,6 +31,7 @@ import unblod.dataset.model.dataset.SProperty;
  * <ul>
  *   <li>{@link unblod.dataset.model.dataset.impl.SClassImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link unblod.dataset.model.dataset.impl.SClassImpl#getName <em>Name</em>}</li>
+ *   <li>{@link unblod.dataset.model.dataset.impl.SClassImpl#getUri <em>Uri</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,6 +67,26 @@ public class SClassImpl extends MinimalEObjectImpl.Container implements SClass {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getUri() <em>Uri</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUri()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String URI_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getUri() <em>Uri</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUri()
+	 * @generated
+	 * @ordered
+	 */
+	protected String uri = URI_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,6 +145,27 @@ public class SClassImpl extends MinimalEObjectImpl.Container implements SClass {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getUri() {
+		return uri;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUri(String newUri) {
+		String oldUri = uri;
+		uri = newUri;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatasetPackage.SCLASS__URI, oldUri, uri));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -145,6 +187,8 @@ public class SClassImpl extends MinimalEObjectImpl.Container implements SClass {
 				return getProperties();
 			case DatasetPackage.SCLASS__NAME:
 				return getName();
+			case DatasetPackage.SCLASS__URI:
+				return getUri();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -165,6 +209,9 @@ public class SClassImpl extends MinimalEObjectImpl.Container implements SClass {
 			case DatasetPackage.SCLASS__NAME:
 				setName((String)newValue);
 				return;
+			case DatasetPackage.SCLASS__URI:
+				setUri((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -183,6 +230,9 @@ public class SClassImpl extends MinimalEObjectImpl.Container implements SClass {
 			case DatasetPackage.SCLASS__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case DatasetPackage.SCLASS__URI:
+				setUri(URI_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -199,6 +249,8 @@ public class SClassImpl extends MinimalEObjectImpl.Container implements SClass {
 				return properties != null && !properties.isEmpty();
 			case DatasetPackage.SCLASS__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case DatasetPackage.SCLASS__URI:
+				return URI_EDEFAULT == null ? uri != null : !URI_EDEFAULT.equals(uri);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -215,6 +267,8 @@ public class SClassImpl extends MinimalEObjectImpl.Container implements SClass {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", uri: ");
+		result.append(uri);
 		result.append(')');
 		return result.toString();
 	}

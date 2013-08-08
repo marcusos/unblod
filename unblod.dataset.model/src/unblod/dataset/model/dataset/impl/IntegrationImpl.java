@@ -2,6 +2,7 @@
  */
 package unblod.dataset.model.dataset.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -116,6 +117,23 @@ public class IntegrationImpl extends MinimalEObjectImpl.Container implements Int
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public ExternalDataset getExternalDataset(String name) {
+		
+		ExternalDataset dataset = null; 
+		for(ExternalDataset external: this.getDatasets()){
+			if (external.getDataset().getName().equals(name)){
+				dataset = external; 
+			}
+		}
+		
+		return dataset; 
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -195,6 +213,20 @@ public class IntegrationImpl extends MinimalEObjectImpl.Container implements Int
 				return URI_EDEFAULT == null ? uri != null : !URI_EDEFAULT.equals(uri);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case DatasetPackage.INTEGRATION___GET_EXTERNAL_DATASET__STRING:
+				return getExternalDataset((String)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

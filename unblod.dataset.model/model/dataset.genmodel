@@ -57,13 +57,18 @@
     <genClasses ecoreClass="dataset.ecore#//SClass">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataset.ecore#//SClass/properties"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//SClass/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//SClass/uri"/>
     </genClasses>
     <genClasses ecoreClass="dataset.ecore#//SProperty">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//SProperty/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//SProperty/dataType"/>
     </genClasses>
     <genClasses ecoreClass="dataset.ecore#//Integration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataset.ecore#//Integration/datasets"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//Integration/Uri"/>
+      <genOperations ecoreOperation="dataset.ecore#//Integration/getExternalDataset">
+        <genParameters ecoreParameter="dataset.ecore#//Integration/getExternalDataset/name"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="dataset.ecore#//ExternalDataset">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataset.ecore#//ExternalDataset/classes"/>
@@ -79,6 +84,18 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dataset.ecore#//PropertyIntegration/sproperty"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dataset.ecore#//PropertyIntegration/externalProperty"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//PropertyIntegration/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="dataset.ecore#//FunctionSet">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataset.ecore#//FunctionSet/categories"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//FunctionSet/name"/>
+    </genClasses>
+    <genClasses ecoreClass="dataset.ecore#//FunctionCategorty"/>
+    <genClasses ecoreClass="dataset.ecore#//FunctionCategory">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataset.ecore#//FunctionCategory/functions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//FunctionCategory/name"/>
+    </genClasses>
+    <genClasses ecoreClass="dataset.ecore#//Function">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataset.ecore#//Function/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

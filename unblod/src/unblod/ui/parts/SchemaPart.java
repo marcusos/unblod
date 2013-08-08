@@ -30,17 +30,13 @@ import org.eclipse.wb.swt.ResourceManager;
 
 import unbload.ui.utils.GUIUtil;
 import unbload.ui.utils.SchemaTreeContentProvider;
-import unblod.dataset.model.dataset.CsvFile;
 import unblod.dataset.model.dataset.Dataset;
-import unblod.dataset.model.dataset.Property;
-import unblod.dataset.model.dataset.RdfConstruction;
-import unblod.dataset.model.dataset.ReferenceProperty;
 import unblod.dataset.model.dataset.SClass;
 import unblod.dataset.model.dataset.SProperty;
 import unblod.dataset.model.dataset.Schema;
 import unblod.dataset.service.DatasetModelService;
-import unblod.ui.dialogs.NewClassDialog;
-import unblod.ui.dialogs.NewPropertyDialog;
+import unblod.ui.dialogs.SClassDialog;
+import unblod.ui.dialogs.SPropertyDialog;
 
 public class SchemaPart {
 	
@@ -125,7 +121,7 @@ public class SchemaPart {
 				
 				if (firstElement instanceof SClass) {
 					SClass sClass = (SClass)firstElement;
-					NewClassDialog dialog = new NewClassDialog(shell, 
+					SClassDialog dialog = new SClassDialog(shell, 
 							sClass);
 					
 					dialog.create();
@@ -135,6 +131,20 @@ public class SchemaPart {
 					}
 					
 				}
+				
+				if (firstElement instanceof SProperty) {
+					SProperty sProperty = (SProperty)firstElement;
+					SPropertyDialog dialog = new SPropertyDialog(shell, 
+							sProperty);
+					
+					dialog.create();
+					if (dialog.open() == Window.OK) {
+						treeViewer.refresh();
+						dirty.setDirty(true);
+					}
+					
+				}
+				
 				super.widgetSelected(e);
 			}
 			
@@ -165,6 +175,15 @@ public class SchemaPart {
 					Schema parent = (Schema)sClass.eContainer();
 					
 					parent.getClasses().remove(sClass);
+					treeViewer.refresh();
+					dirty.setDirty(true);
+				}
+				
+				if (firstElement instanceof SProperty) {
+					SProperty sProperty = (SProperty)firstElement;
+					SClass parent = (SClass)sProperty.eContainer();
+					
+					parent.getProperties().remove(sProperty); 
 					treeViewer.refresh();
 					dirty.setDirty(true);
 				}
@@ -239,9 +258,10 @@ public class SchemaPart {
 	}
 	
 	private void createSClass(){
+		
 		SClass newClass = datasetModelService.getFactory().createSClass(); 
 		
-		NewClassDialog dialog = new NewClassDialog(shell, 
+		SClassDialog dialog = new SClassDialog(shell, 
 				newClass);
 		
 		dialog.create();
@@ -253,14 +273,15 @@ public class SchemaPart {
 			
 			treeViewer.refresh();
 			dirty.setDirty(true);
-		} 
+		}
+		
 		
 	}
 	
 	private void createSProperty(){
 		SProperty newProperty = datasetModelService.getFactory().createSProperty(); 
 		
-		NewPropertyDialog dialog = new NewPropertyDialog(shell, 
+		SPropertyDialog dialog = new SPropertyDialog(shell, 
 				newProperty);
 		
 		dialog.create();

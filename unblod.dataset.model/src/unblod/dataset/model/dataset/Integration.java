@@ -66,4 +66,12 @@ public interface Integration extends EObject {
 	 */
 	void setUri(String value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	ExternalDataset getExternalDataset(String name);
+
 } // Integration

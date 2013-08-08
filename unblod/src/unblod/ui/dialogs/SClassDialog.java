@@ -17,35 +17,43 @@ import unblod.dataset.model.dataset.SClass;
 import org.eclipse.wb.swt.SWTResourceManager;
 
 
-public class NewClassDialog extends TitleAreaDialog{
+public class SClassDialog extends TitleAreaDialog{
 
 	SClass sClass = null;
 	private Text name;
+	private Text uriTxt; 
 	
-	public NewClassDialog(Shell parentShell, SClass namespace) {
+	public SClassDialog(Shell parentShell, SClass namespace) {
 		super(parentShell);
 		this.sClass = namespace;
 	}
 	
 	 @Override
 	  public void create() {
+		 
 	    super.create();
-	    // Set the title
 	    setTitle("Class dialog.");
-	    // Set the message
-	    //setMessage("This is a TitleAreaDialog",  IMessageProvider.INFORMATION);
 	    initializeInputs();
 	    validateInputs();
-	  }
+	  
+	 }
 
 	
 	public void validateInputs() {
 		Boolean valid = true;
 		
-//		if (name.getText() == null || name.getText().equals("")) {
-//			setMessage("The name of the class must be specified");
-//			valid = false;
-//		}
+		if (name.getText() == null || name.getText().equals("")) {
+			setMessage("The name of the class must be specified");
+			valid = false;
+		}
+		
+		if(valid){
+			if (uriTxt.getText() == null || uriTxt.getText().equals("")) {
+				setMessage("The base URI must be specified");
+				valid = false;
+			}
+		}
+		
 		
 		if (!valid) {
 			this.getButton(IDialogConstants.OK_ID).setEnabled(false);
@@ -69,10 +77,7 @@ public class NewClassDialog extends TitleAreaDialog{
 	protected Control createDialogArea(Composite parent) {
 		Composite composite = new Composite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout(2, false);
-		//layout.marginHeight = 0;
-		//layout.marginWidth = 0;
-		//layout.verticalSpacing = 0;
-		//layout.horizontalSpacing = 0;
+		
 		composite.setLayout(layout);
 		composite.setLayoutData(new GridData(GridData.FILL_BOTH));
 		composite.setFont(parent.getFont());
@@ -94,18 +99,22 @@ public class NewClassDialog extends TitleAreaDialog{
 		lblUri.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		lblUri.setText("Base URI");
 		
-		Text uriTxt = new Text(composite, SWT.BORDER);
+		uriTxt = new Text(composite, SWT.BORDER);
 		uriTxt.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		// Build the separator line
-		//Label titleBarSeparator = new Label(composite, SWT.HORIZONTAL
-		//		| SWT.SEPARATOR);
-		//titleBarSeparator.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		
 		
 		name.addModifyListener(new ModifyListener() {
 			
 			@Override
 			public void modifyText(ModifyEvent e) {
-				// TODO Auto-generated method stub
+				validateInputs();
+			}
+		});
+		
+		uriTxt.addModifyListener(new ModifyListener() {
+			
+			@Override
+			public void modifyText(ModifyEvent e) {
 				validateInputs();
 			}
 		});
@@ -118,6 +127,7 @@ public class NewClassDialog extends TitleAreaDialog{
 		
 		// populate de object
 		this.sClass.setName(name.getText());
+		this.sClass.setUri(uriTxt.getText());
 		
 		super.okPressed();
 	}

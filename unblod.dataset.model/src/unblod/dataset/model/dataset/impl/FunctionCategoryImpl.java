@@ -2,31 +2,51 @@
  */
 package unblod.dataset.model.dataset.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import unblod.dataset.model.dataset.DatasetPackage;
-import unblod.dataset.model.dataset.SProperty;
+import unblod.dataset.model.dataset.Function;
+import unblod.dataset.model.dataset.FunctionCategory;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>SProperty</b></em>'.
+ * An implementation of the model object '<em><b>Function Category</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link unblod.dataset.model.dataset.impl.SPropertyImpl#getName <em>Name</em>}</li>
- *   <li>{@link unblod.dataset.model.dataset.impl.SPropertyImpl#getDataType <em>Data Type</em>}</li>
+ *   <li>{@link unblod.dataset.model.dataset.impl.FunctionCategoryImpl#getFunctions <em>Functions</em>}</li>
+ *   <li>{@link unblod.dataset.model.dataset.impl.FunctionCategoryImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class SPropertyImpl extends MinimalEObjectImpl.Container implements SProperty {
+public class FunctionCategoryImpl extends MinimalEObjectImpl.Container implements FunctionCategory {
+	/**
+	 * The cached value of the '{@link #getFunctions() <em>Functions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFunctions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Function> functions;
+
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -48,31 +68,11 @@ public class SPropertyImpl extends MinimalEObjectImpl.Container implements SProp
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getDataType() <em>Data Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDataType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String DATA_TYPE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getDataType() <em>Data Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDataType()
-	 * @generated
-	 * @ordered
-	 */
-	protected String dataType = DATA_TYPE_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SPropertyImpl() {
+	protected FunctionCategoryImpl() {
 		super();
 	}
 
@@ -83,7 +83,19 @@ public class SPropertyImpl extends MinimalEObjectImpl.Container implements SProp
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return DatasetPackage.Literals.SPROPERTY;
+		return DatasetPackage.Literals.FUNCTION_CATEGORY;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Function> getFunctions() {
+		if (functions == null) {
+			functions = new EObjectContainmentEList<Function>(Function.class, this, DatasetPackage.FUNCTION_CATEGORY__FUNCTIONS);
+		}
+		return functions;
 	}
 
 	/**
@@ -104,7 +116,7 @@ public class SPropertyImpl extends MinimalEObjectImpl.Container implements SProp
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatasetPackage.SPROPERTY__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, DatasetPackage.FUNCTION_CATEGORY__NAME, oldName, name));
 	}
 
 	/**
@@ -112,20 +124,13 @@ public class SPropertyImpl extends MinimalEObjectImpl.Container implements SProp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getDataType() {
-		return dataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDataType(String newDataType) {
-		String oldDataType = dataType;
-		dataType = newDataType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatasetPackage.SPROPERTY__DATA_TYPE, oldDataType, dataType));
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case DatasetPackage.FUNCTION_CATEGORY__FUNCTIONS:
+				return ((InternalEList<?>)getFunctions()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -136,10 +141,10 @@ public class SPropertyImpl extends MinimalEObjectImpl.Container implements SProp
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DatasetPackage.SPROPERTY__NAME:
+			case DatasetPackage.FUNCTION_CATEGORY__FUNCTIONS:
+				return getFunctions();
+			case DatasetPackage.FUNCTION_CATEGORY__NAME:
 				return getName();
-			case DatasetPackage.SPROPERTY__DATA_TYPE:
-				return getDataType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -149,14 +154,16 @@ public class SPropertyImpl extends MinimalEObjectImpl.Container implements SProp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DatasetPackage.SPROPERTY__NAME:
-				setName((String)newValue);
+			case DatasetPackage.FUNCTION_CATEGORY__FUNCTIONS:
+				getFunctions().clear();
+				getFunctions().addAll((Collection<? extends Function>)newValue);
 				return;
-			case DatasetPackage.SPROPERTY__DATA_TYPE:
-				setDataType((String)newValue);
+			case DatasetPackage.FUNCTION_CATEGORY__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -170,11 +177,11 @@ public class SPropertyImpl extends MinimalEObjectImpl.Container implements SProp
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DatasetPackage.SPROPERTY__NAME:
-				setName(NAME_EDEFAULT);
+			case DatasetPackage.FUNCTION_CATEGORY__FUNCTIONS:
+				getFunctions().clear();
 				return;
-			case DatasetPackage.SPROPERTY__DATA_TYPE:
-				setDataType(DATA_TYPE_EDEFAULT);
+			case DatasetPackage.FUNCTION_CATEGORY__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -188,10 +195,10 @@ public class SPropertyImpl extends MinimalEObjectImpl.Container implements SProp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DatasetPackage.SPROPERTY__NAME:
+			case DatasetPackage.FUNCTION_CATEGORY__FUNCTIONS:
+				return functions != null && !functions.isEmpty();
+			case DatasetPackage.FUNCTION_CATEGORY__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case DatasetPackage.SPROPERTY__DATA_TYPE:
-				return DATA_TYPE_EDEFAULT == null ? dataType != null : !DATA_TYPE_EDEFAULT.equals(dataType);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -208,10 +215,8 @@ public class SPropertyImpl extends MinimalEObjectImpl.Container implements SProp
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", dataType: ");
-		result.append(dataType);
 		result.append(')');
 		return result.toString();
 	}
 
-} //SPropertyImpl
+} //FunctionCategoryImpl

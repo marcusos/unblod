@@ -166,6 +166,42 @@ public interface DatasetFactory extends EFactory {
 	PropertyIntegration createPropertyIntegration();
 
 	/**
+	 * Returns a new object of class '<em>Function Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Function Set</em>'.
+	 * @generated
+	 */
+	FunctionSet createFunctionSet();
+
+	/**
+	 * Returns a new object of class '<em>Function Categorty</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Function Categorty</em>'.
+	 * @generated
+	 */
+	FunctionCategorty createFunctionCategorty();
+
+	/**
+	 * Returns a new object of class '<em>Function Category</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Function Category</em>'.
+	 * @generated
+	 */
+	FunctionCategory createFunctionCategory();
+
+	/**
+	 * Returns a new object of class '<em>Function</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Function</em>'.
+	 * @generated
+	 */
+	Function createFunction();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

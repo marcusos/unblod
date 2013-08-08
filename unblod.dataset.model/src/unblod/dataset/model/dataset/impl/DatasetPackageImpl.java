@@ -4,6 +4,7 @@ package unblod.dataset.model.dataset.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -15,6 +16,10 @@ import unblod.dataset.model.dataset.DatasetFactory;
 import unblod.dataset.model.dataset.DatasetIntegration;
 import unblod.dataset.model.dataset.DatasetPackage;
 import unblod.dataset.model.dataset.ExternalDataset;
+import unblod.dataset.model.dataset.Function;
+import unblod.dataset.model.dataset.FunctionCategorty;
+import unblod.dataset.model.dataset.FunctionCategory;
+import unblod.dataset.model.dataset.FunctionSet;
 import unblod.dataset.model.dataset.Integration;
 import unblod.dataset.model.dataset.NamespaceDefinition;
 import unblod.dataset.model.dataset.NamespacesDefinitions;
@@ -144,6 +149,34 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 	 * @generated
 	 */
 	private EClass propertyIntegrationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass functionSetEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass functionCategortyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass functionCategoryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass functionEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -580,6 +613,15 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSClass_Uri() {
+		return (EAttribute)sClassEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSProperty() {
 		return sPropertyEClass;
 	}
@@ -591,6 +633,15 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 	 */
 	public EAttribute getSProperty_Name() {
 		return (EAttribute)sPropertyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSProperty_DataType() {
+		return (EAttribute)sPropertyEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -618,6 +669,15 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 	 */
 	public EAttribute getIntegration_Uri() {
 		return (EAttribute)integrationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getIntegration__GetExternalDataset__String() {
+		return integrationEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -733,6 +793,87 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getFunctionSet() {
+		return functionSetEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFunctionSet_Categories() {
+		return (EReference)functionSetEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFunctionSet_Name() {
+		return (EAttribute)functionSetEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFunctionCategorty() {
+		return functionCategortyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFunctionCategory() {
+		return functionCategoryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFunctionCategory_Functions() {
+		return (EReference)functionCategoryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFunctionCategory_Name() {
+		return (EAttribute)functionCategoryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFunction() {
+		return functionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFunction_Name() {
+		return (EAttribute)functionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DatasetFactory getDatasetFactory() {
 		return (DatasetFactory)getEFactoryInstance();
 	}
@@ -807,13 +948,16 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 		sClassEClass = createEClass(SCLASS);
 		createEReference(sClassEClass, SCLASS__PROPERTIES);
 		createEAttribute(sClassEClass, SCLASS__NAME);
+		createEAttribute(sClassEClass, SCLASS__URI);
 
 		sPropertyEClass = createEClass(SPROPERTY);
 		createEAttribute(sPropertyEClass, SPROPERTY__NAME);
+		createEAttribute(sPropertyEClass, SPROPERTY__DATA_TYPE);
 
 		integrationEClass = createEClass(INTEGRATION);
 		createEReference(integrationEClass, INTEGRATION__DATASETS);
 		createEAttribute(integrationEClass, INTEGRATION__URI);
+		createEOperation(integrationEClass, INTEGRATION___GET_EXTERNAL_DATASET__STRING);
 
 		externalDatasetEClass = createEClass(EXTERNAL_DATASET);
 		createEReference(externalDatasetEClass, EXTERNAL_DATASET__CLASSES);
@@ -829,6 +973,19 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 		createEReference(propertyIntegrationEClass, PROPERTY_INTEGRATION__SPROPERTY);
 		createEReference(propertyIntegrationEClass, PROPERTY_INTEGRATION__EXTERNAL_PROPERTY);
 		createEAttribute(propertyIntegrationEClass, PROPERTY_INTEGRATION__EXPRESSION);
+
+		functionSetEClass = createEClass(FUNCTION_SET);
+		createEReference(functionSetEClass, FUNCTION_SET__CATEGORIES);
+		createEAttribute(functionSetEClass, FUNCTION_SET__NAME);
+
+		functionCategortyEClass = createEClass(FUNCTION_CATEGORTY);
+
+		functionCategoryEClass = createEClass(FUNCTION_CATEGORY);
+		createEReference(functionCategoryEClass, FUNCTION_CATEGORY__FUNCTIONS);
+		createEAttribute(functionCategoryEClass, FUNCTION_CATEGORY__NAME);
+
+		functionEClass = createEClass(FUNCTION);
+		createEAttribute(functionEClass, FUNCTION__NAME);
 	}
 
 	/**
@@ -914,13 +1071,18 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 		initEClass(sClassEClass, SClass.class, "SClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSClass_Properties(), this.getSProperty(), null, "properties", null, 0, -1, SClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSClass_Name(), ecorePackage.getEString(), "name", null, 0, 1, SClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSClass_Uri(), ecorePackage.getEString(), "uri", null, 0, 1, SClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sPropertyEClass, SProperty.class, "SProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSProperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, SProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSProperty_DataType(), ecorePackage.getEString(), "dataType", null, 0, 1, SProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(integrationEClass, Integration.class, "Integration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIntegration_Datasets(), this.getExternalDataset(), null, "datasets", null, 0, -1, Integration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIntegration_Uri(), ecorePackage.getEString(), "Uri", null, 0, 1, Integration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		EOperation op = initEOperation(getIntegration__GetExternalDataset__String(), this.getExternalDataset(), "getExternalDataset", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(externalDatasetEClass, ExternalDataset.class, "ExternalDataset", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getExternalDataset_Classes(), this.getClassIntegration(), null, "classes", null, 0, -1, ExternalDataset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -936,6 +1098,19 @@ public class DatasetPackageImpl extends EPackageImpl implements DatasetPackage {
 		initEReference(getPropertyIntegration_Sproperty(), this.getSProperty(), null, "sproperty", null, 0, 1, PropertyIntegration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPropertyIntegration_ExternalProperty(), this.getProperty(), null, "externalProperty", null, 0, 1, PropertyIntegration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPropertyIntegration_Expression(), ecorePackage.getEString(), "expression", null, 0, 1, PropertyIntegration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(functionSetEClass, FunctionSet.class, "FunctionSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFunctionSet_Categories(), this.getFunctionCategory(), null, "categories", null, 0, -1, FunctionSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFunctionSet_Name(), ecorePackage.getEString(), "name", null, 0, 1, FunctionSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(functionCategortyEClass, FunctionCategorty.class, "FunctionCategorty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(functionCategoryEClass, FunctionCategory.class, "FunctionCategory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFunctionCategory_Functions(), this.getFunction(), null, "functions", null, 0, -1, FunctionCategory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFunctionCategory_Name(), ecorePackage.getEString(), "name", null, 0, 1, FunctionCategory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(functionEClass, Function.class, "Function", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getFunction_Name(), ecorePackage.getEString(), "name", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
